@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pool Locations - GHMV Swim</title>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/others.css">
+    <script>
+        $(function(){
+          $("#header").load("/static/header.html");
+          $("#footer").load("/static/footer.html");
+        });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <h2>Pool Locations in the San Antonio Area</h2>
+    <table id="loc-table">
+        <tbody>
+            <tr>
+                <th style="padding-right: 1rem">Code</th><th>Name</th><th>Address</th>
+            </tr>
+            <tr>
+                <td>AH</td><td>Alamo Heights Natatorium</td><td>705 Trafalgar Road, San Antonio, Texas, 78216</td>
+            </tr>
+            <tr>
+                <td>BU</td><td>YMCA of the Highland Lakes</td><td>1601 S Water Street, Burnet, Texas, 78611</td>
+            </tr>
+            <tr>
+                <td>CO</td><td>Coronado Pool - Judson ISD</td><td>506 Coronado Boulevard, Universal City, Texas, 78148</td>
+            </tr>
+            <tr>
+                <td>NE</td><td>Bill Walker Pool/Josh Davis Natatorium (NEISD)</td><td>12002 Jones-Maltsberger Road, San Antonio, Texas, 78216</td>
+            </tr>
+            <tr>
+                <td>NS</td><td>Dub Farris Athletics Complex (NISD)</td><td>8400 N Loop 1604, San Antonio, Texas, 78249</td>
+            </tr>
+            <tr>
+                <td>SA</td><td>San Antonio Natatorium</td><td>1430 W Cesar E. Chavez Boulevard, San Antonio, Texas, 78207</td>
+            </tr>
+            <tr>
+                <td>SW</td><td>Southwest Aquatics Center</td><td>9290 SW Loop 410, San Antonio, Texas, 78242</td>
+            </tr>
+            <tr>
+                <td>TM</td><td>TMI Episcopal</td><td>20955 Tejas Trail West, San Antonio, Texas, 78257</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <div id="footer"></div>
+</body>
+</html>

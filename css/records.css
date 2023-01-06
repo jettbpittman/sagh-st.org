@@ -1,0 +1,11 @@
+#records-table th, td {
+    border: black solid 1px;
+    padding: 1%;
+}
+
+#records-table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #99FFCC;
+}

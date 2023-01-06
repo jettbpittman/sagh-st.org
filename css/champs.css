@@ -1,0 +1,26 @@
+#champs-table {
+    display: inline;
+    border-collapse: collapse;
+}
+
+#champs-table th, td {
+    padding: 15px;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    margin: 0;
+}
+
+.top-row td {
+    border-bottom: 1px dashed black;
+    border-top: 1px solid black;
+}
+
+.bottom-row td {
+    border-bottom: 1px solid black;
+    border-top: 1px dashed black;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
