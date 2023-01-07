@@ -31,6 +31,10 @@
     color: black;
 }
 
+#links {
+
+}
+
 #event-table {
     position: relative;
     margin-right: auto;
@@ -54,4 +58,8 @@
     border-bottom: 1px solid black;
     border-top: 1px dashed black;
     text-decoration: none;
+}
+
+#gen-info td {
+    background-color: #bbdddd;
 }

@@ -13,11 +13,11 @@ body {
 }
 
 .header-nav th, td {
-    border: black solid 1px;
+    border: #bbddff solid 1px;
 }
 
 .header-nav a {
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
@@ -27,9 +27,23 @@ body {
 }
 
 .footer {
-    background-color: #333;
-    color: #8f8e8e;
+    background-color: #000066;
+    color: #FFFFFF;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.
+.header-nav {
+    background-color: #000066;
+    width: 100%;
+}
+
+.slate {
+    background-color: #BEDDDD;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    border: solid black 1px;
+}
 
