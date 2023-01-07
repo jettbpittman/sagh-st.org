@@ -12,6 +12,11 @@ body {
     border-collapse: collapse;
 }
 
+.header-table img {
+    width: 20%;
+    float: right;
+}
+
 .header-nav th, td {
     border: #bbddff solid 1px;
 }
@@ -45,5 +50,15 @@ body {
     margin-right: auto;
     margin-left: auto;
     border: solid black 1px;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 12px;
+    }
+    .header-table img {
+        width: 100px;
+        float: right;
+    }
 }
 
