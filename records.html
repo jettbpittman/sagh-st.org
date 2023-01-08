@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2023 Records - GHMV Swim</title>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/records.css">
+    <script>
+        $(function(){
+          $("#header").load("/static/header.html");
+          $("#footer").load("/static/footer.html");
+          $("#2023").load("/2023/records.html");
+          $("#all-time").load("/records/all-time.html");
+          $("#top-5").load("/records/top_5-all-time.html");
+        });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="slate">
+        <div id="all-time"></div>
+        <hr style="width: 90%; color: black;">
+        <div id="2023"></div>
+        <hr style="width: 90%; color: black;">
+        <div id="top-5"></div>
+    </div>
+    <br>
+    <div id="footer"></div>
+</body>
+</html>

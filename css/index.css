@@ -63,3 +63,12 @@
 #gen-info td {
     background-color: #bbdddd;
 }
+
+@media screen and (max-width: 600px) {
+    #meet-table th, td {
+        display: table-cell;
+    }
+    #gen-info, #links  {
+        display: table-row;
+    }
+}
