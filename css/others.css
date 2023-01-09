@@ -41,4 +41,8 @@
     .header * {
         display: none;
     }
+
+    .footer * {
+        display: none;
+    }
 }
