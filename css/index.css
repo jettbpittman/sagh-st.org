@@ -32,7 +32,7 @@
 }
 
 #links {
-
+    margin-bottom: 0;
 }
 
 #event-table {
@@ -42,7 +42,21 @@
     border-collapse: collapse;
 }
 
+#info-table {
+    display: inline;
+    border-collapse: collapse;
+}
 
+#info-table th, td {
+    padding: 15px;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    margin: 0;
+}
+
+#info-table a {
+    color: black;
+}
 
 #meet-table a {
     color: black;
