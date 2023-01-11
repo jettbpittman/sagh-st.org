@@ -10,12 +10,12 @@
     border-collapse: collapse;
 }
 
-#meet-table {
+.meet-table {
     display: inline;
     border-collapse: collapse;
 }
 
-#meet-table th, td {
+.meet-table th, td {
     padding: 15px;
     border-right: 1px solid black;
     border-left: 1px solid black;
@@ -58,7 +58,7 @@
     color: black;
 }
 
-#meet-table a {
+.meet-table a {
     color: black;
     text-decoration: none;
 }
@@ -78,11 +78,16 @@
     background-color: #bbdddd;
 }
 
+.links-table {
+    margin-right: auto;
+    margin-left: auto;
+}
+
 @media screen and (max-width: 600px) {
-    #meet-table th, td {
+    .meet-table th, td {
         display: table-cell;
     }
-    #gen-info, #links  {
+    #gen-info, #links {
         display: table-row;
     }
 }
