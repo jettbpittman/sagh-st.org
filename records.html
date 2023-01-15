@@ -6,26 +6,43 @@
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Records - GHMV Swim</title>
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous">
-    </script>
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/records.css">
     <script>
-        $(function(){
-          $("#header").load("/static/header.html");
-          $("#footer").load("/static/footer.html");
-          $("#2023").load("/2023/records.html");
-          $("#top-5").load("/records/top_5-all-time.html");
-        });
+        fetch('/static/header.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#header').innerHTML = body;
+          });
+        fetch('/static/footer.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#footer').innerHTML = body;
+          });
+        fetch('/records/top_5-all-time.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#top-5').innerHTML = body;
+          });
+        fetch('/2023/records.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#current').innerHTML = body;
+          });
     </script>
 </head>
 <body>
     <div id="header"></div>
     <div class="slate">
-        <div id="2023"></div>
+        <div id="current"></div>
         <hr style="width: 90%; color: black;">
         <div id="top-5"></div>
     </div>
