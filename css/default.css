@@ -13,8 +13,6 @@ body {
 }
 
 .header-table img {
-    width: 20%;
-    float: right;
 }
 
 .header-nav th, td {
@@ -57,8 +55,8 @@ body {
         font-size: 12px;
     }
     .header-table img {
-        width: 100px;
-        float: right;
+        height: 137px;
+        width: 120px;
     }
 }
 
