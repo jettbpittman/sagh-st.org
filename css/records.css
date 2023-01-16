@@ -8,6 +8,20 @@
     margin-left: auto;
     margin-right: auto;
     background-color: #F8FFB0;
+    width: 90%;
+}
+
+#top-5-records-table th, td {
+    border: black solid 1px;
+    padding: 1%;
+}
+
+#top-5-records-table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F8FFB0;
+    width: 90%;
 }
 
 .top-record td {
@@ -36,5 +50,17 @@
 
     .footer * {
         display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #records-table * {
+        font-size: 7px;
+    }
+    #top-5-records-table * {
+        font-size: 5px;
+    }
+    #top-5-records-table {
+        width: 50%;
     }
 }
