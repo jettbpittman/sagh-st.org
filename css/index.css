@@ -67,6 +67,7 @@
 .top-row td {
     border-bottom: 1px dashed black;
     border-top: 1px solid black;
+    vertical-align: top;
 }
 
 .bottom-row td {
@@ -91,4 +92,19 @@
     #gen-info, #links {
         display: table-row;
     }
+}
+
+.result-table td {
+    background-color: #F8FFB0;
+}
+
+.result-table {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F8FFB0;
+    border-collapse: collapse;
+}
+
+.result-table p {
+    font-size: small;
 }

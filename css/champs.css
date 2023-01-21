@@ -13,6 +13,7 @@
 .top-row td {
     border-bottom: 1px dashed black;
     border-top: 1px solid black;
+    vertical-align: top;
 }
 
 .bottom-row td {
