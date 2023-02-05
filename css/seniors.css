@@ -1,12 +1,28 @@
 .senior-table th, td {
-    border: black solid 1px;
-    padding: 1%;
+    border: none;
+    padding: 0;
+    vertical-align: top;
+    width: 50%;
 }
 
 .senior-table {
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
-    background-color: #F8FFB0;
     width: 70%;
+}
+
+#girls, #boys {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    vertical-align: top;
+    padding: 0;
+    background-color: #F8FFB0;
+}
+
+#girls td, #boys td {
+    width: 5%;
+    vertical-align: top;
+    border: black 1px solid;
 }
