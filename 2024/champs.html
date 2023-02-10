@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="GHMV Swimming Champs 2023">
+    <title>Champs 2023 - GHMV Swim</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/champs.css">
+    <script>
+        fetch('/static/header.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#header').innerHTML = body;
+          });
+        fetch('/static/footer.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#footer').innerHTML = body;
+          });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="slate">
+        <h2>GHMV Swimming Championship Meets 2024</h2>
+        <p style="text-align: center"><i>Italics indicate unavailable resource</i><br><p style="color: darkred">UPDATED:</p></p>
+        <table id="champs-table">
+            <tbody>
+            <tr class="top-row">
+                <td style="background-color: #F8FFB0;">
+                    <p>
+                        <b>UIL District XX-4A</b>
+                        <br>
+                        TBD
+                        <br>
+                        TBD
+                        <br>
+                        Warmups @ TDB | Meet @ TDB
+                        <br>
+                        Enter by <em style="color: darkred"><i>TBD!</i></em>
+                    </p>
+                </td>
+                <td style="background-color: #99FFCC;">
+                    <p>
+                        <b>UIL Region X-4A</b>
+                        <br>
+                        TBD
+                        <br>
+                        TBD
+                        <br>
+                        Warmups @ TDB | Meet @ TDB
+                        <br>
+                        Enter by <em style="color: darkred"><i>TBD!</i></em>
+                    </p>
+                </td>
+                <td style="background-color: #CCCCFF;">
+                    <p>
+                        <b>UIL State Meet 4A</b>
+                        <br>
+                        TBD
+                        <br>
+                        TBD
+                        <br>
+                        Warmups @ TDB | Meet @ TDB
+                        <br>
+                        Enter by <em style="color: darkred"><i>TBD!</i></em>
+                    </p>
+                </td>
+            </tr>
+            <tr class="bottom-row">
+                <td style="background-color: #F8FFB0;">
+                    <p><a href="" style="text-decoration: none;"><i>PDF</i></a>   |   <a href="" style="text-decoration: none"><i>RESULTS</i></a></p>
+                </td>
+                <td style="background-color: #99FFCC;">
+                    <p><a href="" style="text-decoration: none"><i>PDF</i></a>   |   <a href="" style="text-decoration: none"><i>RESULTS</i></a></p>
+                </td>
+                <td style="background-color: #CCCCFF;">
+                    <p><a href="" style="text-decoration: none"><i>PDF</i></a>   |   <a href="" style="text-decoration: none"><i>RESULTS</i></a></p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+        <hr style="width: 90%; color: black;">
+            <h4><u>Reminder of Scratch Rules</u></h4>
+            <p>
+                Scratches are not permitted. Swimmers who fail to appear for any competition in which they have entered will be disqualified from further competition.
+                <br>
+                Previous performances will not be nullified. An athlete and team will not be penalized for the inability to compete because of illness.
+                <br>
+                An individual swimmer or relay team may withdraw from competition without penalty in any given event by declaring a false start. Declared false starts, however, do count as an event.
+                <br>
+                <br>
+                <b>TL;DR</b> - Do NOT miss an event. If you are in a situation where you must miss one, contact Coach Jones to discuss a declared false start.
+            </p>
+        <hr style="width: 90%; color: black;">
+        <div id="message">
+            <h4>Results will be posted once each meet has concluded.</h4>
+            <h4>The order of events can be viewed <a href="/other/order-of-events.html" style="text-decoration: underline">here</a>.</h4>
+            <h4>Heat Sheets will be posted <i>IF</i> an electronic version is distributed.</h4>
+        </div>
+        <hr style="width: 90%; color: black;">
+        <div id="loc-info">
+            <h4>Locations TBD!</h4>
+        </div>
+    </div>
+    <br>
+    <div id="footer"></div>
+</body>
+</html>
