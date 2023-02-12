@@ -24,7 +24,7 @@
     width: 90%;
 }
 
-#top-5 tr:nth-child(5n+2) {font-weight: bold}
+#top-5 tr:nth-child(5n+1) {font-weight: bold}
 
 @media print {
     body * {
