@@ -108,3 +108,13 @@
 .result-table p {
     font-size: small;
 }
+
+#maddie-comeback {
+    border: 1px black solid;
+    background-color: #F8FFB0;
+    padding: 15px;
+}
+
+#maddie-comeback img {
+    float: right;
+}
