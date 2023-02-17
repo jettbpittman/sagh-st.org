@@ -1,0 +1,45 @@
+#bests {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    border-collapse: collapse;
+}
+
+#bests td {
+    border: none;
+    padding: 0;
+}
+
+.swimmer {
+    border-collapse: collapse;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: #F8FFB0;
+}
+
+.swimmer td {
+    padding: 0 !important;
+    border: 1px black solid !important;
+}
+
+.times {
+    border-collapse: collapse;
+    margin: 0;
+    width: 100%
+}
+
+.times td {
+    padding: 3px !important;
+    border: 1px black solid !important;
+    margin: 0;
+}
+
+.namecell {
+    width: 30%;
+}
+
+.datacell {
+    width: 70%
+}
