@@ -11,12 +11,12 @@
     width: 90%;
 }
 
-#top-5-records-table th, td {
+#top-5 th, td {
     border: black solid 1px;
     padding: 1%;
 }
 
-#top-5-records-table {
+#top-5 table {
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
@@ -24,9 +24,7 @@
     width: 90%;
 }
 
-.top-record td {
-    font-weight: bold;
-}
+#top-5 tr:nth-child(5n+1) {font-weight: bold}
 
 @media print {
     body * {

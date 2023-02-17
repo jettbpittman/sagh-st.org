@@ -15,8 +15,9 @@ body {
 .header-table img {
 }
 
-.header-nav th, td {
+.header-nav th, .header-nav td {
     border: #bbddff solid 1px;
+    width: auto;
 }
 
 .header-nav a {
