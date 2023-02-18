@@ -28,7 +28,7 @@ if (value === "all") {
                             let entry = json1[event];
                             console.log(entry)
                             if (entry['seed'] === "RELAY_LEADOFF") {
-                                entry['time'] += "R"
+                                entry['time'] += " R"
                             }
                             timesTable.insertRow().innerHTML = `<td style="width: 25%">${entry['event']['name']}</td><td style="width: 20%">${entry['time']}</td><td style="width: 55%">${entry['meet']['name']}</td>`
                         }
