@@ -119,3 +119,10 @@
 #maddie-comeback img {
     float: right;
 }
+
+.live-results {
+    width: 80%;
+    height: 500px;
+    border: 1px black solid;
+    overflow: hidden;
+}
