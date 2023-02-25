@@ -9,7 +9,8 @@
     <title>Database - GHMV Swim</title>
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/database/index.css">
-     <script type="text/javascript" src="/scripts/latest-meet.js"></script>
+    <script type="text/javascript" src="/scripts/latest-meet.js"></script>
+    <script type="text/javascript" src="/scripts/db-stats.js"></script>
     <script>
         fetch('/static/header.html')
           .then(function(response) {
@@ -42,6 +43,9 @@
                     <div style="background-color: #F8FFB0; border: 1px black solid; height: auto; padding: 1%">
                         <h4><a href="swimmers.html" style="color: black;">INDIVIDUAL PROGRAM BEST TIMES</a></h4>
                         <h4><a href="/records.html" style="color: black;">PROGRAM RECORDS</a></h4>
+                        <hr style="color: black; width: 95%;">
+                        <h4><u>Database Statistics</u></h4>
+                        <div id="db-stats"></div>
                         <p style="text-align: center">
                             Lower-level access to the API, along with the proper credentials, may be requested by contacting <em>webmaster@sagh-st.org</em>.
                         </p>
