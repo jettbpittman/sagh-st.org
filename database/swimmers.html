@@ -5,11 +5,11 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="GHMV Swimming Best Times">
+    <meta name="description" content="GHMV Individual Best Times">
     <title>Swimmers - GHMV Swim</title>
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/records.css">
-    <link rel="stylesheet" href="/css/bests.css">
+    <link rel="stylesheet" href="/css/database/bests.css">
      <script type="text/javascript" src="/scripts/bests.js"></script>
     <script>
         fetch('/static/header.html')
@@ -31,14 +31,9 @@
 <body>
     <div id="header"></div>
     <div class="slate">
-        <h2>GHMV Best Times</h2>
-        <label for="season-selector">Select a Season</label>
-        <select name="season" id="season-selector">
-            <option value="current" selected="selected">Current Team</option>
-            <option value="all">ALL TIME</option>
-        </select>
-        <br>
+        <h2>GHMV Individual Program Best Times</h2>
         <table id="bests"></table>
+        <p><a href="index.html" style="color: black">Return to Database Page?</a></p>
         <br>
     </div>
     <br>

@@ -1,0 +1,57 @@
+.meet-table {
+    border-collapse: collapse;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+.meet-table td {
+    border: 1px black solid;
+}
+
+.top-row td {
+    border-bottom: 1px dashed black;
+    border-top: 1px solid black;
+    vertical-align: top;
+}
+
+.bottom-row.td {
+    border-bottom: 1px solid black;
+    border-top: 1px dashed black;
+    text-decoration: none;
+}
+
+.event-table td {
+    border: none;
+    outline: 1px black solid;
+    width: 100%;
+}
+
+.event-cell {
+    border: none !important;
+    padding: 0;
+}
+
+.event-cell td {
+    border: none;
+}
+
+.event-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.swimmers-table {
+    border: none;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.swimmers-table td {
+    border: none;
+}
+
+.datacell {
+    padding: 0;
+    border: none;
+}
