@@ -43,10 +43,26 @@ function relay (seed) {
     }
 }
 
-fetch("https://api.sagh-st.org/latest/meet", { method: "GET" })
+fetch("https://api.sagh-st.org/meets")
         .then(response => response.json())
         .then(json => {
-            let t = document.getElementById("recent-meet");
+            let html = "";
+            for (let meet in json) {
+                html += "<option value=" + json[meet]['id']  + ">" + json[meet]['name'] + "</option>"
+            }
+            let select = document.getElementById("meets");
+            select.innerHTML = html;
+        })
+
+function getMeet () {
+    let meetID = document.getElementById("meets").value;
+    console.log(meetID)
+    fetch("https://api.sagh-st.org/meets/" + meetID)
+        .then(response => response.json())
+        .then(json => {
+            console.log(json)
+            let t = document.getElementById("meet-results");
+            t.innerHTML = "";
             let r1 = t.insertRow();
             let d1 = r1.insertCell();
             r1.className = "top-row";
@@ -62,17 +78,15 @@ fetch("https://api.sagh-st.org/latest/meet", { method: "GET" })
             r2.className = "bottom-row";
             let resultTable = document.createElement('table');
             resultTable.style.width = "100%";
-            fetch("https://api.sagh-st.org/meets/" + json['id'] + "/entries/SAGH")
+            fetch("https://api.sagh-st.org/meets/" + meetID + "/entries/SAGH")
                     .then(resp => resp.json())
                     .then(json1 => {
                         const events = [`F200F`, `M200F`, `F200M`, `M200M`,`F50F`, `M50F`, `F100L`, `M100L`, `F100F`, `M100F`, `F500F`, `M500F`, `F100B`, `M100B`, `F100S`, `M100S`, `F50B`, `M50B`]
                         for (let event of events) {
-                            console.log(event)
                             if (json1[event] === undefined) {
                                 continue
                             }
                             let results = json1[event]
-                            console.log(results)
                             let r = resultTable.insertRow();
                             let d = r.insertCell();
                             d.className = "event-cell";
@@ -91,7 +105,6 @@ fetch("https://api.sagh-st.org/latest/meet", { method: "GET" })
                             swimmersTable.className = "swimmers-table"
                             let r4 = swimmersTable.insertRow().innerHTML = `<th style="width: 70%">Name</th><th style="width: 15%">Seed</th><th style="width: 15%">Time</th>`
                             for (let times in results) {
-                                console.log(times)
                                 let r3 = swimmersTable.insertRow().innerHTML = `<td style="width: 70%">${results[times]['swimmer']}</td><td style="width: 15%">${relay(results[times]['seed'])}</td><td style="width: 15%">${results[times]['time']}</td>`
                             }
                             dataCell.appendChild(swimmersTable)
@@ -100,3 +113,4 @@ fetch("https://api.sagh-st.org/latest/meet", { method: "GET" })
                     })
             d2.appendChild(resultTable)
         })
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="GHMV Individual Best Times">
+    <title>Meet Results - GHMV Swim</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/records.css">
+    <link rel="stylesheet" href="/css/database/index.css">
+    <script type="text/javascript" src="/scripts/get-meets.js"></script>
+    <script>
+        fetch('/static/header.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#header').innerHTML = body;
+          });
+        fetch('/static/footer.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#footer').innerHTML = body;
+          });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="slate">
+        <h2>GHMV Meet Results</h2>
+        <label for="meets">Select a Meet:</label>
+        <select name="meets" id="meets"></select><br>
+        <input id="meet-submit" type="button" value="Submit" onclick="getMeet()">
+        <br>
+        <br>
+        <table id="meet-results" class="meet-table" style="width: 50%"></table>
+        <br>
+        <p style="color: darkred"><b>NOTICE:</b> Meets prior to the 2023 season are not completely backfilled,<br> currently only containing any PBs gained by swimmers as to accurately be reflected on their PB board.<br> Some meets are also failing to load for an unknown reason.</p>
+        <p><a href="index.html" style="color: black">Return to Database Page?</a></p>
+        <br>
+    </div>
+    <br>
+    <div id="footer"></div>
+    <!-- 100% privacy friendly analytics -->
+    <script async defer src="https://sa.sagh-st.org/latest.js"></script>
+    <noscript><img src="https://sa.sagh-st.org/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+</body>
+</html>
