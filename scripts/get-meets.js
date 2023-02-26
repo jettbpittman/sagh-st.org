@@ -37,9 +37,17 @@ function gender (code) {
 
 function relay (seed) {
     if (seed === "RELAY_LEADOFF") {
-        return "RL"
+        return `<span title='Official Split'>RL</span>`
     } else {
         return seed
+    }
+}
+
+function standards (s) {
+    if (s['standards'] != null) {
+        return `<span title=` + `"${s['standards']['name']}"` + `>` + s['standards']['short_name'] + "</span>"
+    } else {
+        return ``
     }
 }
 
@@ -103,9 +111,10 @@ function getMeet () {
                             let swimmersTable = document.createElement("table");
                             swimmersTable.style.width = "100%";
                             swimmersTable.className = "swimmers-table"
-                            let r4 = swimmersTable.insertRow().innerHTML = `<th style="width: 70%">Name</th><th style="width: 15%">Seed</th><th style="width: 15%">Time</th>`
+                            let r4 = swimmersTable.insertRow().innerHTML = `<th style="width: 62%">Name</th><th style="width: 15%">Seed</th><th style="width: 15%">Time</th><th style="width: 8%"></th>`
                             for (let times in results) {
-                                let r3 = swimmersTable.insertRow().innerHTML = `<td style="width: 70%">${results[times]['swimmer']}</td><td style="width: 15%">${relay(results[times]['seed'])}</td><td style="width: 15%">${results[times]['time']}</td>`
+                                console.log(times)
+                                let r3 = swimmersTable.insertRow().innerHTML = `<td style="width: 62%">${results[times]['swimmer']}</td><td style="width: 15%">${relay(results[times]['seed'])}</td><td style="width: 15%">${results[times]['time']}</td><td style="width: 8%">${standards(results[times])}</td>`
                             }
                             dataCell.appendChild(swimmersTable)
                             d.appendChild(eventTable)

@@ -27,10 +27,15 @@ if (value === "all") {
                         for (let event of events) {
                             let entry = json1[event];
                             console.log(entry)
+                            let time_data = `<td style="width: 25%">${entry['time']}`
                             if (entry['seed'] === "RELAY_LEADOFF") {
-                                entry['time'] += " R"
+                                time_data += " <span title='Official Split'>R</span>"
                             }
-                            timesTable.insertRow().innerHTML = `<td style="width: 25%">${entry['event']['name']}</td><td style="width: 20%">${entry['time']}</td><td style="width: 55%">${entry['meet']['name']}</td>`
+                            if (entry['standards'] != null) {
+                                time_data += ` <span title=` + `"${entry['standards']['name']}"` + `>` + entry['standards']['short_name'] + "</span>"
+                            }
+                            time_data += "</td>"
+                            timesTable.insertRow().innerHTML = `<td style="width: 25%">${entry['event']['name']}</td>${time_data}<td style="width: 55%">${entry['meet']['name']}</td>`
                         }
                         dataCell.appendChild(timesTable);
                     })
