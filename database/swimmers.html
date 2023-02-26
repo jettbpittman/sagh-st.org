@@ -6,7 +6,7 @@
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="GHMV Individual Best Times">
-    <title>Swimmers - GHMV Swim</title>
+    <title>Best Times - GHMV Swim</title>
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/records.css">
     <link rel="stylesheet" href="/css/database/bests.css">
@@ -32,6 +32,15 @@
     <div id="header"></div>
     <div class="slate">
         <h2>GHMV Individual Program Best Times</h2>
+        <label for="rosters">Select a Roster:</label>
+        <select name="rosters" id="rosters">
+            <option value="current" selected="selected">Current</option>
+            <option value="all">All</option>
+        </select>
+        <br>
+        <input id="roster-submit" type="button" value="Submit" onclick="getRoster()">
+        <br>
+        <br>
         <table id="bests"></table>
         <p><a href="index.html" style="color: black">Return to Database Page?</a></p>
         <br>
