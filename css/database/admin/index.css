@@ -1,0 +1,29 @@
+.roster-table {
+    border-collapse: collapse;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    background-color: #F8FFB0;
+    border: 1px black solid;
+}
+
+.roster-table td {
+    border: 1px black solid;
+}
+
+.meet-table {
+    border-collapse: collapse;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    background-color: #F8FFB0;
+    border: 1px black solid;
+}
+
+.meet-table td {
+    border: 1px black solid;
+}
+
+.slate-body td {
+    vertical-align: top;
+}

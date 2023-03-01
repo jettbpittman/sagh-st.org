@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="GHMV Individual Best Times">
+    <title>Meet Results - GHMV Swim</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/database/index.css">
+    <link rel="stylesheet" href="/css/database/admin/index.css">
+    <script type="text/javascript" src="/scripts/admin/main.js"></script>
+    <script>
+        fetch('/static/header.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#header').innerHTML = body;
+          });
+        fetch('/static/footer.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#footer').innerHTML = body;
+          });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="slate">
+        <h2>GHMV Database Admin Dashboard</h2>
+        <button value="LOGOUT" onclick="logout()">LOGOUT</button>
+        <br>
+        <table class="slate-body" style="width: 95%; margin-right: auto; margin-left: auto">
+            <tr>
+                <td>
+                    <h2><u>Roster</u></h2>
+                   <table id="team-roster" class="roster-table"></table>
+                    <br>
+                    <h4>Create Swimmer</h4>
+                    <form id="create-swimmer">
+                        <label for="name">Name:</label><br>
+                        <input type="text" placeholder="Name" id="name" name="name"><br>
+                        <label for="age">Age:</label><br>
+                        <input type="number" placeholder="Age" id="age" name="age"><br>
+                        <label for="class">Grad Year:</label><br>
+                        <input type="number" placeholder="Class" id="class" name="class"><br>
+                        <label for="gender">Gender:</label><br>
+                        <input type="text" placeholder="Gender" id="gender" name="gender">
+                        <br>
+                        <span id="response-message"></span>
+                        <br>
+                        <input type="button" value="Submit" id="creds-submit" onclick="createSwimmer()">
+                    </form>
+                </td>
+                <td>
+                    <h2><u>Meets</u></h2>
+                    <table id="meets" class="meet-table"></table>
+                    <br>
+                    <h4>Create Meet</h4>
+                    <form id="create-meet">
+                        <label for="meet-name">Name:</label><br>
+                        <input type="text" placeholder="Name" id="meet-name" name="name"><br>
+                        <label for="venue">Venue:</label><br>
+                        <input type="text" placeholder="Venue" id="venue" name="venue"><br>
+                        <label for="date">Date:</label><br>
+                        <input type="text" placeholder="Date" id="date" name="date"><br>
+                        <label for="designator">Designator:</label><br>
+                        <input type="text" placeholder="Designator" id="designator" name="designator"><br>
+                        <label for="season">Season:</label><br>
+                        <input type="text" placeholder="Season" id="season" name="season"><br>
+                        <label for="recent">Most Recent?</label><br>
+                        <input type="checkbox" id="recent" name="recent"><br>
+                        <br>
+                        <span id="response-message1"></span>
+                        <input type="button" value="Submit" id="meet-submit" onclick="createSwimmer()">
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br><br>
+    <div id="footer"></div>
+    <!-- 100% privacy friendly analytics -->
+    <script async defer src="https://sa.sagh-st.org/latest.js"></script>
+    <noscript><img src="https://sa.sagh-st.org/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+</body>
+</html>

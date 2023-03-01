@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="GHMV Individual Best Times">
+    <title>Meet Results - GHMV Swim</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/database/index.css">
+    <link rel="stylesheet" href="/css/database/meets.css">
+    <script type="text/javascript" src="/scripts/admin/login.js"></script>
+    <script>
+        fetch('/static/header.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#header').innerHTML = body;
+          });
+        fetch('/static/footer.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#footer').innerHTML = body;
+          });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="slate">
+        <h2>GHMV Database Admin Dashboard</h2>
+         <form id="login-form">
+             <label for="user">Username:</label><br>
+             <input type="text" placeholder="Enter Username" id="user" name="user"><br>
+             <label for="password">Password:</label><br>
+             <input type="password" placeholder="Enter Password" id="password" name="password"><br>
+             <input type="checkbox" onclick="togglePassword()">Show Password
+             <br>
+             <span id="login-message"></span>
+             <br>
+             <input type="button" value="Submit" id="creds-submit" onclick="login()">
+        </form>
+        <br>
+    </div>
+    <br>
+    <div id="footer"></div>
+    <!-- 100% privacy friendly analytics -->
+    <script async defer src="https://sa.sagh-st.org/latest.js"></script>
+    <noscript><img src="https://sa.sagh-st.org/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+</body>
+</html>

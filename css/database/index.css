@@ -55,3 +55,35 @@
     padding: 0;
     border: none;
 }
+
+.slate-body td {
+    width: 50%;
+}
+
+@media screen and (max-width: 600px) {
+    .swimmers-table th {
+        display: table-cell;
+    }
+    .swimmers-table td {
+        display: table-cell !important;
+    }
+    .swimmers-table {
+        width: 100%;
+    }
+    .meet-table {
+        width: 100% !important;
+        margin-right: auto;
+        margin-left: auto;
+        table-layout: auto;
+    }
+    .meet-table td {
+        width: 100%;
+    }
+    .slate-body td {
+        display: table-row;
+        width: 90%;
+    }
+    .event-cell td {
+        width: 100% !important;
+    }
+}
