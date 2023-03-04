@@ -27,3 +27,10 @@
     top: 16px;
     left: 5%;
 }
+
+@media screen and (max-width: 600px) {
+    #user-settings {
+        position: relative !important;
+        right: 0 !important;
+    }
+}

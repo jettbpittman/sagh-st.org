@@ -42,7 +42,8 @@
 
 @media screen and (max-width: 600px) {
     #user-settings {
-        top: 100px;
+        position: relative !important;
+        right: 0 !important;
     }
 }
 
