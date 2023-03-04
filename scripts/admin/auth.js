@@ -4,21 +4,19 @@ function logout () {
 }
 
 
-const username = window.localStorage.getItem("user");
-const password = window.localStorage.getItem("password");
+const token = window.localStorage.getItem("token");
 
 const headers = new Headers();
-headers.append("user", username);
-headers.append("password", password);
+headers.append("token", token);
 
-if (username == null || password == null) {
-    window.location.href = "auth.html";
+if (token === null) {
+    window.location.href = "login.html";
 }
 
 fetch("https://api.sagh-st.org/auth/check", { method: "POST", headers: headers})
         .then(response => {
             if (response.status !== 200) {
-                window.location.href = "auth.html"
+                window.location.href = "login.html"
             } if (response.status === 200 || location.toString() === "/database/admin/index.html") {
                 main();
             }
