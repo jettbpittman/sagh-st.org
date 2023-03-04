@@ -33,13 +33,15 @@
     <div id="header"></div>
     <div class="slate">
         <h2>GHMV Database Admin Dashboard</h2>
-        <button value="LOGOUT" onclick="logout()">LOGOUT</button>
+        <div id="user-settings">
+            <p>Hello, <span id="user-name"></span>  |  <a onclick="logout()" style="font-weight: bold; text-decoration: underline">LOGOUT</a></p>
+        </div>
         <br>
         <table class="slate-body" style="width: 95%; margin-right: auto; margin-left: auto">
             <tr>
                 <td>
                     <h2><u>Roster</u></h2>
-                   <table id="team-roster" class="roster-table"></table>
+                    <table id="team-roster" class="roster-table"></table>
                     <br>
                     <h4>Create Swimmer</h4>
                     <form id="create-swimmer">

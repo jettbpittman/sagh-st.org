@@ -34,9 +34,12 @@
     <div id="header"></div>
     <div class="slate">
         <h2>Swimmer Database</h2>
-        <a href="index.html" style="color: black; text-decoration: underline;">RETURN TO ADMIN DASHBOARD</a><br><br>
-        <button value="LOGOUT" onclick="logout()">LOGOUT</button>
-        <br><br>
+        <div id="user-settings">
+            <p>Hello, <span id="user-name"></span>  |  <a onclick="logout()" style="font-weight: bold; text-decoration: underline">LOGOUT</a></p>
+        </div>
+        <div id="return-to-AD">
+            <a href="index.html" style="color: black; font-weight: bold; text-decoration: none;"><= Return</a><br><br>
+        </div>
         <label for="swimmers">Select a Swimmer:</label>
         <select name="swimmers" id="swimmers"></select><br>
         <input id="swimmer-submit" type="button" value="Submit" onclick="getSwimmer(false)">

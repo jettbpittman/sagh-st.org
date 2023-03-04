@@ -1,6 +1,6 @@
 function logout () {
     window.localStorage.clear();
-    window.location.href = "auth.html"
+    window.location.href = "login.html"
 }
 
 
@@ -13,11 +13,18 @@ if (token === null) {
     window.location.href = "login.html";
 }
 
-fetch("https://api.sagh-st.org/auth/check", { method: "POST", headers: headers})
-        .then(response => {
-            if (response.status !== 200) {
-                window.location.href = "login.html"
-            } if (response.status === 200 || location.toString() === "/database/admin/index.html") {
-                main();
-            }
-        })
+async function auth () {
+    let resp = await fetch("https://api.sagh-st.org/auth/check", {method: "POST", headers: headers})
+    let json = await resp.json()
+
+    if (resp.status !== 200) {
+        window.location.href = "login.html"
+    }
+    if (resp.status === 200 || location.toString() === "/database/admin/index.html") {
+        console.log(json)
+        let hello = document.getElementById("user-name").innerText = (json['user']['name'].split(" "))[0]
+        main();
+    }
+}
+
+auth()

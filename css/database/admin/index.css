@@ -27,3 +27,28 @@
 .slate-body td {
     vertical-align: top;
 }
+
+.roster-table td {
+  display: table-cell;
+}
+
+.meet-table td {
+  display: table-cell;
+}
+
+.slate {
+    position: relative;
+}
+
+@media screen and (max-width: 600px) {
+    #user-settings {
+        top: 100px;
+    }
+}
+
+#user-settings {
+    position: absolute;
+    top: 0;
+    right: 5%;
+    margin: 0;
+}

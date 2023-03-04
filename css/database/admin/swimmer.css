@@ -11,3 +11,19 @@
     margin-right: auto;
     width: 70%;
 }
+
+.slate {
+    position: relative;
+}
+
+#user-settings {
+    position: absolute;
+    top: 0;
+    right: 5%;
+}
+
+#return-to-AD {
+    position: absolute;
+    top: 16px;
+    left: 5%;
+}

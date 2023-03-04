@@ -1,32 +1,28 @@
-function auth () {
+async function login () {
     const form = document.getElementById("login-form");
     const formData = new FormData(form);
     window.localStorage.clear();
     let entries = formData.entries();
-    let headers = new Headers();
+    let body = {}
     for (let pair of entries) {
-        console.log(pair[0] + ": " + pair[1]);
-        headers.append(pair[0].toString(), pair[1].toString())
+        body[pair[0].toString()] = pair[1].toString()
     }
+    console.log(body)
     const init = {
         method: "POST",
-        headers: headers
+        body: JSON.stringify(body)
     }
-    fetch("https://api.sagh-st.org/auth/check", init)
-        .then(response => {
-            const message = document.getElementById("login-message");
-            if (response.status === 200) {
-                message.innerText = "Success!"
-                for (let pair of formData.entries()) {
-                    console.log("adding to ls")
-                    console.log(pair[0] + ": " + pair[1]);
-                    window.localStorage.setItem(pair[0].toString(), pair[1].toString());
-                    window.location.href = "index.html";
-                }
-            } else {
-                message.innerText = `Failed to login, ${response.statusText}`
-            }
-        })
+    let resp = await fetch("https://api.sagh-st.org/auth/login", init)
+    let json = await resp.json()
+    const message = document.getElementById("login-message");
+    const token = json['token'];
+    if (resp.status === 200) {
+        message.innerText = "Success!"
+        window.localStorage.setItem("token", token);
+        window.location.href = "index.html";
+    } else {
+        message.innerText = `Failed to login, ${resp.statusText}`
+    }
 
 }
 
