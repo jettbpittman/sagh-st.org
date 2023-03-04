@@ -1,5 +1,5 @@
 function auth () {
-    const form = document.getElementById("auth-form");
+    const form = document.getElementById("login-form");
     const formData = new FormData(form);
     window.localStorage.clear();
     let entries = formData.entries();
@@ -14,7 +14,7 @@ function auth () {
     }
     fetch("https://api.sagh-st.org/auth/check", init)
         .then(response => {
-            const message = document.getElementById("auth-message");
+            const message = document.getElementById("login-message");
             if (response.status === 200) {
                 message.innerText = "Success!"
                 for (let pair of formData.entries()) {
