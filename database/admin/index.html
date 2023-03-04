@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/database/index.css">
     <link rel="stylesheet" href="/css/database/admin/index.css">
     <script type="text/javascript" src="/scripts/admin/main.js"></script>
+    <script type="text/javascript" src="/scripts/admin/auth.js"></script>
     <script>
         fetch('/static/header.html')
           .then(function(response) {
@@ -42,13 +43,13 @@
                     <br>
                     <h4>Create Swimmer</h4>
                     <form id="create-swimmer">
-                        <label for="name">Name:</label><br>
-                        <input type="text" placeholder="Name" id="name" name="name"><br>
-                        <label for="age">Age:</label><br>
-                        <input type="number" placeholder="Age" id="age" name="age"><br>
-                        <label for="class">Grad Year:</label><br>
-                        <input type="number" placeholder="Class" id="class" name="class"><br>
-                        <label for="gender">Gender:</label><br>
+                        <label for="name">Name:</label>
+                        <input type="text" placeholder="Name" id="name" name="name">
+                        <label for="age">Age:</label>
+                        <input type="number" placeholder="Age" id="age" name="age"><br><br>
+                        <label for="class">Grad Year:</label>
+                        <input type="number" placeholder="Class" id="class" name="class">
+                        <label for="gender">Gender:</label>
                         <input type="text" placeholder="Gender" id="gender" name="gender">
                         <br>
                         <span id="response-message"></span>
@@ -62,21 +63,21 @@
                     <br>
                     <h4>Create Meet</h4>
                     <form id="create-meet">
-                        <label for="meet-name">Name:</label><br>
-                        <input type="text" placeholder="Name" id="meet-name" name="name"><br>
-                        <label for="venue">Venue:</label><br>
-                        <input type="text" placeholder="Venue" id="venue" name="venue"><br>
-                        <label for="date">Date:</label><br>
-                        <input type="text" placeholder="Date" id="date" name="date"><br>
-                        <label for="designator">Designator:</label><br>
-                        <input type="text" placeholder="Designator" id="designator" name="designator"><br>
-                        <label for="season">Season:</label><br>
-                        <input type="text" placeholder="Season" id="season" name="season"><br>
-                        <label for="recent">Most Recent?</label><br>
-                        <input type="checkbox" id="recent" name="recent"><br>
-                        <br>
+                        <label for="meet-name">Name:</label>
+                        <input type="text" placeholder="Name" id="meet-name" name="name">
+                        <label for="venue">Venue:</label>
+                        <input type="text" placeholder="Venue" id="venue" name="venue"><br><br>
+                        <label for="date">Date:</label>
+                        <input type="text" placeholder="Date" id="date" name="date">
+                        <label for="designator">Designator:</label>
+                        <input type="text" placeholder="Designator" id="designator" name="designator"><br><br>
+                        <label for="season">Season:</label>
+                        <input type="text" placeholder="Season" id="season" name="season">
+                        <label for="most_recent">Most Recent?</label>
+                        <input type="checkbox" id="most_recent" name="most_recent">
+                        <br><br>
                         <span id="response-message1"></span>
-                        <input type="button" value="Submit" id="meet-submit" onclick="createSwimmer()">
+                        <input type="button" value="Submit" id="meet-submit" onclick="createMeet()">
                     </form>
                 </td>
             </tr>

@@ -1,5 +1,31 @@
-function login () {
-    const form = document.getElementById("login-form");
+function logout () {
+    window.localStorage.clear();
+    window.location.href = "auth.html"
+}
+
+
+const username = window.localStorage.getItem("user");
+const password = window.localStorage.getItem("password");
+
+const headers = new Headers();
+headers.append("user", username);
+headers.append("password", password);
+
+if (username == null || password == null) {
+    window.location.href = "auth.html";
+}
+
+fetch("https://api.sagh-st.org/auth/check", { method: "POST", headers: headers})
+        .then(response => {
+            if (response.status !== 200) {
+                window.location.href = "auth.html"
+            } if (response.status === 200 || location.toString() === "/database/admin/index.html") {
+                main();
+            }
+        })
+
+function auth () {
+    const form = document.getElementById("auth-form");
     const formData = new FormData(form);
     window.localStorage.clear();
     let entries = formData.entries();
@@ -14,7 +40,7 @@ function login () {
     }
     fetch("https://api.sagh-st.org/auth/check", init)
         .then(response => {
-            const message = document.getElementById("login-message");
+            const message = document.getElementById("auth-message");
             if (response.status === 200) {
                 message.innerText = "Success!"
                 for (let pair of formData.entries()) {

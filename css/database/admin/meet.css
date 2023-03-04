@@ -1,12 +1,12 @@
-.swimmer-information {
-    background-color: #F8FFB0;
+#meet-information {
     border: 1px black solid;
     width: 70%;
     margin-left: auto;
     margin-right: auto;
+    visibility: hidden;
 }
 
-.times-table {
+.entries-table {
     margin-left: auto;
     margin-right: auto;
     width: 70%;
