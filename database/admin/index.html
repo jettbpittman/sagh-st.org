@@ -38,53 +38,107 @@
         </div>
         <table class="slate-body" style="width: 95%; margin-right: auto; margin-left: auto">
             <tr>
-                <td>
+                <td style="width: 40%">
                     <h2><u>Roster</u></h2>
                     <table id="team-roster" class="roster-table"></table>
                     <br>
-                    <h4>Create Swimmer</h4>
-                    <form id="create-swimmer">
-                        <label for="name">Name:</label>
-                        <input type="text" placeholder="Name" id="name" name="name">
-                        <label for="age">Age:</label>
-                        <input type="number" placeholder="Age" id="age" name="age"><br><br>
-                        <label for="class">Grad Year:</label>
-                        <input type="number" placeholder="Class" id="class" name="class">
-                        <label for="gender">Gender:</label>
-                        <input type="text" placeholder="Gender" id="gender" name="gender">
-                        <br>
-                        <span id="response-message"></span>
-                        <br>
-                        <input type="button" value="Submit" id="creds-submit" onclick="createSwimmer()">
-                    </form>
+                    <div class="db-add" style="display: none">
+                        <h4>Create Swimmer</h4>
+                        <form id="create-swimmer">
+                            <label for="name">Name:</label>
+                            <input type="text" placeholder="Name" id="name" name="name">
+                            <label for="age">Age:</label>
+                            <input type="number" placeholder="Age" id="age" name="age"><br><br>
+                            <label for="class">Grad Year:</label>
+                            <input type="number" placeholder="Class" id="class" name="class">
+                            <label for="gender">Gender:</label>
+                            <input type="text" placeholder="Gender" id="gender" name="gender">
+                            <br>
+                            <span id="response-message"></span>
+                            <br>
+                            <input type="button" value="Submit" id="creds-submit" onclick="createSwimmer()">
+                        </form>
+                    </div>
                 </td>
-                <td>
+                <td style="width: 40%">
                     <h2><u>Meets</u></h2>
                     <table id="meets" class="meet-table"></table>
                     <br>
-                    <h4>Create Meet</h4>
-                    <form id="create-meet">
-                        <label for="meet-name">Name:</label>
-                        <input type="text" placeholder="Name" id="meet-name" name="name">
-                        <label for="venue">Venue:</label>
-                        <input type="text" placeholder="Venue" id="venue" name="venue"><br><br>
-                        <label for="date">Date:</label>
-                        <input type="text" placeholder="Date" id="date" name="date">
-                        <label for="designator">Designator:</label>
-                        <input type="text" placeholder="Designator" id="designator" name="designator"><br><br>
-                        <label for="season">Season:</label>
-                        <input type="text" placeholder="Season" id="season" name="season">
-                        <label for="most_recent">Most Recent?</label>
-                        <input type="checkbox" id="most_recent" name="most_recent">
-                        <br><br>
-                        <span id="response-message1"></span>
-                        <input type="button" value="Submit" id="meet-submit" onclick="createMeet()">
-                    </form>
+                    <div class="db-add" style="display: none">
+                        <h4>Create Meet</h4>
+                        <form id="create-meet">
+                            <label for="meet-name">Name:</label>
+                            <input type="text" placeholder="Name" id="meet-name" name="name">
+                            <label for="venue">Venue:</label>
+                            <input type="text" placeholder="Venue" id="venue" name="venue"><br><br>
+                            <label for="date">Date:</label>
+                            <input type="text" placeholder="Date" id="date" name="date">
+                            <label for="designator">Designator:</label>
+                            <input type="text" placeholder="Designator" id="designator" name="designator"><br><br>
+                            <label for="season">Season:</label>
+                            <input type="text" placeholder="Season" id="season" name="season">
+                            <label for="most_recent">Most Recent?</label>
+                            <input type="checkbox" id="most_recent" name="most_recent">
+                            <br><br>
+                            <span id="response-message1"></span>
+                            <input type="button" value="Submit" id="meet-submit" onclick="createMeet()">
+                        </form>
+                    </div>
+                </td>
+                <td style="width: 20%; display: none" class="admin-settings">
+                    <h2>Admin Settings</h2>
+                    <div style="background-color: #F8FFB0; border: black 1px solid">
+                        <h4><u>Change Swimmer Status</u></h4>
+                        <h5>Individual</h5>
+                        <form id="status-indiv">
+                            <label for="swimmers">Swimmer:</label>
+                            <select name="swimmers" id="swimmers"></select>
+                            <label for="active-indiv">Status:</label>
+                            <select name="active" id="active-indiv">
+                                <option value="true">Active</option>
+                                <option value="false">Inactive</option>
+                            </select>
+                            <br><br>
+                            <input id="active-indiv-submit" type="button" value="Submit" onclick="changeStatusIndiv()">
+                        </form>
+                        <h5>By Class</h5>
+                        <form id="status-class">
+                            <label for="classes">Class:</label>
+                            <select name="class" id="classes">
+                                <option value="18">2018</option>
+                                <option value="19">2019</option>
+                                <option value="20">2020</option>
+                                <option value="21">2021</option>
+                                <option value="22">2022</option>
+                                <option value="23">2023</option>
+                                <option value="24">2024</option>
+                                <option value="25">2025</option>
+                                <option value="26">2026</option>
+                                <option value="27">2027</option>
+                            </select>
+                            <label for="active-class">Status:</label>
+                            <select name="active" id="active-class">
+                                <option value="true">Active</option>
+                                <option value="false">Inactive</option>
+                            </select>
+                            <br><br>
+                            <input id="active-class-submit" type="button" value="Submit" onclick="changeStatusClass()">
+                        </form>
+                        <hr style="width: 95%; color: black">
+                        <h4><u>Update Top 5 Board</u></h4>
+                        <input id="update-top5" type="button" value="Update" onclick="updateTopFive()">
+                        <span id="update-top5-message"></span>
+                        <hr style="width: 95%; color: black">
+                        <h4><u>Manage Users</u></h4>
+                        <table id="user-table" class="roster-table" style="width: 90%"></table>
+                        <br>
+                    </div>
                 </td>
             </tr>
         </table>
+        <br>
     </div>
-    <br><br>
+    <br>
     <div id="footer"></div>
     <!-- 100% privacy friendly analytics -->
     <script async defer src="https://sa.sagh-st.org/latest.js"></script>
