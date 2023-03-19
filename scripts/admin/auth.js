@@ -21,9 +21,22 @@ async function auth () {
         window.location.href = "login.html"
     }
     if (resp.status === 200 || location.toString() === "/database/admin/index.html") {
-        console.log(json)
         let hello = document.getElementById("user-name").innerText = (json['user']['name'].split(" "))[0]
-        main();
+        let perm = json['user']['permissions']
+        window.localStorage.setItem("permissions", perm)
+        if (perm >= 1) {
+            let add = document.getElementsByClassName("db-add");
+            for (let item of add) {
+                item.style.display = "block";
+            }
+        }
+        if (perm >= 3) {
+            let menu = document.getElementsByClassName("admin-settings");
+            for (let item of menu) {
+                item.style.display = "table-cell";
+            }
+        }
+        main()
     }
 }
 

@@ -50,22 +50,24 @@
             <br>
         </div>
         <br>
-        <h4>Create Entry</h4>
-        <form id="create-entry">
-            <label for="swimmer">Swimmer ID:</label>
-            <input type="text" placeholder="ID" id="swimmer" name="swimmer">
-            <label for="event">Event:</label>
-            <input type="text" placeholder="Event" id="event" name="event"><br><br>
-            <label for="seed">Seed:</label>
-            <input type="text" placeholder="Seed Time" id="seed" name="seed">
-            <label for="time">Time:</label>
-            <input type="text" placeholder="Time" id="time" name="time"><br><br>
-            <label for="splits">Splits:</label>
-            <input type="text" placeholder="Splits (JSON form)" id="splits" name="splits">
-            <br>
-            <span id="response-message"></span><br>
-            <input type="button" value="Submit" id="entry-submit" onclick="createEntry()">
-        </form>
+        <div class="db-add" style="display: none">
+            <h4>Create Entry</h4>
+            <form id="create-entry">
+                <label for="swimmer">Swimmer ID:</label>
+                <input type="text" placeholder="ID" id="swimmer" name="swimmer">
+                <label for="event">Event:</label>
+                <input type="text" placeholder="Event" id="event" name="event"><br><br>
+                <label for="seed">Seed:</label>
+                <input type="text" placeholder="Seed Time" id="seed" name="seed">
+                <label for="time">Time:</label>
+                <input type="text" placeholder="Time" id="time" name="time"><br><br>
+                <label for="splits">Splits:</label>
+                <input type="text" placeholder="Splits (JSON form)" id="splits" name="splits">
+                <br>
+                <span id="response-message"></span><br>
+                <input type="button" value="Submit" id="entry-submit" onclick="createEntry()">
+            </form>
+        </div>
         <br>
     </div>
     <br><br>
