@@ -9,7 +9,8 @@ venue_colors = {
     "SA": "FFCC99",
     "SW": "99FFCC",
     "TM": "FFFFFF",
-    "UT": "FFCC99"
+    "UT": "FFCC99",
+    undefined: "99CCFF"
 }
 
 venues = {
@@ -23,7 +24,8 @@ venues = {
     "SA": "San Antonio Natatorium",
     "SW": "Southwest Aquatic Center",
     "TM": "TMI Episcopal",
-    "UT": "Lee & Joe Jamail Texas Swimming Center"
+    "UT": "Lee & Joe Jamail Texas Swimming Center",
+    "PA": "Palo Alto Natatorium"
 }
 
 function gender (code) {
