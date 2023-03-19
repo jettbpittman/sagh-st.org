@@ -166,7 +166,7 @@ function createEntry () {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message");
                 respb.innerText = "Success!"
-                getMeet(false)
+                getMeet(true)
             } else {
                 let respb = document.getElementById("response-message");
                 respb.innerText = `Failed - ${response.statusText}`
