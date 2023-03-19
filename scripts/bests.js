@@ -21,7 +21,8 @@ function getRoster () {
                         nameCell.className = "namecell";
                         let dataCell = row.insertCell(1);
                         dataCell.className = "datacell";
-                        let timesTable = document.createElement('table')
+                        let timesTable = document.createElement('table');
+                        timesTable.insertRow().innerHTML = `<th style="width: 25%">Event</th><th style="width: 25%">Time</th><th style="width: 55%">Meet</th>`;
                         timesTable.className = 'times';
                         fetch("https://api.sagh-st.org/swimmers/" + swimmer['id'] + "/best")
                             .then(resp => resp.json())
@@ -65,7 +66,8 @@ function getRoster () {
                         nameCell.className = "namecell";
                         let dataCell = row.insertCell(1);
                         dataCell.className = "datacell";
-                        let timesTable = document.createElement('table')
+                        let timesTable = document.createElement('table');
+                        timesTable.insertRow().innerHTML = `<th style="width: 25%">Event</th><th style="width: 25%">Time</th><th style="width: 55%">Meet</th>`;
                         timesTable.className = 'times';
                         fetch("https://api.sagh-st.org/swimmers/" + swimmer['id'] + "/best")
                             .then(resp => resp.json())

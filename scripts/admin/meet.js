@@ -86,7 +86,7 @@ function getMeet (param) {
             let box = document.getElementById("meet-info");
             box.innerHTML = "";
             let data = document.createElement("p");
-            data.innerHTML = `<b>${json['name']}</b><br>${venues[json['venue']]}`
+            data.innerHTML = `<b>${json['name']}</b><br>${venues[json['venue']]}<br>${json['date']}`
             let id = document.createElement("p");
             id.innerText = json['id'];
             id.id = "meet-id";
