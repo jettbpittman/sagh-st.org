@@ -23,17 +23,24 @@ function loadAdminSettings () {
 }
 
 function loadUsers () {
-    fetch("https://api.sagh-st.org/users", { method: "GET", headers: headers})
+    fetch("https://api.sagh-st.org/users/all", { method: "GET", headers: headers})
         .then(response => response.json())
         .then(json => {
             let table = document.getElementById("user-table");
             let r1 = table.insertRow();
             r1.innerHTML = "<th style='width: 50%'>Name</th><th style='width: 25%'>Perms</th><th style='width: 25%'>Active</th>"
             console.log(json)
+            let html = "";
             for (let user of json) {
                 let r = table.insertRow();
                 r.innerHTML = `<td style='width: 50%'>${user['name']}<br>(${user['username']})</td><td style='width: 25%'>${user['permissions']}</td><td style='width: 25%'>${user['active']}</td>`
+                html += "<option value=" + user['id']  + ">" + user['username'] + "</option>"
+
             }
+            let permsSelect = document.getElementById("perms-user-select");
+            permsSelect.innerHTML = html;
+            let statusSelect = document.getElementById("status-user-select");
+            statusSelect.innerHTML = html;
         })
 }
 

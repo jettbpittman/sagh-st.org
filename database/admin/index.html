@@ -86,7 +86,7 @@
                     </div>
                 </td>
                 <td style="width: 20%; display: none" class="admin-settings">
-                    <h2>Admin Settings</h2>
+                    <h2><u>Admin Settings</u></h2>
                     <div style="background-color: #F8FFB0; border: black 1px solid">
                         <h4><u>Change Swimmer Status</u></h4>
                         <h5>Individual</h5>
@@ -131,6 +131,27 @@
                         <hr style="width: 95%; color: black">
                         <h4><u>Manage Users</u></h4>
                         <table id="user-table" class="roster-table" style="width: 90%"></table>
+                        <h5>Edit Permissions</h5>
+                        <form id="user-perms">
+                            <label for="perms-user-select">User:</label>
+                            <select name="user" id="perms-user-select"></select>
+                            <label for="perms-perm-select">Permissions:</label>
+                            <input type="number" name="perms" id="perms-perm-select" style="width: 10%">
+                            <br><br>
+                            <input id="perms-submit" type="button" value="Submit" onclick="">
+                        </form>
+                        <h5>Activate/Deactivate</h5>
+                        <form id="user-status">
+                            <label for="status-user-select">User:</label>
+                            <select name="user" id="status-user-select"></select>
+                            <label for="status-state-select">State:</label>
+                            <select name="state" id="status-state-select">
+                                <option value="true">Active</option>
+                                <option value="false">Deactivate</option>
+                            </select>
+                            <br><br>
+                            <input id="state-submit" type="button" value="Submit" onclick="">
+                        </form>
                         <br>
                     </div>
                 </td>
