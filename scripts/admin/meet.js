@@ -10,7 +10,7 @@ venue_colors = {
     "SW": "99FFCC",
     "TM": "FFFFFF",
     "UT": "FFCC99",
-    "undefined": "99CCFF"
+    undefined: "99CCFF"
 }
 
 venues = {
