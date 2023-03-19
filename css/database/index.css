@@ -62,7 +62,7 @@
 
 @media screen and (max-width: 600px) {
     .swimmers-table th {
-        display: table-cell;
+        display: table-cell !important;
     }
     .swimmers-table td {
         display: table-cell !important;
@@ -85,5 +85,9 @@
     }
     .event-cell td {
         width: 100% !important;
+    }
+
+    .admin-settings {
+        display: table-row !important;
     }
 }
