@@ -24,6 +24,7 @@ async function auth () {
         let hello = document.getElementById("user-name").innerText = (json['user']['name'].split(" "))[0]
         let perm = json['user']['permissions']
         window.localStorage.setItem("permissions", perm)
+        window.localStorage.setItem("id", json['user']['id'])
         if (perm >= 1) {
             let add = document.getElementsByClassName("db-add");
             for (let item of add) {

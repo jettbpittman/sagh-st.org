@@ -27,6 +27,13 @@
           .then(function(body) {
             document.querySelector('#footer').innerHTML = body;
           });
+        fetch('/static/user-menu.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#user-settings').innerHTML = body;
+          });
     </script>
 </head>
 <body>
@@ -34,7 +41,6 @@
     <div class="slate">
         <h2>GHMV Database Admin Dashboard</h2>
         <div id="user-settings">
-            <p>Hello, <span id="user-name"></span>  |  <a onclick="logout()" style="font-weight: bold; text-decoration: underline">LOGOUT</a></p>
         </div>
         <table class="slate-body" style="width: 95%; margin-right: auto; margin-left: auto">
             <tr>
@@ -88,8 +94,8 @@
                 <td style="width: 20%; display: none" class="admin-settings">
                     <h2><u>Admin Settings</u></h2>
                     <div style="background-color: #F8FFB0; border: black 1px solid">
-                        <h4><u>Change Swimmer Status</u></h4>
-                        <h5>Individual</h5>
+                        <h4><u>Manage Swimmers</u></h4>
+                        <h5>Individual Status</h5>
                         <form id="status-indiv">
                             <label for="swimmers">Swimmer:</label>
                             <select name="swimmers" id="swimmers"></select>
@@ -101,7 +107,7 @@
                             <br><br>
                             <input id="active-indiv-submit" type="button" value="Submit" onclick="changeStatusIndiv()">
                         </form>
-                        <h5>By Class</h5>
+                        <h5>Status By Class</h5>
                         <form id="status-class">
                             <label for="classes">Class:</label>
                             <select name="class" id="classes">
@@ -138,7 +144,7 @@
                             <label for="perms-perm-select">Permissions:</label>
                             <input type="number" name="perms" id="perms-perm-select" style="width: 10%">
                             <br><br>
-                            <input id="perms-submit" type="button" value="Submit" onclick="">
+                            <input id="perms-submit" type="button" value="Submit" onclick="updateUserPerms()">
                         </form>
                         <h5>Activate/Deactivate</h5>
                         <form id="user-status">
@@ -146,11 +152,11 @@
                             <select name="user" id="status-user-select"></select>
                             <label for="status-state-select">State:</label>
                             <select name="state" id="status-state-select">
-                                <option value="true">Active</option>
+                                <option value="true">Activate</option>
                                 <option value="false">Deactivate</option>
                             </select>
                             <br><br>
-                            <input id="state-submit" type="button" value="Submit" onclick="">
+                            <input id="state-submit" type="button" value="Submit" onclick="updateUserState()">
                         </form>
                         <br>
                     </div>

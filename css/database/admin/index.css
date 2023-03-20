@@ -53,3 +53,29 @@
     right: 5%;
     margin: 0;
 }
+
+.user-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #BEDDDD;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+#user-settings:hover .user-dropdown-content {
+    display: block;
+}
+
+.dropdown-table td {
+    border: 1px black solid;
+    padding: 10px;
+}
+
+.dropdown-table a {
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown-table {
+    border-collapse: collapse;
+}

@@ -6,13 +6,13 @@
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="GHMV Individual Best Times">
-    <title>AD Meet - GHMV Swim</title>
+    <title>User Settings - GHMV Swim</title>
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/database/index.css">
     <link rel="stylesheet" href="/css/database/admin/index.css">
-    <link rel="stylesheet" href="/css/database/admin/meet.css">
+    <link rel="stylesheet" href="/css/database/user/settings.css">
     <script type="text/javascript" src="/scripts/admin/auth.js"></script>
-    <script type="text/javascript" src="/scripts/admin/meet.js"></script>
+    <script type="text/javascript" src="/scripts/user/settings.js"></script>
     <script>
         fetch('/static/header.html')
           .then(function(response) {
@@ -40,38 +40,27 @@
 <body>
     <div id="header"></div>
     <div class="slate">
-        <h2>Meet Database</h2>
+        <h2>User Settings</h2>
         <div id="user-settings"></div>
         <div id="return-to-AD">
-            <a href="index.html" style="color: black; font-weight: bold; text-decoration: none;"><= Return</a><br><br>
+            <a href="/database/admin/index.html" style="color: black; font-weight: bold; text-decoration: none;"><= Return</a><br><br>
         </div>
-        <label for="meets">Select a Meet:</label>
-        <select name="meets" id="meets"></select><br>
-        <input id="meet-submit" type="button" value="Submit" onclick="getMeet(false)">
-        <br><br>
-        <div id="meet-information">
-            <span id="meet-info"></span>
-            <table id="entries-table" class="entries-table"></table>
-            <br>
-        </div>
-        <br>
-        <div class="db-add" style="display: none">
-            <h4>Create Entry</h4>
-            <form id="create-entry">
-                <label for="swimmer">Swimmer ID:</label>
-                <input type="text" placeholder="ID" id="swimmer" name="swimmer">
-                <label for="event">Event:</label>
-                <input type="text" placeholder="Event" id="event" name="event"><br><br>
-                <label for="seed">Seed:</label>
-                <input type="text" placeholder="Seed Time" id="seed" name="seed">
-                <label for="time">Time:</label>
-                <input type="text" placeholder="Time" id="time" name="time"><br><br>
-                <label for="splits">Splits:</label>
-                <input type="text" placeholder="Splits (JSON form)" id="splits" name="splits">
+        <div class="user-settings">
+            <p id="user-info"></p>
+            <h3><u>Change Password</u></h3>
+            <form id="user-change-password">
+                <label for="old_password">Old Password:</label>
+                <input type="password" name="old_password" id="old_password">
+                <label for="new_password">New Password:</label>
+                <input type="password" name="new_password" id="new_password">
+                <label for="user-change-password-confirm">Confirm</label>
+                <input type="checkbox" name="confirm" id="user-change-password-confirm">
                 <br>
-                <span id="response-message"></span><br>
-                <input type="button" value="Submit" id="entry-submit" onclick="createEntry()">
+                <span id="user-change-password-message"></span>
+                <br>
+                <input type="button" value="Submit" onclick="changePassword()">
             </form>
+            <br>
         </div>
         <br>
     </div>

@@ -9,7 +9,8 @@ venue_colors = {
     "SA": "FFCC99",
     "SW": "99FFCC",
     "TM": "FFFFFF",
-    "UT": "FFCC99"
+    "UT": "FFCC99",
+    undefined: "99CCFF"
 }
 
 venues = {
@@ -23,7 +24,8 @@ venues = {
     "SA": "San Antonio Natatorium",
     "SW": "Southwest Aquatic Center",
     "TM": "TMI Episcopal",
-    "UT": "Lee & Joe Jamail Texas Swimming Center"
+    "UT": "Lee & Joe Jamail Texas Swimming Center",
+    "PA": "Palo Alto Natatorium"
 }
 
 fetch("https://api.sagh-st.org/meets")
@@ -86,7 +88,7 @@ function getMeet (param) {
             let box = document.getElementById("meet-info");
             box.innerHTML = "";
             let data = document.createElement("p");
-            data.innerHTML = `<b>${json['name']}</b><br>${venues[json['venue']]}`
+            data.innerHTML = `<b>${json['name']}</b><br>${venues[json['venue']]}<br>${json['date']}`
             let id = document.createElement("p");
             id.innerText = json['id'];
             id.id = "meet-id";
@@ -166,7 +168,7 @@ function createEntry () {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message");
                 respb.innerText = "Success!"
-                getMeet(false)
+                getMeet(true)
             } else {
                 let respb = document.getElementById("response-message");
                 respb.innerText = `Failed - ${response.statusText}`

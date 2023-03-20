@@ -59,7 +59,16 @@ function getSwimmer (param) {
             let box = document.getElementById("swimmer-info");
             box.innerHTML = "";
             let data = document.createElement("p");
-            data.innerHTML = `<b>Name - </b> ${json['last_name']}, ${json['first_name']} ${json['middle_name']}<br><b>Class of 20${json['class']}</b>`
+            let active;
+            if (json['active'] === true) {
+                active = "Active"
+            } else {
+                active = "Inactive"
+            }
+            if (json['homeschool'] === true) {
+                json['class'] += ' (H)';
+            }
+            data.innerHTML = `<b>${json['last_name']}, ${json['first_name']} ${json['middle_name']}</b><br><i>Class of 20${json['class']}</i><br>${json['dob']}<br><b>${active}</b>`
             box.appendChild(data);
         })
     fetch("https://api.sagh-st.org/swimmers/" + swimmerID + "/entries")

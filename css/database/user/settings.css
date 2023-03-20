@@ -1,0 +1,26 @@
+.user-settings {
+    border: black 1px solid;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F8FFB0;
+}
+
+#user-settings {
+    position: absolute;
+    top: 0;
+    right: 5%;
+}
+
+#return-to-AD {
+    position: absolute;
+    top: 16px;
+    left: 5%;
+}
+
+@media screen and (max-width: 600px) {
+    #user-settings {
+        position: relative !important;
+        right: 0 !important;
+    }
+}
