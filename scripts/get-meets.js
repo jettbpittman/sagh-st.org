@@ -91,7 +91,7 @@ function getMeet () {
             fetch("https://api.sagh-st.org/meets/" + meetID + "/entries/SAGH")
                     .then(resp => resp.json())
                     .then(json1 => {
-                        const events = [`F200F`, `M200F`, `F200M`, `M200M`,`F50F`, `M50F`, `F100L`, `M100L`, `F100F`, `M100F`, `F500F`, `M500F`, `F100B`, `M100B`, `F100S`, `M100S`, `F50B`, `M50B`]
+                        const events = [`F200RM`, `M200RM`,`F200F`, `M200F`, `F200M`, `M200M`,`F50F`, `M50F`, `F100L`, `M100L`, `F100F`, `M100F`, `F500F`, `M500F`, `F200RF`, `M200RF`, `F100B`, `M100B`, `F100S`, `M100S`, `F400RF`, `M400RF`, `F50B`, `M50B`]
                         for (let event of events) {
                             if (json1[event] === undefined) {
                                 continue
