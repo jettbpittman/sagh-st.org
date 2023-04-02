@@ -10,6 +10,9 @@ function getRoster () {
                     let t = document.getElementById("bests");
                     t.innerHTML = "";
                     for (let swimmer of json) {
+                        if (swimmer['last_name'] === "GHMV") {
+                            continue
+                        }
                         let g = swimmer['gender'].toUpperCase();
                         let r1 = t.insertRow();
                         let d1 = r1.insertCell();
@@ -55,6 +58,9 @@ function getRoster () {
                     let t = document.getElementById("bests");
                     t.innerHTML = "";
                     for (let swimmer of json) {
+                        if (swimmer['last_name'] === "GHMV") {
+                            continue
+                        }
                         let g = swimmer['gender'].toUpperCase();
                         let r1 = t.insertRow();
                         let d1 = r1.insertCell();
