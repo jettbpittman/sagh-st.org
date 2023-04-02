@@ -2,13 +2,16 @@ function main () {
     const perm = window.localStorage.getItem("permissions");
     fetchRoster()
     fetchMeets()
+    if (perm >= 2) {
+        loadManagerSettings()
+    }
     if (perm >= 3) {
         loadAdminSettings()
     }
 }
 
 
-function loadAdminSettings () {
+function loadManagerSettings () {
     fetch("https://api.sagh-st.org/teams/SAGH/roster/all")
         .then(response => response.json())
         .then(json => {
@@ -19,6 +22,9 @@ function loadAdminSettings () {
             let select = document.getElementById("swimmers");
             select.innerHTML = html;
         })
+}
+
+function loadAdminSettings () {
     loadUsers()
 }
 

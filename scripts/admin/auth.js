@@ -31,10 +31,16 @@ async function auth () {
                 item.style.display = "block";
             }
         }
-        if (perm >= 3) {
+        if (perm >= 2) {
             let menu = document.getElementsByClassName("admin-settings");
             for (let item of menu) {
                 item.style.display = "table-cell";
+            }
+        }
+        if (perm >= 3) {
+            let menu = document.getElementsByClassName("manage-site");
+            for (let item of menu) {
+                item.style.display = "block";
             }
         }
         main()

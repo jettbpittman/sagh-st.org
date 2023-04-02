@@ -44,6 +44,17 @@ fetch("https://api.sagh-st.org/meets")
             select.innerHTML = html;
         })
 
+fetch("https://api.sagh-st.org/teams/SAGH/roster/all")
+        .then(response => response.json())
+        .then(json => {
+            let html = "";
+            for (let swimmer in json) {
+                html += "<option value=" + json[swimmer]['id']  + ">" + json[swimmer]['last_name'] + ", " + json[swimmer]['first_name'] + " " + json[swimmer]['middle_name'] + " - \'" + json[swimmer]['class'] + "</option>"
+            }
+            let select = document.getElementById("swimmers");
+            select.innerHTML = html;
+        })
+
 function getMID (param) {
     if (param) {
         const urlParams = new URLSearchParams(window.location.search);
@@ -69,7 +80,7 @@ function gender (code) {
 }
 
 function relay (seed) {
-    if (seed === "RELAY_LEADOFF") {
+    if (seed === "RL") {
         return `<span title='Official Split'>RL</span>`
     } else {
         return seed
@@ -141,7 +152,7 @@ function getMeet (param) {
                     let swimmers = results[times]['swimmer']
                     if (results[times]['relay']) {
                         try {
-                            swimmers = `1) ${results[times]['relay']['1']['last_name']}, ${results[times]['relay']['1']['first_name']} ${results[times]['relay']['1']['middle_name']}   2) ${results[times]['relay']['2']['last_name']}, ${results[times]['relay']['2']['first_name']} ${results[times]['relay']['2']['middle_name']}<br>3) ${results[times]['relay']['3']['last_name']}, ${results[times]['relay']['3']['first_name']} ${results[times]['relay']['3']['middle_name']}   4) ${results[times]['relay']['4']['last_name']}, ${results[times]['relay']['4']['first_name']} ${results[times]['relay']['4']['middle_name']}`
+                            swimmers = `${results[times]['relay']['1']['last_name']}, ${results[times]['relay']['1']['first_name']} ${results[times]['relay']['1']['middle_name']}<br>${results[times]['relay']['2']['last_name']}, ${results[times]['relay']['2']['first_name']} ${results[times]['relay']['2']['middle_name']}<br>${results[times]['relay']['3']['last_name']}, ${results[times]['relay']['3']['first_name']} ${results[times]['relay']['3']['middle_name']}<br>${results[times]['relay']['4']['last_name']}, ${results[times]['relay']['4']['first_name']} ${results[times]['relay']['4']['middle_name']}`
                         } catch {
                         }
                         let r3 = swimmersTable.insertRow().innerHTML = `<td style="width: 62%">${swimmers}</td><td style="width: 15%">${relay(results[times]['seed'])}</td><td style="width: 15%">${results[times]['time']}</td><td style="width: 8%">${standards(results[times])}</td>`

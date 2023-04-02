@@ -10,6 +10,9 @@ function getRoster () {
                     let t = document.getElementById("bests");
                     t.innerHTML = "";
                     for (let swimmer of json) {
+                        if (swimmer['last_name'] === "GHMV") {
+                            continue
+                        }
                         let g = swimmer['gender'].toUpperCase();
                         let r1 = t.insertRow();
                         let d1 = r1.insertCell();
@@ -32,7 +35,7 @@ function getRoster () {
                                     let entry = json1[event];
                                     console.log(entry)
                                     let time_data = `<td style="width: 25%">${entry['time']}`
-                                    if (entry['seed'] === "RELAY_LEADOFF") {
+                                    if (entry['seed'] === "RL") {
                                         time_data += " <span title='Official Split'>R</span>"
                                     }
                                     if (entry['standards'] != null) {
@@ -55,6 +58,9 @@ function getRoster () {
                     let t = document.getElementById("bests");
                     t.innerHTML = "";
                     for (let swimmer of json) {
+                        if (swimmer['last_name'] === "GHMV") {
+                            continue
+                        }
                         let g = swimmer['gender'].toUpperCase();
                         let r1 = t.insertRow();
                         let d1 = r1.insertCell();
@@ -77,7 +83,7 @@ function getRoster () {
                                     let entry = json1[event];
                                     console.log(entry)
                                     let time_data = `<td style="width: 25%">${entry['time']}`
-                                    if (entry['seed'] === "RELAY_LEADOFF") {
+                                    if (entry['seed'] === "RL") {
                                         time_data += " <span title='Official Split'>R</span>"
                                     }
                                     if (entry['standards'] != null) {
