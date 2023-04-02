@@ -38,7 +38,7 @@ function gender (code) {
 }
 
 function relay (seed) {
-    if (seed === "RELAY_LEADOFF") {
+    if (seed === "RL") {
         return `<span title='Official Split'>RL</span>`
     } else {
         return seed

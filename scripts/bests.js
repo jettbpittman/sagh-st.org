@@ -35,7 +35,7 @@ function getRoster () {
                                     let entry = json1[event];
                                     console.log(entry)
                                     let time_data = `<td style="width: 25%">${entry['time']}`
-                                    if (entry['seed'] === "RELAY_LEADOFF") {
+                                    if (entry['seed'] === "RL") {
                                         time_data += " <span title='Official Split'>R</span>"
                                     }
                                     if (entry['standards'] != null) {
@@ -83,7 +83,7 @@ function getRoster () {
                                     let entry = json1[event];
                                     console.log(entry)
                                     let time_data = `<td style="width: 25%">${entry['time']}`
-                                    if (entry['seed'] === "RELAY_LEADOFF") {
+                                    if (entry['seed'] === "RL") {
                                         time_data += " <span title='Official Split'>R</span>"
                                     }
                                     if (entry['standards'] != null) {

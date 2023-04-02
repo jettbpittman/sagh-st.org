@@ -131,34 +131,36 @@
                             <br><br>
                             <input id="active-class-submit" type="button" value="Submit" onclick="changeStatusClass()">
                         </form>
-                        <hr style="width: 95%; color: black">
-                        <h4><u>Update Top 5 Board</u></h4>
-                        <input id="update-top5" type="button" value="Update" onclick="updateTopFive()">
-                        <span id="update-top5-message"></span>
-                        <hr style="width: 95%; color: black">
-                        <h4><u>Manage Users</u></h4>
-                        <table id="user-table" class="roster-table" style="width: 90%"></table>
-                        <h5>Edit Permissions</h5>
-                        <form id="user-perms">
-                            <label for="perms-user-select">User:</label>
-                            <select name="user" id="perms-user-select"></select>
-                            <label for="perms-perm-select">Permissions:</label>
-                            <input type="number" name="perms" id="perms-perm-select" style="width: 10%">
-                            <br><br>
-                            <input id="perms-submit" type="button" value="Submit" onclick="updateUserPerms()">
-                        </form>
-                        <h5>Activate/Deactivate</h5>
-                        <form id="user-status">
-                            <label for="status-user-select">User:</label>
-                            <select name="user" id="status-user-select"></select>
-                            <label for="status-state-select">State:</label>
-                            <select name="state" id="status-state-select">
-                                <option value="true">Activate</option>
-                                <option value="false">Deactivate</option>
-                            </select>
-                            <br><br>
-                            <input id="state-submit" type="button" value="Submit" onclick="updateUserState()">
-                        </form>
+                        <div class="manage-site" style="display: none">
+                            <hr style="width: 95%; color: black">
+                            <h4><u>Update Top 5 Board</u></h4>
+                            <input id="update-top5" type="button" value="Update" onclick="updateTopFive()">
+                            <span id="update-top5-message"></span>
+                            <hr style="width: 95%; color: black">
+                            <h4><u>Manage Users</u></h4>
+                            <table id="user-table" class="roster-table" style="width: 90%"></table>
+                            <h5>Edit Permissions</h5>
+                            <form id="user-perms">
+                                <label for="perms-user-select">User:</label>
+                                <select name="user" id="perms-user-select"></select>
+                                <label for="perms-perm-select">Permissions:</label>
+                                <input type="number" name="perms" id="perms-perm-select" style="width: 10%">
+                                <br><br>
+                                <input id="perms-submit" type="button" value="Submit" onclick="updateUserPerms()">
+                            </form>
+                            <h5>Activate/Deactivate</h5>
+                            <form id="user-status">
+                                <label for="status-user-select">User:</label>
+                                <select name="user" id="status-user-select"></select>
+                                <label for="status-state-select">State:</label>
+                                <select name="state" id="status-state-select">
+                                    <option value="true">Activate</option>
+                                    <option value="false">Deactivate</option>
+                                </select>
+                                <br><br>
+                                <input id="state-submit" type="button" value="Submit" onclick="updateUserState()">
+                            </form>
+                        </div>
                         <br>
                     </div>
                 </td>
