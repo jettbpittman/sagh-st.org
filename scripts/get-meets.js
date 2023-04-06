@@ -10,6 +10,9 @@ venue_colors = {
     "SW": "99FFCC",
     "TM": "FFFFFF",
     "UT": "FFCC99",
+    "PA": "99CCFF",
+    "DC": "99CCFF",
+    "LC": "99CCFF",
     undefined: "99CCFF"
 }
 
@@ -25,7 +28,9 @@ venues = {
     "SW": "Southwest Aquatic Center",
     "TM": "TMI Episcopal",
     "UT": "Lee & Joe Jamail Texas Swimming Center",
-    "PA": "Palo Alto Natatorium"
+    "PA": "Palo Alto Natatorium",
+    "LC": "Lamar CISD Natatorium",
+    "DC": "Don Cook Natatorium"
 }
 
 function gender (code) {
