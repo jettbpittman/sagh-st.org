@@ -126,3 +126,12 @@
     border: 1px black solid;
     overflow: hidden;
 }
+
+.honors-table {
+    border-collapse: collapse;
+}
+
+.honors-table td, .honors-table th {
+    background-color: #F8FFB0 !important;
+    border: 1px black solid;
+}
