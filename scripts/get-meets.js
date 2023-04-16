@@ -33,6 +33,24 @@ venues = {
     "DC": "Don Cook Natatorium"
 }
 
+function formatTime (time) {
+    time = time.toString().split(".");
+    let seconds = time[0];
+    let minutes = Math.trunc(seconds / 60);
+    let new_seconds = seconds % 60;
+    new_seconds = ("0" + new_seconds).slice(-2);
+    console.log(time[1])
+    if (!time[1]) {
+        time[1] = 0
+    }
+    let milliseconds = (time[1] + "0").slice(0, 2)
+    if (minutes === 0) {
+        return `${new_seconds}.${milliseconds}`
+    } else {
+        return `${minutes}:${new_seconds}.${milliseconds}`
+    }
+}
+
 function gender (code) {
     if (code[0] === "M") {
         return "Men's"
@@ -53,6 +71,14 @@ function relay (seed) {
 function standards (s) {
     if (s['standards'] != null) {
         return `<span title=` + `"${s['standards']['name']}"` + `>` + s['standards']['short_name'] + "</span>"
+    } else {
+        return ``
+    }
+}
+
+function splitsf (s, t) {
+    if (s != null) {
+        return `<span title=` + `"${s}"` + `>` + t + "</span>"
     } else {
         return ``
     }
@@ -120,15 +146,19 @@ function getMeet () {
                             swimmersTable.className = "swimmers-table"
                             let r4 = swimmersTable.insertRow().innerHTML = `<th style="width: 62%">Name</th><th style="width: 15%">Seed</th><th style="width: 15%">Time</th><th style="width: 8%"></th>`
                             for (let times in results) {
-                                console.log(times)
+                                let splits = "";
+                                for (let split in results[times]['splits']) {
+                                    splits += `${formatTime(results[times]['splits'][split])} `
+                                }
+                                console.log(splits)
                                 if (results[times]['relay']) {
                                     try {
                                         swimmers = `${results[times]['relay']['1']['last_name']}, ${results[times]['relay']['1']['first_name']} ${results[times]['relay']['1']['middle_name']}<br>${results[times]['relay']['2']['last_name']}, ${results[times]['relay']['2']['first_name']} ${results[times]['relay']['2']['middle_name']}<br>${results[times]['relay']['3']['last_name']}, ${results[times]['relay']['3']['first_name']} ${results[times]['relay']['3']['middle_name']}<br>${results[times]['relay']['4']['last_name']}, ${results[times]['relay']['4']['first_name']} ${results[times]['relay']['4']['middle_name']}`
                                     } catch {
                                     }
-                                    let r3 = swimmersTable.insertRow().innerHTML = `<td style="width: 62%">${swimmers}</td><td style="width: 15%">${relay(results[times]['seed'])}</td><td style="width: 15%">${results[times]['time']}</td><td style="width: 8%">${standards(results[times])}</td>`
+                                    let r3 = swimmersTable.insertRow().innerHTML = `<td style="width: 62%">${swimmers}</td><td style="width: 15%">${relay(results[times]['seed'])}</td><td style="width: 15%">${splitsf(splits, results[times]['time'])}</td><td style="width: 8%">${standards(results[times])}</td>`
                                 } else {
-                                    let r3 = swimmersTable.insertRow().innerHTML = `<td style="width: 62%">${results[times]['swimmer']}</td><td style="width: 15%">${relay(results[times]['seed'])}</td><td style="width: 15%">${results[times]['time']}</td><td style="width: 8%">${standards(results[times])}</td>`
+                                    let r3 = swimmersTable.insertRow().innerHTML = `<td style="width: 62%">${results[times]['swimmer']}</td><td style="width: 15%">${relay(results[times]['seed'])}</td><td style="width: 15%">${splitsf(splits, results[times]['time'])}</span></td><td style="width: 8%">${standards(results[times])}</td>`
                                 }                            }
                             dataCell.appendChild(swimmersTable)
                             d.appendChild(eventTable)
