@@ -93,6 +93,12 @@
     #gen-info, #links {
         display: table-row;
     }
+    #honors-table-outer td {
+        display: table-row;
+    }
+    .honors-table td {
+        display: table-cell !important;
+    }
 }
 
 .result-table td {
