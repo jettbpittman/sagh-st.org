@@ -2,10 +2,10 @@ function main () {
     const perm = window.localStorage.getItem("permissions");
     fetchRoster()
     fetchMeets()
-    if (perm >= 2) {
+    if (perm >= 3) {
         loadManagerSettings()
     }
-    if (perm >= 3) {
+    if (perm >= 4) {
         loadAdminSettings()
     }
 }

@@ -27,19 +27,19 @@ async function auth () {
         let perm = json['user']['permissions']
         window.localStorage.setItem("permissions", perm)
         window.localStorage.setItem("id", json['user']['id'])
-        if (perm >= 1) {
+        if (perm >= 2) {
             let add = document.getElementsByClassName("db-add");
             for (let item of add) {
                 item.style.display = "block";
             }
         }
-        if (perm >= 2) {
+        if (perm >= 3) {
             let menu = document.getElementsByClassName("admin-settings");
             for (let item of menu) {
                 item.style.display = "table-cell";
             }
         }
-        if (perm >= 3) {
+        if (perm >= 4) {
             let menu = document.getElementsByClassName("manage-site");
             for (let item of menu) {
                 item.style.display = "block";
