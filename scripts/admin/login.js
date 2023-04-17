@@ -19,7 +19,7 @@ async function login () {
     if (resp.status === 200) {
         message.innerText = "Success!"
         window.localStorage.setItem("token", token);
-        window.location.href = "index.html";
+        pickDashboard()
     } else {
         message.innerText = `Failed to login, ${resp.statusText}`
     }
@@ -34,3 +34,5 @@ function togglePassword () {
     x.type = "password";
   }
 }
+
+auth()

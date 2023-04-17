@@ -19,9 +19,9 @@ function changePassword () {
     let user_id = window.localStorage.getItem("id")
     let payload = {
         "old_password": oldP,
-        "new_paddword": newP
+        "new_password": newP
     }
-    fetch("https://api.sagh-st.org/users/" + user_id + "/password", { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
+    fetch("https://api.sagh-st.org/users/" + user_id + "/password", { method: "POST", headers: headers, body: JSON.stringify(payload)})
         .then(response => {
             let message = document.getElementById("user-change-password-message");
             if (response.status === 200) {

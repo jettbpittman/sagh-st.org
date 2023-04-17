@@ -1,0 +1,81 @@
+.slate {
+    position: relative;
+}
+
+@media screen and (max-width: 600px) {
+    #user-settings {
+        position: relative !important;
+        right: 0 !important;
+    }
+}
+
+#user-settings {
+    position: absolute;
+    top: 0;
+    right: 5%;
+    margin: 0;
+}
+
+.user-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #BEDDDD;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+#user-settings:hover .user-dropdown-content {
+    display: block;
+}
+
+.dropdown-table td {
+    border: 1px black solid;
+    padding: 10px;
+}
+
+.dropdown-table a {
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown-table {
+    border-collapse: collapse;
+}
+
+#user-information {
+    border: 1px black solid;
+    background-color: #F8FFB0;
+    width: 80%;
+    padding: 2%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#user-times {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#user-times td, #user-times th {
+    background-color: #F8FFB0;
+    border: 1px black solid;
+}
+
+.events-time-table {
+    padding: 2px;
+    width: 100%;
+}
+
+#user-meets {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#user-meets td, #user-meets th {
+    background-color: #F8FFB0;
+    border: 1px black solid;
+}

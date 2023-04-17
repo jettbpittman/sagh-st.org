@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard - GHMV Swim</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/database/index.css">
+    <link rel="stylesheet" href="/css/database/user/index.css">
+    <script type="text/javascript" src="/scripts/auth.js"></script>
+    <script type="text/javascript" src="/scripts/user/main.js"></script>
+    <script>
+        fetch('/static/header.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#header').innerHTML = body;
+          });
+        fetch('/static/footer.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#footer').innerHTML = body;
+          });
+        fetch('/static/user-menu.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#user-settings').innerHTML = body;
+          });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="slate">
+        <h2>GHMV Swimmer Homepage</h2>
+        <div id="user-settings">
+        </div>
+        <div id="user-information">
+            <table style="width: 100%">
+                <tr>
+                    <td style="width: 50%">
+                        <h4>Swimmer</h4>
+                        <p style="text-align: left;">
+                            <b>Name: </b><span id="swimmer-info-name"></span><br>
+                            <b>DOB/Age: </b><span id="swimmer-info-dob"></span> / <span id="swimmer-info-age"></span><br>
+                            <b>Class of</b> 20<span id="swimmer-info-class"></span><br>
+                            <b>Status: </b><span id="swimmer-info-status"></span>
+                        </p>
+                    </td>
+                    <td style="width: 50%">
+                        <h4>User</h4>
+                        <p style="text-align: right;">
+                            <b>Name: </b><span id="user-info-name"></span><br>
+                            <b>Username: </b><span id="user-info-username"></span><br>
+                            <b>Email: </b><span id="user-info-email"></span><br>
+                            <b>Permissions: </b><span id="user-info-perms"></span>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <p><b>Entries: </b><span id="swimmer-info-entries"></span>   |   <b>Meets: </b><span id="swimmer-info-meets"></span></p>
+        </div>
+        <table class="slate-body" style="width: 95%; margin-right: auto; margin-left: auto">
+            <tr>
+                <td style="width: 40%; vertical-align: top">
+                    <h3>Times</h3>
+                    <table id="user-times"></table>
+                </td>
+                <td style="width: 40%; vertical-align: top">
+                    <h3>Meets</h3>
+                    <table id="user-meets"></table>
+                </td>
+                <td style="width: 20%; display: none" class="admin-settings">
+
+                </td>
+            </tr>
+        </table>
+        <br>
+    </div>
+    <br>
+    <div id="footer"></div>
+    <!-- 100% privacy friendly analytics -->
+    <script async defer src="https://sa.sagh-st.org/latest.js"></script>
+    <noscript><img src="https://sa.sagh-st.org/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+</body>
+</html>

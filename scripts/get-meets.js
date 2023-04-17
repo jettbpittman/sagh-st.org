@@ -33,6 +33,21 @@ venues = {
     "DC": "Don Cook Natatorium"
 }
 
+function getMID (param) {
+    if (param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        let params = urlParams.get('meet').toString();
+        if (params == null) {
+            return document.getElementById("meets").value;
+        } else {
+            urlParams.delete("meet");
+            return params;
+        }
+    } else {
+        return document.getElementById("meets").value;
+    }
+}
+
 function formatTime (time) {
     time = time.toString().split(".");
     let seconds = time[0];
@@ -95,8 +110,8 @@ fetch("https://api.sagh-st.org/meets")
             select.innerHTML = html;
         })
 
-function getMeet () {
-    let meetID = document.getElementById("meets").value;
+function getMeet (param) {
+    let meetID = getMID(param)
     console.log(meetID)
     fetch("https://api.sagh-st.org/meets/" + meetID)
         .then(response => response.json())
@@ -167,3 +182,5 @@ function getMeet () {
             d2.appendChild(resultTable)
         })
 }
+
+getMeet(true)
