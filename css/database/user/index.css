@@ -7,6 +7,9 @@
         position: relative !important;
         right: 0 !important;
     }
+    .events-time-table td {
+        display: table-cell !important;
+    }
 }
 
 #user-settings {

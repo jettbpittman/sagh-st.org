@@ -64,18 +64,18 @@ async function loadSwimmerTimes () {
     let entries = await entries_resp.json()
     let times_table = document.getElementById("user-times");
     for (let event in entries) {
-        let r1 = times_table.insertRow().insertCell().innerText = entries[event]['name'];
+        let r1 = times_table.insertRow().insertCell().innerHTML = `<td style="display: table-cell">${entries[event]['name']}</td>`;
         let r2 = times_table.insertRow();
         let event_table = document.createElement("table");
         event_table.className = "event-time-table";
         event_table.style.borderCollapse = "collapse";
-        event_table.insertRow().innerHTML = `<th style="width: 50%">Meet</th><th style="width: 20%">Date</th><th style="width: 22%">Time</th><th style="width: 8%"></th>`
+        event_table.insertRow().innerHTML = `<th style="width: 50%; display: table-cell">Meet</th><th style="width: 20%; display: table-cell">Date</th><th style="width: 22%; display: table-cell">Time</th><th style="width: 8%; display: table-cell"></th>`
         for (let entry of entries[event]['entries']) {
             let splits = "";
             for (let split in entry['splits']) {
                 splits += `${formatTime(entry['splits'][split])} `
             }
-            event_table.insertRow().innerHTML = `<td style="width: 50%">${entry['meet']['name']}</td><td style="width: 20%">${entry['meet']['date']}</td><td style="width: 22%">${splitsf(splits, entry['time'])}</td><td style="width: 8%">${standards(entry)}</td>`
+            event_table.insertRow().innerHTML = `<td style="width: 50%; display: table-cell">${entry['meet']['name']}</td><td style="width: 20%; display: table-cell">${entry['meet']['date']}</td><td style="width: 22%; display: table-cell">${splitsf(splits, entry['time'])}</td><td style="width: 8%; display: table-cell">${standards(entry)}</td>`
         }
 
         r2.appendChild(event_table)
@@ -95,7 +95,7 @@ async function loadSwimmerMeets () {
         let m = await fetch("https://api.sagh-st.org/meets/" + meet[0])
         let m_data = await m.json();
         let link =
-        meet_table.insertRow().innerHTML = `<td style="width: 60%"><a style="color: black; text-decoration: none" href="/database/meets.html?meet=` + m_data['id'] + `">${m_data['name']}</a></td><td style="width: 30%">${m_data['date']}</td><td style="width: 10%">${m_data['venue']}</td>`
+        meet_table.insertRow().innerHTML = `<td style="width: 60%; display: table-cell"><a style="color: black; text-decoration: none" href="/database/meets.html?meet=` + m_data['id'] + `">${m_data['name']}</a></td><td style="width: 30%; display: table-cell">${m_data['date']}</td><td style="width: 10%; display: table-cell">${m_data['venue']}</td>`
     }
 }
 
