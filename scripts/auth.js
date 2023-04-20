@@ -22,11 +22,17 @@ async function auth () {
         window.location.href = "/database/login.html"
     }
     console.log("resp 200")
+    let hello = document.getElementById("user-name").innerText = (json['user']['name'].split(" "))[0]
+    let perm = json['user']['permissions']
+    window.localStorage.setItem("permissions", perm)
+    window.localStorage.setItem("id", json['user']['id'])
+    if (json['user']['permissions'] >= 2 && location.pathname.toString() === "/database/admin/meet.html") {
+        let add = document.getElementsByClassName("db-add");
+        for (let item of add) {
+            item.style.display = "block";
+        }
+    }
     if (json['user']['permissions'] >= 1 && location.pathname.toString() === "/database/admin/index.html" || location.pathname.toString() === "/database/admin/") {
-        let hello = document.getElementById("user-name").innerText = (json['user']['name'].split(" "))[0]
-        let perm = json['user']['permissions']
-        window.localStorage.setItem("permissions", perm)
-        window.localStorage.setItem("id", json['user']['id'])
         if (perm >= 2) {
             let add = document.getElementsByClassName("db-add");
             for (let item of add) {
@@ -47,11 +53,6 @@ async function auth () {
         }
         main()
     } if (json['user']['linked_swimmer'] != null && location.pathname.toString() === "/database/user/index.html" || location.pathname.toString() === "/database/user/") {
-        console.log("at user dashboard with linked swimmer")
-        let hello = document.getElementById("user-name").innerText = (json['user']['name'].split(" "))[0]
-        let perm = json['user']['permissions']
-        window.localStorage.setItem("permissions", perm)
-        window.localStorage.setItem("id", json['user']['id'])
         main()
     }
 }
