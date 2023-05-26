@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="GHMV Swimming Champs 2023">
+    <title>Champs 2023 - GHMV Swim</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/champs.css">
+    <style>
+        #maddie-comeback {
+            border: 1px black solid;
+            background-color: #F8FFB0;
+            padding: 15px;
+        }
+
+        #maddie-comeback img {
+            float: right;
+        }
+    </style>
+    <script>
+        fetch('/static/header.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#header').innerHTML = body;
+          });
+        fetch('/static/footer.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#footer').innerHTML = body;
+          });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="slate">
+        <h2>Homepage Story - 10 February 2023</h2>
+        <div id="maddie-comeback" style="max-width: 90%; margin-left: auto; margin-right: auto; height: auto">
+            <h2><u>The Ultimate Comeback</u></h2>
+            <p style="text-align: left">
+                <img src="https://files.jettpittman.com/site-assets/swimming/maddie_F100L_champ_2023.png" alt="M Mealey 1st Place 100 Fly" style="width: 16%; margin: 2px">
+                <span style="font-weight: bolder">SAN ANTONIO, TX</span> - Madeline Mealey is the 2023 4A State Champion in the Girl's 100 Butterfly. The path to gold however, was not one conventionally taken.
+                A week before the 15-4A District Meet, Maddie tore her rotator cuff during practice, causing uncertainty about whether she would be able to qualify for Regionals, much less win State.
+                At the District meet, she had to start in the water, and placed 5th with a time of 1:09.72, failing to automatically qualify for Regionals. Only after Chloe Jones (who placed 4th with a time of 1:09.08) scratched her event, did Maddie even qualify for Regionals.
+                One week later at the Region 4-4A Meet, she was back in the water, placing 2nd with a time of 1:00.35. Going into State, Maddie was seeded 2nd behind the same person who beat her at Regionals. After Prelims, she was seeded 3rd with a time of 1:00.35.
+                Maddie needed to go her best time or faster to win gold, all with a shoulder injury that obstinately remained after almost a month. During her Finals swim, she swam the first 50 in 27.65 seconds, still in 2nd place to her competitor from Regionals,
+                and returned in 30.99 seconds, almost a body length (and 2 seconds!) ahead of her competition, taking first place. If this is not the greatest comeback ever, I'm not sure what is.
+            </p>
+        </div>
+        <br>
+    </div>
+    <br>
+    <div id="footer"></div>
+    <!-- 100% privacy friendly analytics -->
+    <script async defer src="https://sa.sagh-st.org/latest.js"></script>
+    <noscript><img src="https://sa.sagh-st.org/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+</body>
+</html>
