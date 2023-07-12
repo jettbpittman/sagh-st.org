@@ -36,7 +36,7 @@ function togglePassword () {
 }
 
 async function pickDashboard (token) {
-    const headers = new Headers();
+    let headers = new Headers();
     headers.append("token", token);
     headers.append("Content-type", "text/plain")
     let resp = await fetch("https://api.sagh-st.org/auth/check", {method: "POST", headers: headers})
