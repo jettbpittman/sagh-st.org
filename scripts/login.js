@@ -53,5 +53,3 @@ async function pickDashboard (token) {
         location.href = "../database/index.html"
     }
 }
-
-auth()
