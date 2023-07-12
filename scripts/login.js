@@ -36,6 +36,10 @@ function togglePassword () {
 }
 
 async function pickDashboard () {
+    const token = window.localStorage.getItem("token");
+    const headers = new Headers();
+    headers.append("token", token);
+    headers.append("Content-type", "text/plain")
     let resp = await fetch("https://api.sagh-st.org/auth/check", {method: "POST", headers: headers})
     let json = await resp.json()
     console.log("checked auth")
