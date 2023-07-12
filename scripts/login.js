@@ -19,7 +19,7 @@ async function login () {
     if (resp.status === 200) {
         message.innerText = "Success!"
         window.localStorage.setItem("token", token);
-        pickDashboard()
+        await pickDashboard(token)
     } else {
         message.innerText = `Failed to login, ${resp.statusText}`
     }
@@ -35,9 +35,7 @@ function togglePassword () {
   }
 }
 
-async function pickDashboard () {
-    const token = window.localStorage.getItem("token");
-    const headers = new Headers();
+async function pickDashboard (token) {
     headers.append("token", token);
     headers.append("Content-type", "text/plain")
     let resp = await fetch("https://api.sagh-st.org/auth/check", {method: "POST", headers: headers})
