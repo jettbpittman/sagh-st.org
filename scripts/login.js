@@ -44,12 +44,12 @@ async function pickDashboard (token) {
     console.log("checked auth")
 
     if (json['user']['permissions'] > 0) {
-        location.href = "../database/admin/index.html"
+        location.href = "/database/admin/index.html"
     }
     else if (json['user']['linked_swimmer']) {
-        location.href = "../database/user/index.html"
+        location.href = "/database/user/index.html"
     }
     else {
-        location.href = "../database/index.html"
+        location.href = "/database/index.html"
     }
 }

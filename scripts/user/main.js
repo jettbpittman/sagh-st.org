@@ -16,7 +16,6 @@ async function loadSwimmerInfo () {
     document.getElementById("swimmer-info-status").innerText = `${state}`
     document.getElementById("swimmer-info-entries").innerText = `${swimmer_data['stats']['entries']}`
     document.getElementById("swimmer-info-meets").innerText = `${swimmer_data['stats']['meet_count']}`
-    document.getElementById("user-info-name").innerText = `${user_data['name']}`
     document.getElementById("user-info-username").innerText = `${user_data['username']}`
     document.getElementById("user-info-email").innerText = `${user_data['email']}`
     document.getElementById("user-info-perms").innerText = `${user_data['permissions']}`
