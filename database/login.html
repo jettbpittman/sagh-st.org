@@ -5,8 +5,8 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="GHMV Individual Best Times">
-    <title>Login - GHMV Swim</title>
+    <meta name="description" content="GHMV Sign In">
+    <title>Sign In - GHMV Swim</title>
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/database/index.css">
     <link rel="stylesheet" href="/css/database/meets.css">
@@ -28,10 +28,10 @@
           });
     </script>
 </head>
-<body>
+<body onload="checkIfSignedIn()">
     <div id="header"></div>
     <div class="slate">
-        <h2>GHMV Database Admin Dashboard</h2>
+        <h2>GHMV Database Sign In</h2>
          <form id="login-form">
              <label for="user">Username:</label><br>
              <input type="text" placeholder="Enter Username" id="user" name="username"><br>

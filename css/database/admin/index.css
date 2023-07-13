@@ -54,6 +54,13 @@
     margin: 0;
 }
 
+#switch-dash {
+    position: absolute;
+    top: 16px;
+    left: 5%;
+    visibility: hidden;
+}
+
 .user-dropdown-content {
     display: none;
     position: absolute;

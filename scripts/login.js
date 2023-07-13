@@ -53,3 +53,10 @@ async function pickDashboard (token) {
         location.href = "/database/index.html"
     }
 }
+
+async function checkIfSignedIn () {
+    const token = window.localStorage.getItem("token");
+    if (token) {
+        pickDashboard(token)
+    }
+}

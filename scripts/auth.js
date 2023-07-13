@@ -73,4 +73,24 @@ async function pickDashboardMenu () {
     }
 }
 
+async function showAdminNav () {
+    let resp = await fetch("https://api.sagh-st.org/auth/check", {method: "POST", headers: headers})
+    let json = await resp.json()
+
+    if (json['user']['permissions'] > 0) {
+        let nav = document.getElementById("switch-dash");
+        nav.style.visibility = 'visible';
+    }
+}
+
+async function showSwimmerNav () {
+    let resp = await fetch("https://api.sagh-st.org/auth/check", {method: "POST", headers: headers})
+    let json = await resp.json()
+
+    if (json['user']['linked_swimmer']) {
+        let nav = document.getElementById("switch-dash");
+        nav.style.visibility = 'visible';
+    }
+}
+
 auth()
