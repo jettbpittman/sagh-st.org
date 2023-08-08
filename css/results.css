@@ -1,0 +1,19 @@
+body {
+    background-color: #bbddff;
+    margin: auto;
+    text-align: center;
+    font-family: Monospace, serif;
+    font-size: small
+}
+
+body table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+body table tr {
+    text-align: left;
+}
+body caption {
+    font-weight: bold;
+}
