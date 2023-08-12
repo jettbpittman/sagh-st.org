@@ -17,3 +17,13 @@ body table tr {
 body caption {
     font-weight: bold;
 }
+
+@media screen and (max-width: 600px) {
+    body table td, th {
+        font-size: xx-small;
+    }
+
+    body table {
+        width: 90%;
+    }
+}
