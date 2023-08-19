@@ -239,3 +239,21 @@ function createMeet () {
             }
         })
 }
+
+function createUser () {
+    const form = document.getElementById("create-user");
+    const formData = new FormData(form);
+    let entries = formData.entries();
+    let data = {};
+    for (let pair of entries) {
+        data[pair[0]] = pair[1];
+    }
+    fetch("https://api.sagh-st.org/users", { method: "POST", headers: headers, body: JSON.stringify(data) } )
+        .then(response => {
+            if (response.status === 200) {
+                fetchRoster()
+            } else {
+                alert("Failed to Add User! " + response.statusText)
+            }
+        })
+}
