@@ -101,8 +101,10 @@ function fetchRoster () {
                 if (json[swimmer]['active'] === false) {
                     style += " font-style: italic; color: #5A5A5A;"
                     color = "color: #5A5A5A;"
+                    row.className = "inactive"
                 } else {
                     color = "color: black"
+                    row.className = "active"
                 }
                 row.innerHTML = `<td style='width: 30%; ${color}'>${json[swimmer]['id']}</td><td style='width: 50%'><a style="${style} ${color}" href="swimmer.html?swimmer=` + json[swimmer]["id"] + `">${json[swimmer]['last_name']}, ${json[swimmer]['first_name']} ${json[swimmer]['middle_name']}</a></td><td style='width: 10%; ${color}'>${json[swimmer]['class']}</td><td style='width: 10%; ${color}'>${json[swimmer]['age']}</td>`
             }
@@ -256,4 +258,18 @@ function createUser () {
                 alert("Failed to Add User! " + response.statusText)
             }
         })
+}
+
+function toggleInactive () {
+    let checkbox = document.getElementById("roster-toggle-inactive");
+    if (checkbox.checked) {
+        swapStyleSheet("/css/database/admin/showInactive.css")
+    }
+    if (!checkbox.checked) {
+        swapStyleSheet("/css/database/admin/hideInactive.css")
+    }
+}
+
+function swapStyleSheet(sheet) {
+    document.getElementById("inactive-sheet").setAttribute("href", sheet);
 }

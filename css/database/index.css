@@ -72,19 +72,20 @@
     }
     .meet-table {
         width: 100% !important;
-        margin-right: auto;
-        margin-left: auto;
         table-layout: auto;
+        text-align: center;
     }
-    .meet-table td {
+    .meet-table td, th {
         width: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
     .slate-body td {
         display: table-row;
         width: 90%;
     }
     .event-cell td {
-        width: 100% !important;
+        width: 100%;
     }
 
     .admin-settings {

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/database/index.css">
     <link rel="stylesheet" href="/css/database/admin/index.css">
+    <link id="inactive-sheet" rel="stylesheet" href="/css/database/admin/hideInactive.css">
     <script type="text/javascript" src="/scripts/admin/main.js"></script>
     <script type="text/javascript" src="/scripts/consts.js"></script>
     <script type="text/javascript" src="/scripts/auth.js"></script>
@@ -50,17 +51,19 @@
             <tr>
                 <td style="width: 40%">
                     <h2><u>Roster</u></h2>
+                    <label for="roster-toggle-inactive">See Inactive Athletes</label>
+                    <input type="checkbox" style="width: 12pt" id="roster-toggle-inactive" onclick="toggleInactive()">
                     <table id="team-roster" class="roster-table"></table>
                     <br>
                     <div class="db-add" style="display: none">
                         <h4>Create Swimmer</h4>
                         <form id="create-swimmer">
                             <label for="name">Name:</label>
-                            <input type="text" placeholder="Name" id="name" name="name">
+                            <input type="text" placeholder="Name" id="name" name="name"><br>
                             <label for="age">Age:</label>
-                            <input type="number" placeholder="Age" id="age" name="age"><br><br>
+                            <input type="number" placeholder="Age" id="age" name="age"><br>
                             <label for="class">Grad Year:</label>
-                            <input type="number" placeholder="Class" id="class" name="class">
+                            <input type="number" placeholder="Class" id="class" name="class"><br>
                             <label for="gender">Gender:</label>
                             <input type="text" placeholder="Gender" id="gender" name="gender">
                             <br>
@@ -72,21 +75,22 @@
                 </td>
                 <td style="width: 40%">
                     <h2><u>Meets</u></h2>
+                    <br>
                     <table id="meets" class="meet-table"></table>
                     <br>
                     <div class="db-add" style="display: none">
                         <h4>Create Meet</h4>
                         <form id="create-meet">
                             <label for="meet-name">Name:</label>
-                            <input type="text" placeholder="Name" id="meet-name" name="name">
+                            <input type="text" placeholder="Name" id="meet-name" name="name"><br>
                             <label for="venue">Venue:</label>
-                            <input type="text" placeholder="Venue" id="venue" name="venue"><br><br>
+                            <input type="text" placeholder="Venue" id="venue" name="venue"><br>
                             <label for="date">Date:</label>
-                            <input type="text" placeholder="Date" id="date" name="date">
+                            <input type="text" placeholder="Date" id="date" name="date"><br>
                             <label for="designator">Designator:</label>
-                            <input type="text" placeholder="Designator" id="designator" name="designator"><br><br>
+                            <input type="text" placeholder="Designator" id="designator" name="designator"><br>
                             <label for="season">Season:</label>
-                            <input type="text" placeholder="Season" id="season" name="season">
+                            <input type="text" placeholder="Season" id="season" name="season"><br>
                             <label for="most_recent">Most Recent?</label>
                             <input type="checkbox" id="most_recent" name="most_recent">
                             <br><br>
@@ -97,6 +101,7 @@
                 </td>
                 <td style="width: 20%; display: none" class="admin-settings">
                     <h2><u>Admin Settings</u></h2>
+                    <br>
                     <div style="background-color: #F8FFB0; border: black 1px solid">
                         <h4><u>Manage Swimmers</u></h4>
                         <h5>Individual Status</h5>

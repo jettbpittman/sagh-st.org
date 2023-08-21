@@ -33,4 +33,10 @@
         position: relative !important;
         right: 0 !important;
     }
+    #meet-information {
+        width: 95%;
+    }
+    .entries-table {
+        width: 95%;
+    }
 }

@@ -33,4 +33,10 @@
         position: relative !important;
         right: 0 !important;
     }
+    .swimmer-information {
+        width: 95%;
+    }
+    .times-table {
+        width: 95%;
+    }
 }

@@ -16,7 +16,8 @@ body {
 }
 
 .header-nav th, .header-nav td {
-    border: #bbddff solid 1px;
+    border-left: #bbddff solid 1px;
+    border-right: #bbddff solid 1px;
     width: auto;
 }
 
@@ -25,17 +26,23 @@ body {
     text-decoration: none;
 }
 
+.header-nav-row {
+    width: 100%;
+    background-color: #000066;
+    margin: 0;
+}
+
 .header {
     position: relative;
     text-align: center;
+    width: 100%;
 }
 
 .footer {
     background-color: #000066;
     color: #FFFFFF;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    margin: 0;
 }
 
 .header-nav {
