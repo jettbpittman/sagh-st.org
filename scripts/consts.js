@@ -14,6 +14,7 @@ venue_colors = {
     "DC": "99CCFF",
     "LC": "99CCFF",
     "BL": "66DD88",
+    "SC": "99CCFF",
     undefined: "99CCFF"
 }
 
@@ -32,5 +33,6 @@ venues = {
     "PA": "Palo Alto Natatorium",
     "LC": "Lamar CISD Natatorium",
     "DC": "Don Cook Natatorium",
-    "BL": "George Block Aquatic Center"
+    "BL": "George Block Aquatic Center",
+    "SC": "Schertz Aquatics Center"
 }
