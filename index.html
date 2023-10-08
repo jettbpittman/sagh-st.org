@@ -26,6 +26,32 @@
             document.querySelector('#footer').innerHTML = body;
           });
     </script>
+        <script>
+            var countDownDate = new Date("Oct 23, 2023 23:59:59").getTime();
+            var x = setInterval(function() {
+
+              var now = new Date().getTime();
+
+              var distance = countDownDate - now;
+
+              // Time calculations for days, hours, minutes and seconds
+              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+              document.getElementById("countdown").innerHTML = "Closes in " + days + "d " + hours + "h "
+              + minutes + "m " + seconds + "s ";
+
+              document.getElementById("countdown").title = "23 October 2023"
+
+              // If the count down is finished, write some text
+              if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "CLOSED!";
+              }
+            }, 1000);
+            </script>
 </head>
 <body>
     <div id="header"></div>
@@ -36,6 +62,7 @@
                     <h2><u>General Information</u></h2>
                     <h3><b style="color: darkred">FALL BREAK PRACTICE CHANGE</b> - Tuesday, Wednesday, and Thursday @ 0700.</h3>
                     <h3><b style="color: darkred">NO STRENGTH AND CONDITIONING</b> - Monday and Thursday, 09 and 12 October 2023.</h3>
+                    <h3><a style="color: black" href="https://jupiter.areswear.com/store/?storeName=Great_Hearts_Monte_Vista_Swimming_Soccer_Online_Team_Store_2023"><u><b>SPIRIT STORE</b></u></a> - <span id="countdown"></span></h3>
                     <table class="meet-table">
                         <tbody>
                         <tr class="top-row">
