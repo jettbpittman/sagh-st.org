@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Attendance - GHMV Swim</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/database/index.css">
+    <link rel="stylesheet" href="/css/database/admin/index.css">
+    <link rel="stylesheet" href="/css/database/admin/attendance.css">
+    <script type="text/javascript" src="/scripts/auth.js"></script>
+    <script type="text/javascript" src="/scripts/admin/attendance.js"></script>
+    <script>
+        fetch('/static/header.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#header').innerHTML = body;
+          });
+        fetch('/static/footer.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#footer').innerHTML = body;
+          });
+        fetch('/static/user-menu.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#user-settings').innerHTML = body;
+          });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="slate">
+        <h2>Attendance</h2>
+        <div id="user-settings"></div>
+        <div id="return">
+            <a onclick="history.back()" style="color: black; font-weight: bold; text-decoration: none;"><= Return</a><br><br>
+        </div>
+        <div class="attendance">
+            <span id="swimmer-info"></span>
+            <form id="attendance-form">
+                <input type="date" id="date" name="date">
+                <script>
+                    const today = new Date();
+                    document.getElementById('date').value = today.toISOString().substring(0,10);
+                </script>
+                <br>
+                <table id="roster-table" class="roster-table"></table>
+                <br>
+                <input type="button" value="Submit" onclick="handleSubmit(this.form)">
+            </form>
+            <br>
+        </div>
+
+    </div>
+    <br><br>
+    <div id="footer"></div>
+    <!-- 100% privacy friendly analytics -->
+    <script async defer src="https://sa.sagh-st.org/latest.js"></script>
+    <noscript><img src="https://sa.sagh-st.org/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+</body>
+</html>

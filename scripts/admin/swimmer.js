@@ -91,10 +91,17 @@ function getSwimmer (param) {
             } else {
                 active = "Inactive"
             }
+            let usasId;
+            if (json['usas_id']) {
+                usasId = json['usas_id']
+            }
+            else {
+                usasId = "NO USAS ID"
+            }
             if (json['homeschool'] === true) {
                 json['class'] += ' (H)';
             }
-            data.innerHTML = `<b>${json['last_name']}, ${json['first_name']} ${json['middle_name']}</b><br><i>Class of 20${json['class']}</i><br>${json['dob']}<br><b>${active}</b>`
+            data.innerHTML = `<b>${json['last_name']}, ${json['first_name']} ${json['middle_name']}</b><br>${usasId}<br><i>Class of 20${json['class']}</i><br>${json['dob']}<br><b>${active}</b>`
             box.appendChild(data);
         })
     fetch("https://api.sagh-st.org/swimmers/" + swimmerID + "/entries")

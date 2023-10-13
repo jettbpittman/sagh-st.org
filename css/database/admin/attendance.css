@@ -1,0 +1,22 @@
+.attendance {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slate {
+    position: relative;
+}
+
+#user-settings {
+    position: absolute;
+    top: 0;
+    right: 5%;
+}
+
+@media screen and (max-width: 600px) {
+    #user-settings {
+        position: relative !important;
+        right: 0 !important;
+    }
+}
