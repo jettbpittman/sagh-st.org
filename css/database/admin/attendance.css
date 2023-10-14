@@ -80,7 +80,7 @@
     border: 1px solid black;
 }
 
-.mobile:hover, .mobile:active .swimmer-information {
+.mobile-hover:hover, .mobile-hover:active .swimmer-information {
     display: inline;
 }
 
