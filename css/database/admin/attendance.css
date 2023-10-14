@@ -98,4 +98,7 @@
     .desktop {
         display: none;
     }
+    .roster-table {
+        width: 90%;
+    }
 }
