@@ -46,11 +46,12 @@
             <a onclick="history.back()" style="color: black; font-weight: bold; text-decoration: none;"><= Return</a><br><br>
         </div>
         <label for="swimmers">Select a Swimmer:</label>
-        <select name="swimmers" id="swimmers"></select><br>
-        <input id="swimmer-submit" type="button" value="Submit" onclick="getSwimmer(false)">
-        <br><br>
+        <select name="swimmers" id="swimmers" onchange="getSwimmer(false)"></select><br>
+        <br>
         <div class="swimmer-information">
             <span id="swimmer-info"></span>
+            <table id="attendance-table"></table>
+            <br>
             <table id="times-table" class="times-table"></table>
             <br>
         </div>

@@ -6,10 +6,19 @@
     margin-right: auto;
 }
 
-.times-table {
+.times-table, #attendance-table {
     margin-left: auto;
     margin-right: auto;
     width: 70%;
+    border-collapse: collapse;
+}
+
+#attendance-table {
+    border: 1px black solid;
+}
+
+#attendance-table td {
+    border: 1px black solid;
 }
 
 .slate {

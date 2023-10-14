@@ -79,6 +79,19 @@ function splitsf (s, t) {
 function getSwimmer (param) {
     let swimmerID = getSID(param);
     console.log(swimmerID)
+    fetch("https://api.sagh-st.org/attendance/swimmer/" + swimmerID,{ method: "GET", headers: headers } )
+        .then(response => response.json())
+        .then(json => {
+            console.log(json)
+            let attTable = document.getElementById("attendance-table");
+            attTable.insertRow().innerHTML = "<th>Date</th><th>Status</th>"
+            for (let date in json['records']) {
+                console.log(date)
+                attTable.insertRow().innerHTML = `<td>${date}</td><td>${json['records'][date]}</td>`;
+
+            }
+        })
+
     fetch("https://api.sagh-st.org/swimmers/" + swimmerID)
         .then(response => response.json())
         .then(json => {

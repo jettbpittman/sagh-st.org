@@ -34,9 +34,7 @@
     <div class="slate">
         <h2>GHMV Meet Results</h2>
         <label for="meets">Select a Meet:</label>
-        <select name="meets" id="meets"></select><br>
-        <input id="meet-submit" type="button" value="Submit" onclick="getMeet()">
-        <br>
+        <select name="meets" id="meets" onchange="getMeet()"></select><br>
         <br>
         <table id="meet-results" class="meet-table"></table>
         <br>
