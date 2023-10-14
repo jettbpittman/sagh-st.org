@@ -12,7 +12,7 @@ function main () {
 
 
 function loadManagerSettings () {
-    fetch("https://api.sagh-st.org/teams/SAGH/roster/all")
+    fetch("https://api.sagh-st.org/teams/SAGH/roster/all", { headers: headers })
         .then(response => response.json())
         .then(json => {
             let html = "";
@@ -87,7 +87,7 @@ function updateUserState () {
 }
 
 function fetchRoster () {
-    fetch("https://api.sagh-st.org/teams/SAGH/roster/all")
+    fetch("https://api.sagh-st.org/teams/SAGH/roster/all", { headers: headers })
         .then(response => response.json())
         .then(json => {
             const rosterTable = document.getElementById("team-roster");
@@ -112,7 +112,7 @@ function fetchRoster () {
 }
 
 function fetchMeets () {
-    fetch("https://api.sagh-st.org/meets")
+    fetch("https://api.sagh-st.org/meets", { headers: headers })
         .then(response => response.json())
         .then(json => {
             const rosterTable = document.getElementById("meets");
