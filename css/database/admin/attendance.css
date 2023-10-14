@@ -17,7 +17,7 @@
     width: 60%;
 }
 
-.roster-table td th {
+.roster-table td, th {
     border: 1px black solid;
 }
 
@@ -47,7 +47,7 @@
     display: block;
 }
 
-.dropdown-table td th {
+.dropdown-table td, th {
     border: 1px black solid;
     padding: 10px;
 }
