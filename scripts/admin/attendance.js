@@ -7,7 +7,7 @@ function fetchRoster () {
             const rosterTable = document.getElementById("roster-table");
             rosterTable.innerHTML = "";
             let headers = rosterTable.insertRow();
-            headers.innerHTML = "<th style='width: 25%'>Name</th><th style='width: 5%'>Class</th><th style='width: 10%'>DOB</th><th style='width: 10%'>USAS ID</th>"
+            headers.innerHTML = "<th style='width: 25%'>Name</th><th style='width: 5%' class='desktop'>Class</th><th style='width: 10%' class='desktop'>DOB</th><th style='width: 10%' class='desktop'>USAS ID</th>"
             for (let swimmer in json) {
                 let row = rosterTable.insertRow();
                 let usasID;
@@ -17,7 +17,7 @@ function fetchRoster () {
                 else {
                     usasID = ""
                 }
-                row.innerHTML = `<td style='width: 25%; text-align: left; padding-left: 6px'>${json[swimmer]['last_name']}, ${json[swimmer]['first_name']} ${json[swimmer]['middle_name']}</td><td style='width: 5%'>${json[swimmer]['class']}</td><td style='width: 10%'>${json[swimmer]['dob']}</td><td style='width: 10%'>${usasID}</td><td style="width: 25%"><input type="radio" class="present" value="present" name="${json[swimmer]['id']}" checked><label for="present">Present</label>   <input type="radio" class="absent" value="absent" name="${json[swimmer]['id']}"><label for="absent">Absent</label></td>`
+                row.innerHTML = `<td style='width: 25%; text-align: left; padding-left: 6px'>${json[swimmer]['last_name']}, ${json[swimmer]['first_name']} ${json[swimmer]['middle_name']}</td><td class="desktop" style='width: 5%'>${json[swimmer]['class']}</td><td class="desktop" style='width: 10%'>${json[swimmer]['dob']}</td><td class="desktop" style='width: 10%'>${usasID}</td><td class="mobile" style="width: 5%"><span id="swimmer-info-dropdown"><b><i>i</i></b></span><div class="swimmer-information"><table class="swimmer-info-table"><tr><td>Class</td><td>${json[swimmer]['class']}</td></tr><tr><td>DOB</td><td>${json[swimmer]['dob']}</td></tr><tr><td>USAS ID</td><td>${usasID}</td></tr></table></div></td><td style="width: 25%"><input type="radio" class="present" value="present" name="${json[swimmer]['id']}" checked><label for="present">Present</label>   <input type="radio" class="absent" value="absent" name="${json[swimmer]['id']}"><label for="absent">Absent</label></td>`
             }
         })
 }

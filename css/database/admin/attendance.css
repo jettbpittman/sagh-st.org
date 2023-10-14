@@ -61,6 +61,29 @@
     border-collapse: collapse;
 }
 
+.mobile {
+    display: none;
+}
+
+.swimmer-information {
+    display: none;
+    position: absolute;
+    background-color: #BEDDDD;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.swimmer-info-table {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+}
+
+.mobile:hover, .mobile:active .swimmer-information {
+    display: inline;
+}
+
 @media screen and (max-width: 600px) {
     #user-settings {
         position: relative !important;
@@ -68,5 +91,11 @@
     }
     .attendance {
         font-size: small;
+    }
+    .mobile {
+        display: table-cell;
+    }
+    .desktop {
+        display: none;
     }
 }
