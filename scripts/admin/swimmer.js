@@ -85,10 +85,10 @@ function getSwimmer (param) {
             console.log(json)
             let attTable = document.getElementById("attendance-table");
             attTable.innerHTML = "";
-            attTable.insertRow().innerHTML = "<th>Date</th><th>Status</th>"
+            attTable.insertRow().innerHTML = "<th>Date</th><th>Type</th><th>Status</th>"
             for (let date in json['records']) {
                 console.log(date)
-                attTable.insertRow().innerHTML = `<td>${date}</td><td>${json['records'][date]}</td>`;
+                attTable.insertRow().innerHTML = `<td>${date}</td><td>${json['records'][date][1]}</td><td>${json['records'][date][0]}</td>`;
 
             }
         })

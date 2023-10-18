@@ -47,6 +47,12 @@
     display: block;
 }
 
+#return {
+  position: absolute;
+  top: 16px;
+  left: 5%;
+}
+
 .dropdown-table td, .dropdown-table th {
     border: 1px black solid;
     padding: 10px;

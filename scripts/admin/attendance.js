@@ -38,17 +38,25 @@ function handleSubmit (form) {
         })
 }
 
-async function updateAttendance (date) {
-    let resp = await fetch("https://api.sagh-st.org/attendance/date/" + date, {method: "GET", headers: headers})
+async function updateAttendance () {
+    const date = document.getElementById("date").value;
+    const type = document.getElementById("type").value;
+    let resp = await fetch("https://api.sagh-st.org/attendance/date/" + date + "/" + type, {method: "GET", headers: headers})
     let json = await resp.json()
     let reset = document.getElementsByClassName("present");
     for (let i in reset) {
         reset[i].checked = true;
     }
     if (Object.keys(json).length === 1) {
+        let d = document.getElementById("attendance-message");
+        d.innerText = "No Attendance Submitted!"
         return console.log("no attendance")
+    } else {
+        let d = document.getElementById("attendance-message");
+        d.innerHTML = "";
     }
     delete json.date;
+    console.log(json)
     for (let swimmer in json) {
         let input = document.getElementsByName(swimmer);
         input.value = json[swimmer]
@@ -56,5 +64,4 @@ async function updateAttendance (date) {
             input[1].checked=true;
         }
     }
-
 }
