@@ -1,4 +1,4 @@
-fetch("https://api.sagh-st.org/meets")
+fetch("https://api.sagh-st.org/meets", { method: "GET", headers: headers })
         .then(response => response.json())
         .then(json => {
             let html = "";
@@ -9,7 +9,7 @@ fetch("https://api.sagh-st.org/meets")
             select.innerHTML = html;
         })
 
-fetch("https://api.sagh-st.org/teams/SAGH/roster/all")
+fetch("https://api.sagh-st.org/teams/SAGH/roster/all", { method: "GET", headers: headers })
         .then(response => response.json())
         .then(json => {
             let html = "";
@@ -89,7 +89,7 @@ function splitsf (s, t) {
 function getMeet (param) {
     let meetID = getMID(param);
     console.log(meetID)
-    fetch("https://api.sagh-st.org/meets/" + meetID)
+    fetch("https://api.sagh-st.org/meets/" + meetID, { method: "GET", headers: headers })
         .then(response => response.json())
         .then(json => {
             let box = document.getElementById("meet-info");
@@ -105,7 +105,7 @@ function getMeet (param) {
             infoBox.style.visibility = "visible";
             infoBox.style.backgroundColor = `#${venue_colors[json['venue']]}`;
         })
-    fetch("https://api.sagh-st.org/meets/" + meetID + "/entries")
+    fetch("https://api.sagh-st.org/meets/" + meetID + "/entries", { method: "GET", headers: headers })
         .then(response => response.json())
         .then(json => {
             let t = document.getElementById("entries-table");
