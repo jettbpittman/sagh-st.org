@@ -1,9 +1,12 @@
 function gender (code) {
     if (code[0] === "M") {
-        return "Men's"
+        return "Men"
     }
     if (code[0] === "F") {
-        return "Women's"
+        return "Women"
+    }
+    if (code[0] === "I") {
+        return "Mixed"
     }
 }
 
