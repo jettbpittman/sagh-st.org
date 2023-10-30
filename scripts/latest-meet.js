@@ -74,7 +74,7 @@ fetch("https://api.sagh-st.org/latest/meet", { method: "GET" })
             fetch("https://api.sagh-st.org/meets/" + json['id'] + "/entries/SAGH")
                     .then(resp => resp.json())
                     .then(json1 => {
-                        const events = [`I200RM`, `F200RM`, `M200RM`,`F200F`, `M200F`, `F200M`, `M200M`,`F50F`, `M50F`, `F100L`, `M100L`, `F100F`, `M100F`, `F500F`, `M500F`, `F200RF`, `M200RF`, `I100RF`,`F100B`, `M100B`, `F100S`, `M100S`, `F400RF`, `M400RF`, `F50B`, `M50B`, `F50S`, `M50S`, `F50L`, `M50L`, `F100M`, `M100M`, `F200B`, `M200B`, `F200S`, `M200S`, `F200L`, `M200L`,`F400RM`, `M400RM`, `F400M`, `M400M`, `F1000F`, `M1000F`, `F1650F`, `M1650F`, `F800RF`, `M800RF`, `F500RF`, `F500RF`]
+                        const events = [`I200RM`, `F200RM`, `M200RM`,`F200F`, `M200F`, `F200M`, `M200M`,`F50F`, `M50F`, `F100L`, `M100L`, `F100F`, `M100F`, `F500F`, `M500F`, `F200RF`, `M200RF`, `I100RF`,`F100B`, `M100B`, `F100S`, `M100S`, `F400RF`, `M400RF`, `F50B`, `M50B`, `F50S`, `M50S`, `F50L`, `M50L`, `F100M`, `M100M`, `F200B`, `M200B`, `F200S`, `M200S`, `F200L`, `M200L`,`F400RM`, `M400RM`, `F400M`, `M400M`, `F1000F`, `M1000F`, `F1650F`, `M1650F`, `F800RF`, `M800RF`, `F500RF`, `M500RF`]
                         for (let event of events) {
                             console.log(event)
                             if (json1[event] === undefined) {
