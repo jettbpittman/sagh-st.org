@@ -1,3 +1,10 @@
+let date = new Date()
+let season = date.getFullYear()
+if (date.getMonth() >= 8) {
+    season += 1
+}
+console.log(season)
+
 function main () {
     const perm = window.localStorage.getItem("permissions");
     fetchRoster()
@@ -121,7 +128,19 @@ function fetchMeets () {
             headers.innerHTML = "<th style='width: 30%'>ID</th><th style='width: 50%'>Name</th><th style='width: 10%'>Date</th><th style='width: 10%'>Venue</th>"
             for (let meet in json) {
                 let row = rosterTable.insertRow();
-                row.innerHTML = `<td style='width: 30%'>${json[meet]['id']}</td><td style='width: 50%'><a style="color: black; text-decoration: none" href="meet.html?meet=` + json[meet]['id'] + `">${json[meet]['name']}</td><td style='width: 10%'>${json[meet]['date']}</td><td style='width: 10%'>${json[meet]['venue']}</td>`
+                let style;
+                let color;
+                console.log(json[meet]['season'])
+                if (json[meet]['season'] != season.toString()) {
+                    style = "font-style: italic;"
+                    color = "color: #5A5A5A;"
+                    row.className = "previous-season"
+                } else {
+                    style = ""
+                    color = "color: black;"
+                    row.className = "current-season"
+                }
+                row.innerHTML = `<td style='width: 30%; ${color + style}'>${json[meet]['id']}</td><td style='width: 50%; ${color + style}'><a style="${color} text-decoration: none" href="meet.html?meet=` + json[meet]['id'] + `">${json[meet]['name']}</td><td style='width: 10%; ${color + style}'>${json[meet]['date']}</td><td style='width: 10%; ${color + style}'>${json[meet]['venue']}</td>`
             }
         })
 }
@@ -260,16 +279,26 @@ function createUser () {
         })
 }
 
-function toggleInactive () {
+function toggleInactiveSwimmer () {
     let checkbox = document.getElementById("roster-toggle-inactive");
     if (checkbox.checked) {
-        swapStyleSheet("/css/database/admin/showInactive.css")
+        swapStyleSheet("/css/database/admin/showInactiveSwimmer.css", "inactive-swimmer-sheet")
     }
     if (!checkbox.checked) {
-        swapStyleSheet("/css/database/admin/hideInactive.css")
+        swapStyleSheet("/css/database/admin/hideInactiveSwimmer.css", "inactive-swimmer-sheet")
     }
 }
 
-function swapStyleSheet(sheet) {
-    document.getElementById("inactive-sheet").setAttribute("href", sheet);
+function toggleInactiveMeet () {
+    let checkbox = document.getElementById("meets-toggle-inactive");
+    if (checkbox.checked) {
+        swapStyleSheet("/css/database/admin/showInactiveMeet.css", "inactive-meet-sheet")
+    }
+    if (!checkbox.checked) {
+        swapStyleSheet("/css/database/admin/hideInactiveMeet.css", "inactive-meet-sheet")
+    }
+}
+
+function swapStyleSheet(sheet, id) {
+    document.getElementById(id).setAttribute("href", sheet);
 }

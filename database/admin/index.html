@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/database/index.css">
     <link rel="stylesheet" href="/css/database/admin/index.css">
-    <link id="inactive-sheet" rel="stylesheet" href="/css/database/admin/hideInactive.css">
+    <link id="inactive-swimmer-sheet" rel="stylesheet" href="/css/database/admin/hideInactiveSwimmer.css">
+    <link id="inactive-meet-sheet" rel="stylesheet" href="/css/database/admin/hideInactiveMeet.css">
     <script type="text/javascript" src="/scripts/admin/main.js"></script>
     <script type="text/javascript" src="/scripts/consts.js"></script>
     <script type="text/javascript" src="/scripts/auth.js"></script>
@@ -53,7 +54,7 @@
                 <td style="width: 40%">
                     <h2><u>Roster</u></h2>
                     <label for="roster-toggle-inactive">See Inactive Athletes</label>
-                    <input type="checkbox" style="width: 12pt" id="roster-toggle-inactive" onclick="toggleInactive()">
+                    <input type="checkbox" style="width: 12pt" id="roster-toggle-inactive" onclick="toggleInactiveSwimmer()">
                     <table id="team-roster" class="roster-table"></table>
                     <br>
                     <div class="db-add" style="display: none">
@@ -76,7 +77,8 @@
                 </td>
                 <td style="width: 40%">
                     <h2><u>Meets</u></h2>
-                    <br>
+                    <label for="meets-toggle-inactive">See Previous Seasons</label>
+                    <input type="checkbox" style="width: 12pt" id="meets-toggle-inactive" onclick="toggleInactiveMeet()">
                     <table id="meets" class="meet-table"></table>
                     <br>
                     <div class="db-add" style="display: none">
