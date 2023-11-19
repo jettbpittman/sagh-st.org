@@ -16,7 +16,6 @@ function formatTime (time) {
     let minutes = Math.trunc(seconds / 60);
     let new_seconds = seconds % 60;
     new_seconds = ("0" + new_seconds).slice(-2);
-    console.log(time[1])
     if (!time[1]) {
         time[1] = 0
     }
@@ -74,14 +73,19 @@ fetch("https://api.sagh-st.org/latest/meet", { method: "GET" })
             fetch("https://api.sagh-st.org/meets/" + json['id'] + "/entries/SAGH")
                     .then(resp => resp.json())
                     .then(json1 => {
+                        if (Object.keys(json1).length === 0) {
+                            title.innerText = "Results not available!"
+                            title.style.color = "darkred"
+                            title.style.fontStyle = "italic"
+                            title.style.textDecoration = "none"
+                            return
+                        }
                         const events = [`I200RM`, `F200RM`, `M200RM`,`F200F`, `M200F`, `F200M`, `M200M`,`F50F`, `M50F`, `F100L`, `M100L`, `F100F`, `M100F`, `F500F`, `M500F`, `F200RF`, `M200RF`, `I100RF`,`F100B`, `M100B`, `F100S`, `M100S`, `F400RF`, `M400RF`, `F50B`, `M50B`, `I50B`, `F50S`, `M50S`, `F50L`, `M50L`, `F100M`, `M100M`, `F200B`, `M200B`, `F200S`, `M200S`, `F200L`, `M200L`,`F400RM`, `M400RM`, `F400M`, `M400M`, `F1000F`, `M1000F`, `F1650F`, `M1650F`, `F800RF`, `M800RF`, `F500RF`, `M500RF`]
                         for (let event of events) {
-                            console.log(event)
                             if (json1[event] === undefined) {
                                 continue
                             }
                             let results = json1[event]
-                            console.log(results)
                             let r = resultTable.insertRow();
                             let d = r.insertCell();
                             d.className = "event-cell";
@@ -104,7 +108,6 @@ fetch("https://api.sagh-st.org/latest/meet", { method: "GET" })
                                 for (let split in results[times]['splits']) {
                                     splits += `${formatTime(results[times]['splits'][split])} `
                                 }
-                                console.log(splits)
                                 if (results[times]['relay']) {
                                     try {
                                         swimmers = `${results[times]['relay']['1']['last_name']}, ${results[times]['relay']['1']['first_name']} ${results[times]['relay']['1']['middle_name']}<br>${results[times]['relay']['2']['last_name']}, ${results[times]['relay']['2']['first_name']} ${results[times]['relay']['2']['middle_name']}<br>${results[times]['relay']['3']['last_name']}, ${results[times]['relay']['3']['first_name']} ${results[times]['relay']['3']['middle_name']}<br>${results[times]['relay']['4']['last_name']}, ${results[times]['relay']['4']['first_name']} ${results[times]['relay']['4']['middle_name']}`

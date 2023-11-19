@@ -24,26 +24,46 @@
           .then(function(body) {
             document.querySelector('#footer').innerHTML = body;
           });
-        fetch('/records/top_5-all-time.html')
+        fetch('/records/top_5-school.html')
           .then(function(response) {
             return response.text();
           })
           .then(function(body) {
-            document.querySelector('#top-5').innerHTML = body;
+            document.querySelector('#top-5-school').innerHTML = body + "<br>";
           });
-        fetch('/2023/records.html')
+        fetch('/records/top_5-program.html')
           .then(function(response) {
             return response.text();
           })
           .then(function(body) {
-            document.querySelector('#current').innerHTML = body;
+            document.querySelector('#top-5-program').innerHTML = body + "<br>";
+          });
+        fetch('/records/top_5-relays.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#top-5-relays').innerHTML = body + "<br>";
           });
     </script>
 </head>
 <body>
     <div id="header"></div>
     <div class="slate">
-        <div id="top-5" style="width: 95%; margin-left: auto; margin-right: auto;"></div>
+        <h2>GHMV Records</h2>
+        <p>Click the following links to jump to specific record boards.</p>
+        <table id="records-nav">
+            <tr>
+                <td><a href="#top-5-school" style="color: black; text-decoration: underline; font-weight: bold">  SCHOOL  </a></td>
+                <td><a href="#top-5-program" style="color: black; text-decoration: underline; font-weight: bold">  TEAM  </a></td>
+                <td><a href="#top-5-relays" style="color: black; text-decoration: underline; font-weight: bold">  RELAYS  </a></td>
+            </tr>
+        </table>
+        <br>
+        <div id="top-5-school" class="top-5"></div>
+        <div id="top-5-program" class="top-5"></div>
+        <div id="top-5-relays" class="top-5"></div>
+        <br>
     </div>
     <br>
     <div id="footer"></div>
