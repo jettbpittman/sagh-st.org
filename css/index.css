@@ -22,7 +22,7 @@
     border-right: 1px solid black;
     border-left: 1px solid black;
     margin: 0;
-    min-width: 65%;
+    width: 40%;
 }
 
 #links ul li {
