@@ -142,3 +142,13 @@
     background-color: #F8FFB0 !important;
     border: 1px black solid;
 }
+
+.color-change {
+    animation: color-change 3s infinite;
+}
+
+@keyframes color-change {
+    0% { color: red; }
+    50% { color: mediumblue; }
+    100% { color: red; }
+}
