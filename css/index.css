@@ -13,7 +13,7 @@
 }
 
 .meet-table {
-    display: inline;
+    display: inline-block;
     border-collapse: collapse;
 }
 
