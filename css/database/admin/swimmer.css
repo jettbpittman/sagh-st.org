@@ -21,6 +21,10 @@
     border: 1px black solid;
 }
 
+#attendance-table tr:nth-child(n+7) {
+    display: none;
+}
+
 .slate {
     position: relative;
 }

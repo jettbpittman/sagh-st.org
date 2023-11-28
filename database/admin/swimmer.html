@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/database/index.css">
     <link rel="stylesheet" href="/css/database/admin/index.css">
     <link rel="stylesheet" href="/css/database/admin/swimmer.css">
+    <link id="atten-sheet" rel="stylesheet" href="/css/database/admin/showLessAtten.css">
     <script type="text/javascript" src="/scripts/auth.js"></script>
     <script type="text/javascript" src="/scripts/admin/swimmer.js"></script>
     <script>
@@ -51,6 +52,9 @@
         <div class="swimmer-information">
             <span id="swimmer-info"></span>
             <table id="attendance-table"></table>
+            <label for="more-attendance-check">Show more</label>
+            <input type="checkbox" id="more-attendance-check" onchange="showMoreAtten()">
+            <br>
             <br>
             <table id="times-table" class="times-table"></table>
             <br>

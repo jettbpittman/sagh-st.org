@@ -170,3 +170,17 @@ function getSwimmer (param) {
 }
 
 getSwimmer(true);
+
+function showMoreAtten() {
+    let box = document.getElementById("more-attendance-check");
+    if (box.checked) {
+        swapStyleSheet("/css/database/admin/showMoreAtten.css", "atten-sheet")
+    }
+    if (!box.checked) {
+        swapStyleSheet("/css/database/admin/showLessAtten.css", "atten-sheet")
+    }
+}
+
+function swapStyleSheet(sheet, id) {
+    document.getElementById(id).setAttribute("href", sheet);
+}
