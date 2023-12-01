@@ -132,6 +132,7 @@
     height: 500px;
     border: 1px black solid;
     overflow: hidden;
+    background-color: #F8FFB0;
 }
 
 .honors-table {
