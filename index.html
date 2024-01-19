@@ -27,7 +27,7 @@
           });
     </script>
         <script>
-            var countDownDate = new Date("Jan 18, 2024 12:00:00").getTime();
+            var countDownDate = new Date("Feb 2, 2024 13:00:00").getTime();
             var x = setInterval(function() {
 
               var now = new Date().getTime();
@@ -43,12 +43,12 @@
               document.getElementById("countdown").innerHTML = "Begins in " + days + "d " + hours + "h "
               + minutes + "m " + seconds + "s ";
 
-              document.getElementById("countdown").title = "18 January 2024"
+              document.getElementById("countdown").title = "2 February 2024"
 
               // If the count down is finished, write some text
               if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("countdown").innerHTML = "DISTRICTS UNDERWAY/CONCLUDED!";
+                document.getElementById("countdown").innerHTML = "REGIONALS UNDERWAY/CONCLUDED!";
               }
             }, 1000);
             </script>
@@ -60,23 +60,13 @@
             <tr>
                 <td style="width: 80%" id="gen-info">
                     <h2><u>General Information</u></h2>
-                    <h3><span style="color: darkred">PRACTICE CHANGE</span> - 15 January 2024 @ 1430</h3>
+                    <h3><span style="color: darkred">NO PRACTICE</span> - 19 January 2024 @ 1430</h3>
+                    <hr style="width: 95%">
+                    <h2><u>Countdown to Regionals</u></h2>
+                    <h3 id="countdown"></h3>
                     <table class="meet-table">
                         <tbody>
                         <tr class="top-row">
-                            <td style="background-color: #CCCCFF;">
-                                <p>
-                                    <b>NEISD AAHSSL Winter Invite</b>
-                                    <br>
-                                    Bill Walker Pool (NE)
-                                    <br>
-                                    12 January 2024
-                                    <br>
-                                    Warmups @ 0830 | Meet @ 1000
-                                    <br>
-                                    <em style="color: mediumblue">CONCLUDED!</em>
-                                </p>
-                            </td>
                             <td style="background-color: #F8FFB0;">
                                 <p>
                                     <b>UIL District 15-4A</b>
@@ -87,25 +77,52 @@
                                     <br>
                                     Warmups @ 1030 | Meet @ 1200
                                     <br>
-                                    Enter by 1/12/2024
+                                    <em style="color: mediumblue">CONCLUDED!</em>
+                                </p>
+                            </td>
+                            <td style="background-color: #99FFCC;">
+                                <p>
+                                    <b>UIL Region IV-4A</b>
+                                    <br>
+                                    Southwest Aquatic Center (SW)
+                                    <br>
+                                    2-3 February 2024
+                                    <br>
+                                    Warmups @ 1120(P) 1020(F) | Meet @ 1300(P) 1200(F)
+                                    <br>
+                                    Enter by 1/30/2024
+                                </p>
+                            </td>
+                            <td style="background-color: #CCCCFF;">
+                                <p>
+                                    <b>UIL State 4A</b>
+                                    <br>
+                                    Josh Davis Natatorium (NE)
+                                    <br>
+                                    15-16 February 2024
+                                    <br>
+                                    Warmups @ 0815 | Meet @ 1000 (P) 1100 (F)
+                                    <br>
+                                    Enter by <em style="color: mediumblue"><i>Automatic!</i></em>
                                 </p>
                             </td>
                         </tr>
                         <tr class="bottom-row">
-                            <td style="background-color: #CCCCFF;">
-                                <p><a href="https://files.sagh-st.org/meet-pdfs/2024-winv-ne.pdf" style="text-decoration: underline;"><b>PDF</b></a>   |   <a href="https://www.sagh-st.org/results/2024-WINE.html" style="text-decoration: underline"><b>RESULTS</b></a></p>
-                            </td>
                             <td style="background-color: #F8FFB0;">
                                 <p><a href="https://files.sagh-st.org/meet-pdfs/2023-15-4a.pdf" style="text-decoration: underline;"><b>PDF</b></a>   |   <a href="" style="text-decoration: none"><i>RESULTS</i></a></p>
+                            </td>
+                            <td style="background-color: #99FFCC;">
+                                <p><a href="https://files.sagh-st.org/meet-pdfs/2024-r44a.pdf" style="text-decoration: underline"><b>PDF</b></a>   |   <a href="" style="text-decoration: none"><i>RESULTS</i></a></p>
+                            </td>
+                            <td style="background-color: #CCCCFF;">
+                                <p><a href="" style="text-decoration: none"><i>PDF</i></a>   |   <a href="" style="text-decoration: none"><i>RESULTS</i></a></p>
                             </td>
                         </tr>
                         </tbody>
                     </table>
                     <!--<h2><u>Real Time Results</u></h2>
                     <iframe src="https://swimmeetresults.tech/USA-Swimming-Speedo-Winter-Junior-Championships-West-2023/231206lastevt.htm" style="text-align: center" class="live-results"></iframe>-->
-                    <hr style="width: 95%">
-                    <h2><u>Countdown to Districts</u></h2>
-                    <h3 id="countdown"></h3>
+                    <!--<hr style="width: 95%">-->
                 </td>
                 <td style="width: 20%;" id="links">
                     <table class="links-table" style="vertical-align: top;">
