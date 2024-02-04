@@ -117,10 +117,15 @@
     font-size: small;
 }
 
-#maddie-comeback {
+.bulletin {
     border: 1px black solid;
     background-color: #F8FFB0;
     padding: 15px;
+}
+
+.bulletin table td {
+    background-color: #F8FFB0 !important;
+    border: none !important;
 }
 
 #maddie-comeback img {
