@@ -42,12 +42,12 @@ function loadUsers () {
             let table = document.getElementById("user-table");
             table.innerHTML = "";
             let r1 = table.insertRow();
-            r1.innerHTML = "<th style='width: 50%'>Name</th><th style='width: 25%'>Perms</th><th style='width: 25%'>Active</th>"
+            r1.innerHTML = "<th style='width: 50%'>Name</th><th style='width: 25%'>Perms</th><th style='width: 25%'>Latest Access</th><th style='width: 25%'>Active</th>"
             console.log(json)
             let html = "";
             for (let user of json) {
                 let r = table.insertRow();
-                r.innerHTML = `<td style='width: 50%'>${user['name']}<br>(${user['username']})</td><td style='width: 25%'>${user['permissions']}</td><td style='width: 25%'>${user['active']}</td>`
+                r.innerHTML = `<td style='width: 50%'>${user['name']}<br>(${user['username']})</td><td style='width: 25%'>${user['permissions']}</td><td style='width: 25%'>${user['latest_access']}</td><td style='width: 25%'>${user['active']}</td>`
                 html += "<option value=" + user['id']  + ">" + user['username'] + "</option>"
 
             }
