@@ -85,17 +85,23 @@
                         <h4>Create Meet</h4>
                         <form id="create-meet">
                             <label for="meet-name">Name:</label>
-                            <input type="text" placeholder="Name" id="meet-name" name="name"><br>
+                            <input type="text" placeholder="Do not include host or year" id="meet-name" name="name"><br>
                             <label for="venue">Venue:</label>
                             <input type="text" placeholder="Venue" id="venue" name="venue"><br>
-                            <label for="date">Date:</label>
-                            <input type="text" placeholder="Date" id="date" name="date"><br>
+                            <label for="host">Host Org:</label>
+                            <input type="text" placeholder="ISD or org running meet" id="host" name="host"><br>
+                            <label for="format">Format:</label>
+                            <input type="text" placeholder="TF or PF" id="format" name="format"><br>
+                            <label for="startdate">Start Date:</label>
+                            <input type="text" placeholder="YYYYMMDD" id="startdate" name="startdate"><br>
                             <label for="designator">Designator:</label>
                             <input type="text" placeholder="Designator" id="designator" name="designator"><br>
                             <label for="season">Season:</label>
-                            <input type="text" placeholder="Season" id="season" name="season"><br>
-                            <label for="most_recent">Most Recent?</label>
-                            <input type="checkbox" id="most_recent" name="most_recent">
+                            <input type="text" placeholder="YYYY of season's state meet" id="season" name="season"><br>
+                            <label for="notes">Notes:</label>
+                            <input type="text" placeholder="Notes" id="notes" name="notes"><br>
+                            <label for="concluded">Concluded?</label>
+                            <input type="checkbox" id="concluded" name="concluded">
                             <br><br>
                             <span id="response-message1"></span>
                             <input type="button" value="Submit" id="meet-submit" onclick="createMeet()">
@@ -133,6 +139,7 @@
                                 <option value="25">2025</option>
                                 <option value="26">2026</option>
                                 <option value="27">2027</option>
+                                <option value="18">2028</option>
                             </select>
                             <label for="active-class">Status:</label>
                             <select name="active" id="active-class">

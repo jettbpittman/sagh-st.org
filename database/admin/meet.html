@@ -74,6 +74,50 @@
                 <input type="button" value="Submit" id="entry-submit" onclick="createEntry()">
             </form>
         </div>
+        <div class="db-add" style="display: none">
+            <h4>Edit Meet General Info</h4>
+            <form id="edit-meet-gen">
+                <label for="meet-name">Name:</label>
+                <input type="text" placeholder="Do not include host or year" id="meet-name" name="name"><br>
+                <label for="venue">Venue:</label>
+                <input type="text" placeholder="Venue" id="venue" name="venue"><br>
+                <label for="host">Host Org:</label>
+                <input type="text" placeholder="ISD or org running meet" id="host" name="host"><br>
+                <label for="format">Format:</label>
+                <input type="text" placeholder="TF or PF" id="format" name="format"><br>
+                <label for="designator">Designator:</label>
+                <input type="text" placeholder="Designator" id="designator" name="designator"><br>
+                <label for="season">Season:</label>
+                <input type="text" placeholder="YYYY of season's state meet" id="season" name="season"><br>
+                <label for="notes">Notes:</label>
+                <input type="text" placeholder="Notes" id="notes" name="notes"><br>
+                <label for="concluded">Concluded?</label>
+                <input type="checkbox" id="concluded" name="concluded">
+                <br><br>
+                <span id="response-message1"></span>
+                <input type="button" value="Submit" id="meet-gen-submit" onclick="editMeetGen()">
+            </form>
+        </div>
+        <div class="db-add" style="display: none">
+            <h4>Edit Meet Date/Time Info</h4>
+            <form id="edit-meet-dt">
+                <label for="pwarmups">Prelims Warmup Start:</label>
+                <input type="text" placeholder="HHMM in 24hr time" id="pwarmups" name="pwarmups"><br>
+                <label for="fwarmups">Finals Warmup Start:</label>
+                <input type="text" placeholder="HHMM in 24hr time" id="fwarmups" name="fwarmups"><br>
+                <label for="pstart">Prelims Meet Start:</label>
+                <input type="text" placeholder="HHMM in 24hr time" id="pstart" name="pstart"><br>
+                <label for="fstart">Finals Meet Start:</label>
+                <input type="text" placeholder="HHMM in 24hr time" id="fstart" name="fstart"><br>
+                <label for="startdate">Start Date:</label>
+                <input type="text" placeholder="YYYYMMDD" id="startdate" name="startdate"><br>
+                <label for="enddate">End Date:</label>
+                <input type="text" placeholder="Leave blank if single day" id="enddate" name="enddate"><br>
+                <br><br>
+                <span id="response-message2"></span>
+                <input type="button" value="Submit" id="meet-dt-submit" onclick="editMeetDT()">
+            </form>
+        </div>
         <br>
     </div>
     <br><br>

@@ -140,7 +140,7 @@ function fetchMeets () {
                     color = "color: black;"
                     row.className = "current-season"
                 }
-                row.innerHTML = `<td style='width: 30%; ${color + style}'>${json[meet]['id']}</td><td style='width: 50%; ${color + style}'><a style="${color} text-decoration: none" href="meet.html?meet=` + json[meet]['id'] + `">${json[meet]['name']}</td><td style='width: 10%; ${color + style}'>${json[meet]['date']}</td><td style='width: 10%; ${color + style}'>${json[meet]['venue']}</td>`
+                row.innerHTML = `<td style='width: 30%; ${color + style}'>${json[meet]['id']}</td><td style='width: 50%; ${color + style}'><a style="${color} text-decoration: none" href="meet.html?meet=` + json[meet]['id'] + `">${json[meet]['officialname']}</td><td style='width: 10%; ${color + style}'>${json[meet]['date']}</td><td style='width: 10%; ${color + style}'>${json[meet]['venue']}</td>`
             }
         })
 }
@@ -236,17 +236,17 @@ function createMeet () {
     let entries = formData.entries();
     let data = {};
     for (let pair of entries) {
-        if (pair[0] === "season") {
-            let numb = parseInt(pair[1].toString());
-            data[pair[0]] = numb;
+        if (pair[0] === "concluded") {
+            data[pair[0]] = true
         } else {
-            data[pair[0]] = pair[1];
+            data['concluded'] = false
+            if (pair[0] === "season") {
+                let numb = parseInt(pair[1].toString());
+                data[pair[0]] = numb;
+            } else {
+                data[pair[0]] = pair[1];
+            }
         }
-    }
-    if (data['most_recent'] === "on") {
-        data['most_recent'] = 1;
-    } else {
-        data['most_recent'] = 0;
     }
     fetch("https://api.ghmvswim.org/meets", { method: "POST", headers: headers, body: JSON.stringify(data) } )
         .then(response => {

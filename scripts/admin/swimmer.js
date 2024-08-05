@@ -160,7 +160,7 @@ function getSwimmer (param) {
                         splits += `${formatTime(results[times]['splits'][split])} `
                     }
                     console.log(results[times])
-                    let r3 = swimmersTable.insertRow().innerHTML = `<td style="width: 62%">${results[times]['meet']['name']}</td><td style="width: 15%">${relay(results[times]['seed'])}</td><td style="width: 15%">${splitsf(splits, results[times]['time'])}</td><td style="width: 8%">${standards(results[times])}</td>`
+                    let r3 = swimmersTable.insertRow().innerHTML = `<td style="width: 62%">${results[times]['meet']['officialname']}</td><td style="width: 15%">${relay(results[times]['seed'])}</td><td style="width: 15%">${splitsf(splits, results[times]['time'])}</td><td style="width: 8%">${standards(results[times])}</td>`
                 }
                 dataCell.appendChild(swimmersTable)
                 d.appendChild(eventTable)

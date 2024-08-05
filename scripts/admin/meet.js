@@ -3,7 +3,7 @@ fetch("https://api.ghmvswim.org/meets", { method: "GET", headers: headers })
         .then(json => {
             let html = "";
             for (let meet in json) {
-                html += "<option value=" + json[meet]['id']  + ">" + json[meet]['name'] + "</option>"
+                html += "<option value=" + json[meet]['id']  + ">" + json[meet]['officialname'] + "</option>"
             }
             let select = document.getElementById("meets");
             select.innerHTML = html;
@@ -98,7 +98,11 @@ function getMeet (param) {
             let box = document.getElementById("meet-info");
             box.innerHTML = "";
             let data = document.createElement("p");
-            data.innerHTML = `<b>${json['name']}</b><br>${venues[json['venue']]}<br>${json['date']}`
+            if (json['format'] === "pf") {
+                data.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['pwarmups']} (P) ${json['fwarmups']} (F) <br>Meet @ ${json['pwarmups']} (P) ${json['fstart']} (F)`
+            } else {
+                data.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['fwarmups']}<br>Meet @ ${json['fstart']}`
+            }
             let id = document.createElement("p");
             id.innerText = json['id'];
             id.id = "meet-id";
@@ -193,6 +197,66 @@ function createEntry () {
                 getMeet(true)
             } else {
                 let respb = document.getElementById("response-message");
+                respb.innerText = `Failed - ${response.statusText}`
+            }
+        })
+}
+
+function editMeetGen () {
+    const form = document.getElementById("edit-meet-gen");
+    const formData = new FormData(form);
+    let entries = formData.entries();
+    let data = {};
+    for (let pair of entries) {
+        if (pair[0] === "concluded") {
+            data[pair[0]] = true
+        } else {
+            data['concluded'] = false
+            if (pair[1] === "") {
+                    continue
+            } else {
+                if (pair[0] === "season") {
+                    let numb = parseInt(pair[1].toString());
+                    data[pair[0]] = numb;
+                } else {
+                    data[pair[0]] = pair[1]
+                }
+            }
+        }
+    }
+    fetch("https://api.ghmvswim.org/meets/" + getMID() + "/geninfo", { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
+        .then(response => {
+            if (response.status === 200) {
+                let respb = document.getElementById("response-message1");
+                respb.innerText = "Success!"
+                getMeet()
+            } else {
+                let respb = document.getElementById("response-message1");
+                respb.innerText = `Failed - ${response.statusText}`
+            }
+        })
+}
+
+function editMeetDT () {
+    const form = document.getElementById("edit-meet-dt");
+    const formData = new FormData(form);
+    let entries = formData.entries();
+    let data = {};
+    for (let pair of entries) {
+        if (pair[1] === "") {
+            continue
+        } else {
+            data[pair[0]] = pair[1]
+        }
+    }
+    fetch("https://api.ghmvswim.org/meets/" + getMID() + "/dtinfo", { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
+        .then(response => {
+            if (response.status === 200) {
+                let respb = document.getElementById("response-message2");
+                respb.innerText = "Success!"
+                getMeet()
+            } else {
+                let respb = document.getElementById("response-message2");
                 respb.innerText = `Failed - ${response.statusText}`
             }
         })

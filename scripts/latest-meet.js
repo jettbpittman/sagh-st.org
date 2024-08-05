@@ -59,7 +59,7 @@ fetch("https://api.ghmvswim.org/latest/meet", { method: "GET" })
             let d1 = r1.insertCell();
             r1.className = "top-row";
             d1.style.backgroundColor = `#${venue_colors[json['venue']]}`;
-            d1.innerHTML = `<p><b>${json['name']}</b><br>${venues[json['venue']]}<br>${json['date']}<br></p>`;
+            d1.innerHTML = `<p><b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br></p>`;
             let r2 = t.insertRow();
             let d2 = r2.insertCell();
             d2.style.backgroundColor = `#${venue_colors[json['venue']]}`;
