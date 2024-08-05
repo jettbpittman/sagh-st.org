@@ -119,7 +119,7 @@ function fetchRoster () {
 }
 
 function fetchMeets () {
-    fetch("https://api.sagh-st.org/meets", { headers: headers })
+    fetch("https://api.ghmvswim.org/meets", { headers: headers })
         .then(response => response.json())
         .then(json => {
             const rosterTable = document.getElementById("meets");
@@ -152,7 +152,7 @@ function changeStatusIndiv () {
     let payload = {
         "active": status
     }
-    fetch("https://api.sagh-st.org/swimmers/" + swimmer, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
+    fetch("https://api.ghmvswim.org/swimmers/" + swimmer, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
         .then(response => {
             if (response.status === 200) {
                 fetchRoster()
@@ -169,7 +169,7 @@ function changeStatusClass () {
     let payload = {
         "active": status
     }
-    fetch("https://api.sagh-st.org/class/" + swimmer + "/active", { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
+    fetch("https://api.ghmvswim.org/class/" + swimmer + "/active", { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
         .then(response => {
             if (response.status === 200) {
                 fetchRoster()
@@ -181,7 +181,7 @@ function changeStatusClass () {
 
 
 function updateTopFive () {
-    fetch("https://api.sagh-st.org/top5/update", { method: "GET", headers: headers})
+    fetch("https://api.ghmvswim.org/top5/update", { method: "GET", headers: headers})
         .then(response => {
             if (response.status === 200) {
                 let box = document.getElementById("update-top5-message");
@@ -217,7 +217,7 @@ function createSwimmer () {
     }
     data['active'] = 1;
     data['team'] = "SAGH";
-    fetch("https://api.sagh-st.org/swimmers", { method: "POST", headers: headers, body: JSON.stringify(data) } )
+    fetch("https://api.ghmvswim.org/swimmers", { method: "POST", headers: headers, body: JSON.stringify(data) } )
         .then(response => {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message");
@@ -248,7 +248,7 @@ function createMeet () {
     } else {
         data['most_recent'] = 0;
     }
-    fetch("https://api.sagh-st.org/meets", { method: "POST", headers: headers, body: JSON.stringify(data) } )
+    fetch("https://api.ghmvswim.org/meets", { method: "POST", headers: headers, body: JSON.stringify(data) } )
         .then(response => {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message1");
@@ -269,7 +269,7 @@ function createUser () {
     for (let pair of entries) {
         data[pair[0]] = pair[1];
     }
-    fetch("https://api.sagh-st.org/users", { method: "POST", headers: headers, body: JSON.stringify(data) } )
+    fetch("https://api.ghmvswim.org/users", { method: "POST", headers: headers, body: JSON.stringify(data) } )
         .then(response => {
             if (response.status === 200) {
                 fetchRoster()
