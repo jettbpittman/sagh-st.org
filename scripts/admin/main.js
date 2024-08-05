@@ -19,7 +19,7 @@ function main () {
 
 
 function loadManagerSettings () {
-    fetch("https://api.sagh-st.org/teams/SAGH/roster/all", { headers: headers })
+    fetch("https://api.ghmvswim.org/teams/SAGH/roster/all", { headers: headers })
         .then(response => response.json())
         .then(json => {
             let html = "";
@@ -36,7 +36,7 @@ function loadAdminSettings () {
 }
 
 function loadUsers () {
-    fetch("https://api.sagh-st.org/users/all", { method: "GET", headers: headers})
+    fetch("https://api.ghmvswim.org/users/all", { method: "GET", headers: headers})
         .then(response => response.json())
         .then(json => {
             let table = document.getElementById("user-table");
@@ -65,7 +65,7 @@ function updateUserPerms () {
     let payload = {
         "permissions": new_perms
     }
-    fetch("https://api.sagh-st.org/users/" + user, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
+    fetch("https://api.ghmvswim.org/users/" + user, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
         .then(response => {
             if (response.status === 200) {
                 loadUsers()
@@ -83,7 +83,7 @@ function updateUserState () {
     let payload = {
         "active": state
     }
-    fetch("https://api.sagh-st.org/users/" + user, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
+    fetch("https://api.ghmvswim.org/users/" + user, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
         .then(response => {
             if (response.status === 200) {
                 loadUsers()
@@ -94,7 +94,7 @@ function updateUserState () {
 }
 
 function fetchRoster () {
-    fetch("https://api.sagh-st.org/teams/SAGH/roster/all", { headers: headers })
+    fetch("https://api.ghmvswim.org/teams/SAGH/roster/all", { headers: headers })
         .then(response => response.json())
         .then(json => {
             const rosterTable = document.getElementById("team-roster");

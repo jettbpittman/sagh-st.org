@@ -1,5 +1,5 @@
 
-fetch("https://api.sagh-st.org/teams/SAGH/roster/all", { headers: headers })
+fetch("https://api.ghmvswim.org/teams/SAGH/roster/all", { headers: headers })
         .then(response => response.json())
         .then(json => {
             let html = "";
@@ -82,7 +82,7 @@ function splitsf (s, t) {
 function getSwimmer (param) {
     let swimmerID = getSID(param);
     console.log(swimmerID)
-    fetch("https://api.sagh-st.org/attendance/swimmer/" + swimmerID,{ method: "GET", headers: headers } )
+    fetch("https://api.ghmvswim.org/attendance/swimmer/" + swimmerID,{ method: "GET", headers: headers } )
         .then(response => response.json())
         .then(json => {
             console.log(json)
@@ -96,7 +96,7 @@ function getSwimmer (param) {
             }
         })
 
-    fetch("https://api.sagh-st.org/swimmers/" + swimmerID, { headers: headers })
+    fetch("https://api.ghmvswim.org/swimmers/" + swimmerID, { headers: headers })
         .then(response => response.json())
         .then(json => {
             let box = document.getElementById("swimmer-info");
@@ -121,7 +121,7 @@ function getSwimmer (param) {
             data.innerHTML = `<b>${json['last_name']}, ${json['first_name']} ${json['middle_name']}</b><br>${usasId}<br><i>Class of 20${json['class']}</i><br>${json['dob']}<br><b>${active}</b>`
             box.appendChild(data);
         })
-    fetch("https://api.sagh-st.org/swimmers/" + swimmerID + "/entries", { headers: headers })
+    fetch("https://api.ghmvswim.org/swimmers/" + swimmerID + "/entries", { headers: headers })
         .then(response => response.json())
         .then(json => {
             let t = document.getElementById("times-table");

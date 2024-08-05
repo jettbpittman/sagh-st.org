@@ -12,7 +12,7 @@ async function login () {
         method: "POST",
         body: JSON.stringify(body)
     }
-    let resp = await fetch("https://api.sagh-st.org/auth/login", init)
+    let resp = await fetch("https://api.ghmvswim.org/auth/login", init)
     let json = await resp.json()
     const message = document.getElementById("login-message");
     const token = json['token'];
@@ -39,7 +39,7 @@ async function pickDashboard (token) {
     let headers = new Headers();
     headers.append("token", token);
     headers.append("Content-type", "text/plain")
-    let resp = await fetch("https://api.sagh-st.org/auth/check", {method: "POST", headers: headers})
+    let resp = await fetch("https://api.ghmvswim.org/auth/check", {method: "POST", headers: headers})
     let json = await resp.json()
     console.log("checked auth")
 

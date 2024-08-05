@@ -1,6 +1,6 @@
 function loadUser () {
     const box = document.getElementById("user-info");
-    fetch("https://api.sagh-st.org/users/me", { method: "GET", headers: headers})
+    fetch("https://api.ghmvswim.org/users/me", { method: "GET", headers: headers})
         .then(response => response.json())
         .then(json => {
             box.innerText = `<b>Name -<br> ${json['name']}<br><b>Username -</b>${json['username']}<br><b>Email -</b>${json['email']}`
@@ -21,7 +21,7 @@ function changePassword () {
         "old_password": oldP,
         "new_password": newP
     }
-    fetch("https://api.sagh-st.org/users/" + user_id + "/password", { method: "POST", headers: headers, body: JSON.stringify(payload)})
+    fetch("https://api.ghmvswim.org/users/" + user_id + "/password", { method: "POST", headers: headers, body: JSON.stringify(payload)})
         .then(response => {
             let message = document.getElementById("user-change-password-message");
             if (response.status === 200) {

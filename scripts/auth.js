@@ -14,7 +14,7 @@ if (token === null) {
 }
 
 async function auth () {
-    let resp = await fetch("https://api.sagh-st.org/auth/check", {method: "POST", headers: headers})
+    let resp = await fetch("https://api.ghmvswim.org/auth/check", {method: "POST", headers: headers})
     let json = await resp.json()
     console.log("checked auth")
 
@@ -58,7 +58,7 @@ async function auth () {
 }
 
 async function pickDashboardMenu () {
-    let resp = await fetch("https://api.sagh-st.org/auth/check", {method: "POST", headers: headers})
+    let resp = await fetch("https://api.ghmvswim.org/auth/check", {method: "POST", headers: headers})
     let json = await resp.json()
     console.log("checked auth")
 
@@ -74,7 +74,7 @@ async function pickDashboardMenu () {
 }
 
 async function showAdminNav () {
-    let resp = await fetch("https://api.sagh-st.org/auth/check", {method: "POST", headers: headers})
+    let resp = await fetch("https://api.ghmvswim.org/auth/check", {method: "POST", headers: headers})
     let json = await resp.json()
 
     if (json['user']['permissions'] > 0) {
@@ -84,7 +84,7 @@ async function showAdminNav () {
 }
 
 async function showSwimmerNav () {
-    let resp = await fetch("https://api.sagh-st.org/auth/check", {method: "POST", headers: headers})
+    let resp = await fetch("https://api.ghmvswim.org/auth/check", {method: "POST", headers: headers})
     let json = await resp.json()
 
     if (json['user']['linked_swimmer']) {

@@ -1,7 +1,7 @@
 fetchRoster()
 
 function fetchRoster () {
-    fetch("https://api.sagh-st.org/teams/SAGH/roster/current", { headers: headers })
+    fetch("https://api.ghmvswim.org/teams/SAGH/roster/current", { headers: headers })
         .then(response => response.json())
         .then(json => {
             const rosterTable = document.getElementById("roster-table");

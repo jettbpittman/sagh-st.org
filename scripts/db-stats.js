@@ -1,4 +1,4 @@
-fetch("https://api.sagh-st.org/info")
+fetch("https://api.ghmvswim.org/info")
         .then(response => response.json())
         .then(json => {
             let sp = document.getElementById("db-stats");
