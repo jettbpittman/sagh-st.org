@@ -1,6 +1,6 @@
 let date = new Date()
 let season = date.getFullYear()
-if (date.getMonth() >= 8) {
+if (date.getMonth() >= 7) {
     season += 1
 }
 console.log(season)
