@@ -99,9 +99,9 @@ function getMeet (param) {
             box.innerHTML = "";
             let data = document.createElement("p");
             if (json['format'] === "pf") {
-                data.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['pwarmups']} (P) ${json['fwarmups']} (F) <br>Meet @ ${json['pwarmups']} (P) ${json['fstart']} (F)`
+                data.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['pwarmups']} (P) ${json['fwarmups']} (F) <br>Meet @ ${json['pwarmups']} (P) ${json['fstart']} (F)<br><b style="color: darkred">${json['notes']}</b>`
             } else {
-                data.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['fwarmups']}<br>Meet @ ${json['fstart']}`
+                data.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['fwarmups']}<br>Meet @ ${json['fstart']}<br><b style="color: darkred">${json['notes']}</b>`
             }
             let id = document.createElement("p");
             id.innerText = json['id'];
@@ -224,7 +224,7 @@ function editMeetGen () {
             }
         }
     }
-    fetch("https://api.ghmvswim.org/meets/" + getMID() + "/geninfo", { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
+    fetch("https://api.ghmvswim.org/meets/" + document.getElementById("meet-id").textContent + "/geninfo", { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
         .then(response => {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message1");
@@ -249,7 +249,7 @@ function editMeetDT () {
             data[pair[0]] = pair[1]
         }
     }
-    fetch("https://api.ghmvswim.org/meets/" + getMID() + "/dtinfo", { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
+    fetch("https://api.ghmvswim.org/meets/" + document.getElementById("meet-id").textContent + "/dtinfo", { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
         .then(response => {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message2");
