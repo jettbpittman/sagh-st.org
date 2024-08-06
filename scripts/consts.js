@@ -15,6 +15,7 @@ venue_colors = {
     "LC": "99CCFF",
     "BL": "66DD88",
     "SC": "99CCFF",
+    "RR": "FFCCFF",
     undefined: "99CCFF"
 }
 
@@ -34,5 +35,6 @@ venues = {
     "LC": "Lamar CISD Natatorium",
     "DC": "Don Cook Natatorium",
     "BL": "George Block Aquatic Center",
-    "SC": "Schertz Aquatics Center"
+    "SC": "Schertz Aquatics Center",
+    "RR": "RRISD Aquatic Center"
 }
