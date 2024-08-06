@@ -12,17 +12,27 @@
     background-color: #BEDDDD;
 }
 
-.meet-table {
+#meet-table {
     display: inline-block;
     border-collapse: collapse;
+    width: 55% !important;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.meet-table th, td {
+#meet-table tbody {
+    width: 100% !important;
+}
+
+#meet-table td {
     padding: 15px;
-    border-right: 1px solid black;
-    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     margin: 0;
-    width: 33%;
+}
+
+#meet-table td * {
+    color: black;
 }
 
 #links ul li {

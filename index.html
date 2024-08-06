@@ -25,6 +25,13 @@
           .then(function(body) {
             document.querySelector('#footer').innerHTML = body;
           });
+        fetch('https://api.ghmvswim.org/latest/meets/withintwoweeks')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#meet-table').innerHTML = body;
+          });
     </script>
         <!--<script>
             var countDownDate = new Date("Feb 15, 2024 10:00:00").getTime();
@@ -64,6 +71,7 @@
                     <h3 style="font-weight: bold; color: black;">Tryouts - Saturday, 24 August 2024 @ 1030</h3>
                     <h3 style="font-weight: bold; color: black;">First Day of Practice - Tuesday, 3 September 2024 @ 0630</h3>
                     <h3 style="font-weight: bold; color: black;">Team Retreat - Saturday, 7 September 2024 @ 1100 - 1800</h3>
+                    <table id="meet-table"></table>
                     <hr style="width: 95%">
                     <h2><u>Welcome Message</u></h2>
                     <p style="width: 85%; text-align: center; margin-left: auto; margin-right: auto;">Welcome to the official GHMV Swim Team website!<br><br>Here you will be able to find any information you might need about the swim program, such as the meet schedule, and information (see the "MEETS" tab), current season and historic meet results (see the "RESULTS" tab), as well as the official school records (see the "RECORDS" tab). Useful links, such as Pool Addresses, the UIL website, up-to-date 4A class alignments, and UIL school codes can be found in the sidebar to the right.<br><br>Easy to access meet information and subsequent results will be posted on this homepage in the immediate vicinity of a meet.<br><br>Please feel to reach out to <em>webmaster@ghmvswim.org</em> if you have any questions about the site or the information posted on the site.</p>
