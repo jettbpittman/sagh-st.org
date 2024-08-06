@@ -7,33 +7,25 @@
 
 #meet-table th, td {
     padding: 15px;
-    border-right: 1px solid black;
-    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     margin: 0;
     width: 33%;
 }
 
-.meet-table {
-    display: inline;
-    border-collapse: collapse;
-    width: 90%;
+#meet-table th {
+    border-left: 1px black solid;
+    border-right: 1px black solid;
 }
 
-.meet-table th, td {
-    padding: 15px;
-    border-right: 1px solid black;
-    border-left: 1px solid black;
-    margin: 0;
+.meet-info-col {
+    border-right: 1px black dashed;
+    border-left: 1px black solid;
 }
 
-.top-row td {
-    border-bottom: 1px dashed black;
-    border-top: 1px solid black;
-}
-
-.bottom-row td {
-    border-bottom: 1px solid black;
-    border-top: 1px dashed black;
+.meet-files-col {
+    border-left: 1px black dashed;
+    border-right: 1px black solid;
 }
 
 a {

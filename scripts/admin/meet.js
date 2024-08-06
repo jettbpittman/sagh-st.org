@@ -98,10 +98,26 @@ function getMeet (param) {
             let box = document.getElementById("meet-info");
             box.innerHTML = "";
             let data = document.createElement("p");
+            let files = "";
+            if (json['infopath']) {
+                files += `<b><a style="text-decoration: underline; color: black;" href="${json['infopath']}">INFO</a></b> | `
+            }
+            if (json['heatspath']) {
+                files += `<b><a style="text-decoration: underline; color: black;" href="${json['heatspath']}">HEATS</a></b> | `
+            }
+            if (json['sessionpath']) {
+                files += `<b><a style="text-decoration: underline; color: black;" href="${json['sessionpath']}">SESSIONS</a></b> | `
+            }
+            if (json['resultspath']) {
+                files += `<b><a style="text-decoration: underline; color: black;" href="${json['resultspath']}">RESULTS</a></b> | `
+            }
+            if (json['scorespath']) {
+                files += `<b><a style="text-decoration: underline; color: black;" href="${json['scorespath']}">SCORES</a></b> | `
+            }
             if (json['format'] === "pf") {
-                data.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['pwarmups']} (P) ${json['fwarmups']} (F) <br>Meet @ ${json['pwarmups']} (P) ${json['fstart']} (F)<br><b style="color: darkred">${json['notes']}</b>`
+                data.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['pwarmups']} (P) ${json['fwarmups']} (F) <br>Meet @ ${json['pwarmups']} (P) ${json['fstart']} (F)<br><b style="color: darkred">${json['notes']}</b><br>${files.slice(0, -3)}`
             } else {
-                data.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['fwarmups']}<br>Meet @ ${json['fstart']}<br><b style="color: darkred">${json['notes']}</b>`
+                data.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['fwarmups']}<br>Meet @ ${json['fstart']}<br><b style="color: darkred">${json['notes']}</b><br>${files.slice(0, -3)}`
             }
             let id = document.createElement("p");
             id.innerText = json['id'];
@@ -229,7 +245,7 @@ function editMeetGen () {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message1");
                 respb.innerText = "Success!"
-                getMeet()
+                getMeet(true)
             } else {
                 let respb = document.getElementById("response-message1");
                 respb.innerText = `Failed - ${response.statusText}`
@@ -254,9 +270,34 @@ function editMeetDT () {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message2");
                 respb.innerText = "Success!"
-                getMeet()
+                getMeet(true)
             } else {
                 let respb = document.getElementById("response-message2");
+                respb.innerText = `Failed - ${response.statusText}`
+            }
+        })
+}
+
+function editMeetFiles () {
+    const form = document.getElementById("edit-meet-files");
+    const formData = new FormData(form);
+    let entries = formData.entries();
+    let data = {};
+    for (let pair of entries) {
+        if (pair[1] === "") {
+            continue
+        } else {
+            data[pair[0]] = pair[1]
+        }
+    }
+    fetch("https://api.ghmvswim.org/meets/" + document.getElementById("meet-id").textContent + "/filesinfo", { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
+        .then(response => {
+            if (response.status === 200) {
+                let respb = document.getElementById("response-message3");
+                respb.innerText = "Success!"
+                getMeet(true)
+            } else {
+                let respb = document.getElementById("response-message3");
                 respb.innerText = `Failed - ${response.statusText}`
             }
         })

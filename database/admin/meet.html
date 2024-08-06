@@ -46,10 +46,7 @@
         <div id="return">
             <a onclick="history.back()" style="color: black; font-weight: bold; text-decoration: none;"><= Return</a><br><br>
         </div>
-        <label for="meets">Select a Meet:</label>
-        <select name="meets" id="meets"></select><br>
-        <input id="meet-submit" type="button" value="Submit" onclick="getMeet(false)">
-        <br><br>
+        <br>
         <div id="meet-information">
             <span id="meet-info"></span>
             <table id="entries-table" class="entries-table"></table>
@@ -116,6 +113,24 @@
                 <br><br>
                 <span id="response-message2"></span>
                 <input type="button" value="Submit" id="meet-dt-submit" onclick="editMeetDT()">
+            </form>
+        </div>
+        <div class="db-add" style="display: none">
+            <h4>Edit Meet Files</h4>
+            <form id="edit-meet-files">
+                <label for="meet-pdf">Meet Information:</label>
+                <input type="text" placeholder="Full HTTP URL" id="meet-pdf" name="infopath"><br>
+                <label for="heatsheet">Heat Sheet:</label>
+                <input type="text" placeholder="Full HTTP URL" id="heatsheet" name="heatspath"><br>
+                <label for="sessionrep">Session Report:</label>
+                <input type="text" placeholder="Full HTTP URL" id="sessionrep" name="sessionpath"><br>
+                <label for="results">Results:</label>
+                <input type="text" placeholder="Full HTTP URL" id="results" name="resultspath"><br>
+                <label for="scores">Scores:</label>
+                <input type="text" placeholder="Full HTTP URL" id="scores" name="scorespath"><br>
+                <br><br>
+                <span id="response-message3"></span>
+                <input type="button" value="Submit" id="meet-files-submit" onclick="editMeetFiles()">
             </form>
         </div>
         <br>

@@ -58,8 +58,29 @@ fetch("https://api.ghmvswim.org/latest/meet", { method: "GET" })
             let r1 = t.insertRow();
             let d1 = r1.insertCell();
             r1.className = "top-row";
+            d1.style.padding = "5px";
             d1.style.backgroundColor = `#${venue_colors[json['venue']]}`;
-            d1.innerHTML = `<p><b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br></p>`;
+            let files = "";
+            if (json['infopath']) {
+                files += `<b><a style="text-decoration: underline; color: black;" href="${json['infopath']}">INFO</a></b> | `
+            }
+            if (json['heatspath']) {
+                files += `<b><a style="text-decoration: underline; color: black;" href="${json['heatspath']}">HEATS</a></b> | `
+            }
+            if (json['sessionpath']) {
+                files += `<b><a style="text-decoration: underline; color: black;" href="${json['sessionpath']}">SESSIONS</a></b> | `
+            }
+            if (json['resultspath']) {
+                files += `<b><a style="text-decoration: underline; color: black;" href="${json['resultspath']}">RESULTS</a></b> | `
+            }
+            if (json['scorespath']) {
+                files += `<b><a style="text-decoration: underline; color: black;" href="${json['scorespath']}">SCORES</a></b> | `
+            }
+            if (json['format'] === "pf") {
+                d1.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['pwarmups']} (P) ${json['fwarmups']} (F) <br>Meet @ ${json['pwarmups']} (P) ${json['fstart']} (F)<br><b style="color: darkred">${json['notes']}</b><br>${files.slice(0, -3)}`
+            } else {
+                d1.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['fwarmups']}<br>Meet @ ${json['fstart']}<br><b style="color: darkred">${json['notes']}</b><br>${files.slice(0, -3)}`
+            }
             let r2 = t.insertRow();
             let d2 = r2.insertCell();
             d2.style.backgroundColor = `#${venue_colors[json['venue']]}`;
