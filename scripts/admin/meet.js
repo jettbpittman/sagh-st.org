@@ -105,6 +105,9 @@ function getMeet (param) {
             if (json['heatspath']) {
                 files += `<b><a style="text-decoration: underline; color: black;" href="${json['heatspath']}">HEATS</a></b> | `
             }
+            if (json['psychpath']) {
+                files += `<b><a style="text-decoration: underline; color: black;" href="${json['psychpath']}">PSYCH</a></b> | `
+            }
             if (json['sessionpath']) {
                 files += `<b><a style="text-decoration: underline; color: black;" href="${json['sessionpath']}">SESSIONS</a></b> | `
             }
