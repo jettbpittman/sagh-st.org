@@ -118,7 +118,7 @@ function getMeet (param) {
                 files += `<b><a style="text-decoration: underline; color: black;" href="${json['scorespath']}">SCORES</a></b> | `
             }
             if (json['format'] === "pf") {
-                data.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['pwarmups']} (P) ${json['fwarmups']} (F) <br>Meet @ ${json['pwarmups']} (P) ${json['fstart']} (F)<br><b style="color: darkred">${json['notes']}</b><br>${files.slice(0, -3)}`
+                data.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['pwarmups']} (P) ${json['fwarmups']} (F) <br>Meet @ ${json['pstart']} (P) ${json['fstart']} (F)<br><b style="color: darkred">${json['notes']}</b><br>${files.slice(0, -3)}`
             } else {
                 data.innerHTML = `<b>${json['officialname']}</b><br>${venues[json['venue']]}<br>${json['date']}<br>Warmups @ ${json['fwarmups']}<br>Meet @ ${json['fstart']}<br><b style="color: darkred">${json['notes']}</b><br>${files.slice(0, -3)}`
             }
