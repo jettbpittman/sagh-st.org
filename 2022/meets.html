@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="GHMV Swimming Meets 2022">
+    <title>Meets 2022 - GHMV Swim</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/meets.css">
+    <script>
+        fetch('/static/header.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#header').innerHTML = body;
+          });
+        fetch('/static/footer.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#footer').innerHTML = body;
+          });
+        fetch('https://api.ghmvswim.org/season/2022/meets/schedule')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#meet-table').innerHTML = body;
+          });
+        fetch('https://api.ghmvswim.org/season/2025/meets/lastupdate')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#updated-date').innerHTML = body;
+          });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="slate">
+        <h2>GHMV Swimming Meet Schedule 2022</h2>
+        <p style="text-align: center"><em>The following will appear in the "FILES" column if available:</em><br><b>INFO:</b> Meet Information, <b>HEATS:</b> Heat Sheet, <b>PSYCH:</b> Psych Sheet, <b>SESSION:</b> Session Report, <b>RESULTS:</b> Results, <b>SCORES:</b> Scores<br>
+        <p style="color: darkred">UPDATED: <span id="updated-date"></span></p>
+        <table id="meet-table"></table>
+        <hr style="width: 90%; color: black;">
+        <div id="message">
+            <h4>Results will be posted once each meet has concluded.</h4>
+            <h4>The order of events can be viewed <a href="/other/order-of-events.html" style="text-decoration: underline">here</a>.</h4>
+            <h4>Pool locations/addresses can be viewed <a href="/other/pool-loc.html" style="text-decoration: underline">here</a>.</h4>
+            <h4>Meets from previous seasons can be viewed <a href="/archive.html" style="text-decoration: underline">here</a>.</h4>
+        </div>
+    </div>
+    <br>
+    <div id="footer"></div>
+</body>
+</html>
