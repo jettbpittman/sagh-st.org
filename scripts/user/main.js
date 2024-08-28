@@ -1,7 +1,7 @@
 async function loadSwimmerInfo () {
     let user = await fetch("https://api.ghmvswim.org/users/me", { method: "GET", headers});
     let user_data = await user.json();
-    let swimmer = await fetch("https://api.ghmvswim.org/swimmers/" + user_data['linked_swimmer'], { method: "GET", headers});
+    let swimmer = await fetch("https://api.ghmvswim.org/swimmers/" + user_data['linked_swimmer']['id'], { method: "GET", headers});
     let swimmer_data = await swimmer.json()
     document.getElementById("swimmer-info-name").innerText = `${swimmer_data['last_name']}, ${swimmer_data['first_name']} ${swimmer_data['middle_name']}`
     document.getElementById("swimmer-info-dob").innerText = `${swimmer_data['dob']}`
@@ -57,7 +57,7 @@ function formatTime (time) {
 async function loadSwimmerTimes () {
     let user = await fetch("https://api.ghmvswim.org/users/me", { method: "GET", headers});
     let user_data = await user.json();
-    let swimmer = await fetch("https://api.ghmvswim.org/swimmers/" + user_data['linked_swimmer'], { method: "GET", headers});
+    let swimmer = await fetch("https://api.ghmvswim.org/swimmers/" + user_data['linked_swimmer']['id'], { method: "GET", headers});
     let swimmer_data = await swimmer.json()
     let entries_resp = await fetch("https://api.ghmvswim.org/swimmers/" + swimmer_data['id'] + "/entries", { method: "GET", headers})
     let entries = await entries_resp.json()
@@ -85,7 +85,7 @@ async function loadSwimmerTimes () {
 async function loadSwimmerMeets () {
     let user = await fetch("https://api.ghmvswim.org/users/me", { method: "GET", headers});
     let user_data = await user.json();
-    let swimmer = await fetch("https://api.ghmvswim.org/swimmers/" + user_data['linked_swimmer'], { method: "GET", headers});
+    let swimmer = await fetch("https://api.ghmvswim.org/swimmers/" + user_data['linked_swimmer']['id'], { method: "GET", headers});
     let swimmer_data = await swimmer.json()
     let meet_table = document.getElementById("user-meets");
     meet_table.insertRow().innerHTML = `<th style="width: 50%">Name</th><th style="width: 40%">Date</th><th style="width: 10%">Venue</th>`;
