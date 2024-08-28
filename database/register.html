@@ -5,12 +5,12 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="GHMV Sign In">
-    <title>Sign In - GHMV Swim</title>
+    <meta name="description" content="GHMV Database Registration">
+    <title>Register - GHMV Swim</title>
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/database/index.css">
     <link rel="stylesheet" href="/css/database/meets.css">
-    <script type="text/javascript" src="/scripts/login.js"></script>
+    <script type="text/javascript" src="/scripts/register.js"></script>
     <script>
         fetch('/static/header.html')
           .then(function(response) {
@@ -31,20 +31,23 @@
 <body onload="checkIfSignedIn()">
     <div id="header"></div>
     <div class="slate">
-        <h2>GHMV Database Sign In</h2>
-        <p><a style="color: black; text-decoration: underline; font-weight: bold" href="/database/register.html">Register here</a></p>
-         <form id="login-form">
-             <label for="user">Username:</label>
-             <input type="text" placeholder="Enter Username" id="user" name="username"><br>
-             <label for="password">Password:</label>
+        <h2>GHMV Database Registration</h2>
+         <form id="register-form">
+             <label for="name">Name:</label><br>
+             <input type="text" placeholder="Name" id="name" name="name"><br>
+             <label for="username">Username:</label><br>
+             <input type="text" placeholder="Username" id="username" name="username"><br>
+             <label for="email">Email:</label><br>
+             <input type="text" placeholder="Email" id="email" name="email"><br>
+             <label for="password">Password:</label><br>
              <input type="password" placeholder="Enter Password" id="password" name="password"><br>
              <input type="checkbox" onclick="togglePassword()">Show Password
              <br>
-             <span id="login-message"></span>
+             <span id="register-message"></span>
              <br>
-             <input type="button" value="Submit" id="creds-submit" onclick="login()">
+             <input type="button" value="Submit" id="creds-submit" onclick="register()">
         </form>
-        <p>Forgot your password? Please email <em>webmaster@ghmvswim.org</em> for assistance.</p>
+        <br>
     </div>
     <br>
     <div id="footer"></div>

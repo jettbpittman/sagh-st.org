@@ -69,7 +69,7 @@ async function pickDashboardMenu () {
         location.href = "/database/user/index.html"
     }
     else {
-        location.href = "/database/index.html"
+        location.href = "/database/no-role.html"
     }
 }
 

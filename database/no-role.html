@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="GHMV Sign In">
+    <title>No Role - GHMV Swim</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/database/index.css">
+    <link rel="stylesheet" href="/css/database/no-role.css">
+    <link rel="stylesheet" href="/css/database/user/index.css">
+    <script type="text/javascript" src="/scripts/consts.js"></script>
+    <script type="text/javascript" src="/scripts/auth.js"></script>
+    <script type="text/javascript" src="/scripts/no-role.js"></script>
+    <script>
+        fetch('/static/header.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#header').innerHTML = body;
+          });
+        fetch('/static/footer.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#footer').innerHTML = body;
+          });
+        fetch('/static/user-menu.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#user-settings').innerHTML = body;
+          });
+    </script>
+</head>
+<body onload="checkRequestStatus()">
+    <div id="header"></div>
+    <div class="slate">
+        <h2>GHMV Database</h2>
+        <div id="user-settings"></div>
+        <p>You are not assigned any swimmers or permissions at this time!<br><br>You can request to be linked to a swimmer below, or check the status of your current requests.</p>
+        <h3>Check Request Status</h3>
+        <table class="table" id="request-check"></table>
+        <h3>Request Linking</h3>
+        <form id="link-form">
+            <label for="swimmers">Select a Swimmer:</label>
+            <select name="swimmers" id="swimmers"></select><br>
+            <label for="verification-code">Verification Code:</label>
+            <input type="text" name="verification-code" id="verification-code" placeholder="Ask your coach for the code">
+            <br>
+            <span id="link-message"></span>
+            <br>
+            <input type="button" value="Submit" id="creds-submit" onclick="link()">
+        </form>
+        <br>
+    </div>
+    <br>
+    <div id="footer"></div>
+</body>
+</html>

@@ -86,3 +86,16 @@
 .dropdown-table {
     border-collapse: collapse;
 }
+
+.table {
+    background-color: #F8FFB0;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px black solid;
+    border-collapse: collapse;
+    min-width: 70%;
+}
+
+.table th, .table td {
+    border: 1px black solid;
+}

@@ -31,68 +31,6 @@ function loadManagerSettings () {
         })
 }
 
-function loadAdminSettings () {
-    loadUsers()
-}
-
-function loadUsers () {
-    fetch("https://api.ghmvswim.org/users/all", { method: "GET", headers: headers})
-        .then(response => response.json())
-        .then(json => {
-            let table = document.getElementById("user-table");
-            table.innerHTML = "";
-            let r1 = table.insertRow();
-            r1.innerHTML = "<th style='width: 50%'>Name</th><th style='width: 25%'>Perms</th><th style='width: 25%'>Latest Access</th><th style='width: 25%'>Active</th>"
-            console.log(json)
-            let html = "";
-            for (let user of json) {
-                let r = table.insertRow();
-                r.innerHTML = `<td style='width: 50%'>${user['name']}<br>(${user['username']})</td><td style='width: 25%'>${user['permissions']}</td><td style='width: 25%'>${user['latest_access']}</td><td style='width: 25%'>${user['active']}</td>`
-                html += "<option value=" + user['id']  + ">" + user['username'] + "</option>"
-
-            }
-            let permsSelect = document.getElementById("perms-user-select");
-            permsSelect.innerHTML = html;
-            let statusSelect = document.getElementById("status-user-select");
-            statusSelect.innerHTML = html;
-        })
-}
-
-
-function updateUserPerms () {
-    const user = document.getElementById("perms-user-select").value;
-    const new_perms = parseInt(document.getElementById("perms-perm-select").value);
-    let payload = {
-        "permissions": new_perms
-    }
-    fetch("https://api.ghmvswim.org/users/" + user, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
-        .then(response => {
-            if (response.status === 200) {
-                loadUsers()
-            } else {
-                alert("Failed to Change Permissions! " + response.statusText)
-            }
-        })
-}
-
-
-function updateUserState () {
-    const user = document.getElementById("status-user-select").value;
-    let state = document.getElementById("status-state-select").value;
-    state = state === "true";
-    let payload = {
-        "active": state
-    }
-    fetch("https://api.ghmvswim.org/users/" + user, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
-        .then(response => {
-            if (response.status === 200) {
-                loadUsers()
-            } else {
-                alert("Failed to Change State! " + response.statusText)
-            }
-        })
-}
-
 function fetchRoster () {
     fetch("https://api.ghmvswim.org/teams/SAGH/roster/all", { headers: headers })
         .then(response => response.json())
@@ -257,24 +195,6 @@ function createMeet () {
             } else {
                 let respb = document.getElementById("response-message1");
                 respb.innerText = `Failed - ${response.statusText}`
-            }
-        })
-}
-
-function createUser () {
-    const form = document.getElementById("create-user");
-    const formData = new FormData(form);
-    let entries = formData.entries();
-    let data = {};
-    for (let pair of entries) {
-        data[pair[0]] = pair[1];
-    }
-    fetch("https://api.ghmvswim.org/users", { method: "POST", headers: headers, body: JSON.stringify(data) } )
-        .then(response => {
-            if (response.status === 200) {
-                fetchRoster()
-            } else {
-                alert("Failed to Add User! " + response.statusText)
             }
         })
 }

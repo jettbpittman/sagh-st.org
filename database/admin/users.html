@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="GHMV Individual Best Times">
+    <title>User Management - GHMV Swim</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/database/index.css">
+    <link rel="stylesheet" href="/css/database/admin/index.css">
+    <script type="text/javascript" src="/scripts/admin/users.js"></script>
+    <script type="text/javascript" src="/scripts/consts.js"></script>
+    <script type="text/javascript" src="/scripts/auth.js"></script>
+    <script>
+        fetch('/static/header.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#header').innerHTML = body;
+          });
+        fetch('/static/footer.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#footer').innerHTML = body;
+          });
+        fetch('/static/user-menu.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#user-settings').innerHTML = body;
+          });
+    </script>
+</head>
+<body onload="checkRequests();">
+    <div id="header"></div>
+    <div class="slate">
+        <h2>GHMV Database User Management</h2>
+        <div id="user-settings"></div>
+        <div id="switch-dash" style="visibility: visible">
+            <a href="/database/admin/index.html" style="color: black; font-weight: bold; text-decoration: none;"><= Admin Dashboard</a><br><br>
+        </div>
+        <div class="manage-site" style="">
+            <h4><u>Link Request Queue</u></h4>
+            <table class="table" id="request-check"></table>
+            <hr>
+            <h4><u>Manage Users</u></h4>
+            <table id="user-table" class="roster-table" style="width: 90%"></table>
+            <h5>Create User</h5>
+            <form id="create-user" style="text-align: right; padding-right: 4%">
+                <label for="create-user-name">Name:</label>
+                <input type="text" name="name" id="create-user-name" style="width: 60%"><br>
+                <label for="create-user-email">Email:</label>
+                <input type="text" name="email" id="create-user-email" style="width: 60%"><br>
+                <label for="create-user-username">Username:</label>
+                <input type="text" name="username" id="create-user-username" style="width: 60%"><br>
+                <label for="create-user-password">Password:</label>
+                <input type="text" name="password" id="create-user-password" style="width: 60%"><br>
+                <label for="create-user-perms">Permissions:</label>
+                <input type="number" name="permissions" id="create-user-perms" style="width: 15%">
+                <br><br>
+                <input id="create-user-submit" type="button" value="Submit" onclick="createUser()">
+            </form>
+            <h5>Edit Permissions</h5>
+            <form id="user-perms" style="text-align: right; padding-right: 4%">
+                <label for="perms-user-select">User:</label>
+                <select name="user" id="perms-user-select"></select><br>
+                <label for="perms-perm-select">Permissions:</label>
+                <input type="number" name="perms" id="perms-perm-select" style="width: 15%">
+                <br><br>
+                <input id="perms-submit" type="button" value="Submit" onclick="updateUserPerms()">
+            </form>
+            <h5>Activate/Deactivate</h5>
+            <form id="user-status" style="text-align: right; padding-right: 4%">
+                <label for="status-user-select">User:</label>
+                <select name="user" id="status-user-select"></select><br>
+                <label for="status-state-select">State:</label>
+                <select name="state" id="status-state-select">
+                    <option value="true">Activate</option>
+                    <option value="false">Deactivate</option>
+                </select>
+                <br><br>
+                <input id="state-submit" type="button" value="Submit" onclick="updateUserState()">
+            </form>
+        </div>
+        <br>
+    </div>
+    <br>
+    <div id="footer"></div>
+</body>
+</html>
