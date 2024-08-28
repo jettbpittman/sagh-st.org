@@ -54,6 +54,6 @@ const form = document.getElementById("register-form");
         message.innerHTML = 'Success!'
         location.href = "/database/login.html"
     } else {
-        message.innerText = `Failed to register, ${resp.statusText}`
+        message.innerText = `Failed to register, ${json['reason']}`
     }
 }
