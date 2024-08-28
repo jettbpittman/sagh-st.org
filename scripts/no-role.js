@@ -39,3 +39,5 @@ async function link () {
     }
     checkRequestStatus()
 }
+
+pickDashboardMenu()

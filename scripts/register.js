@@ -51,7 +51,8 @@ const form = document.getElementById("register-form");
     let json = await resp.json()
     const message = document.getElementById("register-message");
     if (resp.status === 200) {
-        message.innerHTML = 'Success! Please <a href="/database/login.html" style="color: black;">login</a>!'
+        message.innerHTML = 'Success!'
+        location.href = "/database/login.html"
     } else {
         message.innerText = `Failed to register, ${resp.statusText}`
     }

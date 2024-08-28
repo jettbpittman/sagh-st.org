@@ -21,7 +21,7 @@ async function login () {
         window.localStorage.setItem("token", token);
         await pickDashboard(token)
     } else {
-        message.innerText = `Failed to login, ${resp.statusText}`
+        message.innerText = `Failed to login, ${json['reason']}`
     }
 
 }
