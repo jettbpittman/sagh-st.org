@@ -21,8 +21,8 @@ async function auth () {
     if (resp.status !== 200) {
         window.location.href = "/database/login.html"
     }
-    console.log("resp 200")
-    let hello = document.getElementById("user-name").innerText = (json['user']['name'].split(" "))[0]
+    console.log("auth success")
+    document.getElementById("user-name").innerText = (json['user']['name'].split(" "))[0]
     let perm = json['user']['permissions']
     window.localStorage.setItem("permissions", perm)
     window.localStorage.setItem("id", json['user']['id'])
@@ -53,6 +53,8 @@ async function auth () {
         }
         main()
     } if (json['user']['linked_swimmer'] != null && location.pathname.toString() === "/database/user/index.html" || location.pathname.toString() === "/database/user/") {
+        main()
+    } else {
         main()
     }
 }

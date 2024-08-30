@@ -13,16 +13,18 @@ async function checkRequestStatus () {
         })
 }
 
-fetch("https://api.ghmvswim.org/teams/SAGH/roster/all", { headers: headers })
+async function getSwimmers () {
+    fetch("https://api.ghmvswim.org/teams/SAGH/roster/all", {headers: headers})
         .then(response => response.json())
         .then(json => {
             let html = "";
             for (let swimmer in json) {
-                html += "<option value=" + json[swimmer]['id']  + ">" + json[swimmer]['last_name'] + ", " + json[swimmer]['first_name'] + " " + json[swimmer]['middle_name'] + " - \'" + json[swimmer]['class'] + "</option>"
+                html += "<option value=" + json[swimmer]['id'] + ">" + json[swimmer]['last_name'] + ", " + json[swimmer]['first_name'] + " " + json[swimmer]['middle_name'] + " - \'" + json[swimmer]['class'] + "</option>"
             }
             let select = document.getElementById("swimmers");
             select.innerHTML = html;
         })
+}
 
 async function link () {
     let reqd_swimmer = document.getElementById("swimmers").value;
@@ -40,4 +42,7 @@ async function link () {
     checkRequestStatus()
 }
 
-pickDashboardMenu()
+async function main () {
+    getSwimmers();
+    checkRequestStatus()
+}
