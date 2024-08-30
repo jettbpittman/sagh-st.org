@@ -67,3 +67,8 @@ body {
     }
 }
 
+#footer-links a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
