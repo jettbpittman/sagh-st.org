@@ -14,7 +14,7 @@ async function checkRequestStatus () {
 }
 
 async function getSwimmers () {
-    fetch("https://api.ghmvswim.org/teams/SAGH/roster/all", {headers: headers})
+    fetch("https://api.ghmvswim.org/teams/SAGH/roster/all_pub", {headers: headers})
         .then(response => response.json())
         .then(json => {
             let html = "";
