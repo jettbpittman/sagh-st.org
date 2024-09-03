@@ -6,6 +6,15 @@ function main () {
     }
 }
 
+
+function checkOrEx (e) {
+    if (e === true) {
+        return "&#10003;"
+    } else {
+        return "&#10006;"
+    }
+}
+
 const token = window.localStorage.getItem("token");
 
 const headers = new Headers();
@@ -98,12 +107,12 @@ function updateUserState () {
 
 async function checkRequests () {
     let table = document.getElementById("request-check");
-    let html = "<tr><th>Date Submitted</th><th>Swimmer Name</th><th>User Name</th><th>Code</th><th>Status</th><th>Approve</th><th>Reject</th></tr>"
+    let html = "<tr><th>Date Submitted</th><th>Swimmer Name</th><th>User Name</th><th>Code</th><th>DOB</th><th>Status</th><th>Approve</th><th>Reject</th></tr>"
     fetch(`https://api.ghmvswim.org/users/linking/requestqueue`, { method: "GET", headers: headers})
         .then(response => response.json())
         .then(json => {
             for (let req in json) {
-                html += "<tr><td>" + json[req]['submitted_at'] + "</td><td>" + `${json[req]['swimmer']['last_name']}, ${json[req]['swimmer']['first_name']} ${json[req]['swimmer']['middle_name']}` + "</td><td>" + json[req]['user']['name'] + "</td><td>" + json[req]['verification_code'] +"</td><td>" + json[req]['status'] + '</td><td><button type="button" onclick="approveRequest(' + json[req][`user`][`id`] + ', ' + json[req][`swimmer`][`id`] + ')">Approve</button></td><td><button type="button" onclick="rejectRequest(' + json[req][`user`][`id`] + ', ' + json[req][`swimmer`][`id`] + ')">Reject</button></td></tr>';
+                html += "<tr><td>" + json[req]['submitted_at'] + "</td><td>" + `${json[req]['swimmer']['last_name']}, ${json[req]['swimmer']['first_name']} ${json[req]['swimmer']['middle_name']}` + "</td><td>" + json[req]['user']['name'] + "</td><td>" + checkOrEx(json[req]['code_match']) +"</td><td>" + checkOrEx(json[req]['dob_match']) +"</td><td>" + json[req]['status'] + '</td><td><button type="button" onclick="approveRequest(' + json[req][`user`][`id`] + ', ' + json[req][`swimmer`][`id`] + ')">Approve</button></td><td><button type="button" onclick="rejectRequest(' + json[req][`user`][`id`] + ', ' + json[req][`swimmer`][`id`] + ')">Reject</button></td></tr>';
             }
             table.innerHTML = html;
         })

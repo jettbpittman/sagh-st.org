@@ -29,15 +29,16 @@ async function getSwimmers () {
 async function link () {
     let reqd_swimmer = document.getElementById("swimmers").value;
     let verf = document.getElementById("verification-code").value;
+    let dob = document.getElementById("swimmer-dob").value;
     let user_id = window.localStorage['id'];
-    let payload = {"user_id": user_id, "swimmer_id": reqd_swimmer, "verification_code": verf}
+    let payload = {"user_id": user_id, "swimmer_id": reqd_swimmer, "verification_code": verf, "team": "SAGH", "dob": dob}
     let resp = await fetch("https://api.ghmvswim.org/users/linking/request", { method: "POST", headers: headers, body: JSON.stringify(payload)})
     let json = await resp.json()
     const message = document.getElementById("link-message");
     if (resp.status === 200) {
         message.innerText = "Success! Please allow for a few days for processing. You or your swimmer may be contacted to verify your identity."
     } else {
-        message.innerText = `Failed to request linking, ${resp.statusText}`
+        message.innerText = `Failed to request linking, ${json['reason']}`
     }
     checkRequestStatus()
 }
