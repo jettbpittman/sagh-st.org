@@ -19,6 +19,7 @@ async function loadSwimmerInfo () {
     document.getElementById("user-info-username").innerText = `${user_data['username']}`
     document.getElementById("user-info-email").innerText = `${user_data['email']}`
     document.getElementById("user-info-perms").innerText = `${user_data['permissions']}`
+    document.getElementById("user-info-last-login").innerText = `${user_data['latest_access']} UTC`
 }
 
 function standards (s) {
