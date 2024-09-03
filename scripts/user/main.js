@@ -6,6 +6,7 @@ async function loadSwimmerInfo () {
     document.getElementById("swimmer-info-name").innerText = `${swimmer_data['last_name']}, ${swimmer_data['first_name']} ${swimmer_data['middle_name']}`
     document.getElementById("swimmer-info-dob").innerText = `${swimmer_data['dob']}`
     document.getElementById("swimmer-info-age").innerText = `${swimmer_data['age']}`
+    document.getElementById("swimmer-info-usasid").innerText = `${swimmer_data['usas_id']}`
     document.getElementById("swimmer-info-class").innerText = `${swimmer_data['class']}`
     let state;
     if (swimmer_data['active']) {
