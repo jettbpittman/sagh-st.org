@@ -58,6 +58,23 @@
             <br>
             <table id="times-table" class="times-table"></table>
             <br>
+            <div class="db-add" style="display: none">
+                <h4>Edit Swimmer</h4>
+                <form id="edit-swimmer">
+                    <label for="name">Name:</label>
+                    <input type="text" placeholder="Last, First MI" id="name" name="name"><br>
+                    <label for="class">Class:</label>
+                    <input type="text" placeholder="Grad Year (YY)" id="class" name="class"><br>
+                    <label for="usas_id">USAS ID:</label>
+                    <input type="text" placeholder="14 digit ID #" id="usas_id" name="usas_id"><br>
+                    <label for="dob">Date of Birth:</label>
+                    <input type="text" placeholder="YYYY-MM-DD" id="dob" name="dob"><br>
+                    <br><br>
+                    <span id="response-message1"></span>
+                    <input type="button" value="Submit" id="swimmer-edit-submit" onclick="editSwimmer()">
+                </form>
+            </div>
+            <br>
         </div>
         <br>
     </div>

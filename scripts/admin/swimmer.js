@@ -118,7 +118,7 @@ function getSwimmer (param) {
             if (json['homeschool'] === true) {
                 json['class'] += ' (H)';
             }
-            data.innerHTML = `<b>${json['last_name']}, ${json['first_name']} ${json['middle_name']}</b><br>${usasId}<br><i>Class of 20${json['class']}</i><br>${json['dob']}<br><b>${active}</b>`
+            data.innerHTML = `<b>${json['last_name']}, ${json['first_name']} ${json['middle_name']}</b><br>${usasId}<br><i>Class of 20${json['class']}</i><br>${json['dob']}<br><b>${active}</b><br><span id="swimmer-id">${swimmerID}</span>`
             box.appendChild(data);
         })
     fetch("https://api.ghmvswim.org/swimmers/" + swimmerID + "/entries", { headers: headers })
@@ -183,4 +183,42 @@ function showMoreAtten() {
 
 function swapStyleSheet(sheet, id) {
     document.getElementById(id).setAttribute("href", sheet);
+}
+
+function editSwimmer () {
+    const form = document.getElementById("edit-swimmer");
+    const formData = new FormData(form);
+    let entries = formData.entries();
+    let data = {};
+    for (let pair of entries) {
+         if (pair[1] === "") {
+             continue
+         }
+         if (pair[0] === "name") {
+            let names = pair[1].split(", ")
+            let l_name = names[0];
+            let fm_name = names[1].split(" ");
+            let f_name = fm_name[0];
+            let m_name = fm_name[1];
+            data["first_name"] = f_name;
+            data["last_name"] = l_name;
+            data["middle_name"] = m_name;
+        } if (pair[0] === "age" || pair[0] === "class") {
+            let numb = parseInt(pair[1].toString());
+            data[pair[0]] = numb;
+        } else {
+            data[pair[0]] = pair[1];
+        }
+    }
+    fetch("https://api.ghmvswim.org/swimmers/" + document.getElementById("swimmer-id").textContent, { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
+        .then(response => {
+            if (response.status === 200) {
+                let respb = document.getElementById("response-message1");
+                respb.innerText = "Success!"
+                getMeet(true)
+            } else {
+                let respb = document.getElementById("response-message1");
+                respb.innerText = `Failed - ${response.statusText}`
+            }
+        })
 }

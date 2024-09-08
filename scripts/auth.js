@@ -26,7 +26,7 @@ async function auth () {
     let perm = json['user']['permissions']
     window.localStorage.setItem("permissions", perm)
     window.localStorage.setItem("id", json['user']['id'])
-    if (json['user']['permissions'] >= 2 && location.pathname.toString() === "/database/admin/meet.html") {
+    if (json['user']['permissions'] >= 2 && location.pathname.toString() === "/database/admin/meet.html" || location.pathname.toString() === "/database/admin/swimmer.html") {
         let add = document.getElementsByClassName("db-add");
         for (let item of add) {
             item.style.display = "block";
