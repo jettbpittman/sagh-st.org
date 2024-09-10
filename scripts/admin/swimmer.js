@@ -91,7 +91,7 @@ function getSwimmer (param) {
             attTable.insertRow().innerHTML = "<th>Date</th><th>Type</th><th>Status</th>"
             for (let date in json['records']) {
                 console.log(date)
-                attTable.insertRow().innerHTML = `<td>${date}</td><td>${json['records'][date][1]}</td><td>${json['records'][date][0]}</td>`;
+                attTable.insertRow().innerHTML = `<td>${json['records'][date][0]}</td><td>${json['records'][date][2]}</td><td>${json['records'][date][1]}</td>`;
 
             }
         })
