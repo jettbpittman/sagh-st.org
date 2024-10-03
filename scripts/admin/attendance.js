@@ -7,7 +7,7 @@ function fetchRoster () {
             const rosterTable = document.getElementById("roster-table");
             rosterTable.innerHTML = "";
             let headers = rosterTable.insertRow();
-            headers.innerHTML = "<th style='width: 25%'>Name</th><th style='width: 5%' class='desktop'>Class</th><th style='width: 10%' class='desktop'>DOB</th><th style='width: 10%' class='desktop'>USAS ID</th>"
+            headers.innerHTML = "<th style='width: 25%'>Name</th><th style='width: 5%' class='desktop'>Class</th><th style='width: 10%' class='desktop'>DOB</th><th style='width: 10%' class='desktop'>USAS ID</th><th></th>"
             for (let swimmer in json) {
                 let row = rosterTable.insertRow();
                 let usasID;
@@ -33,7 +33,7 @@ function fetchRoster () {
             const rosterTable = document.getElementById("manager-table");
             rosterTable.innerHTML = "";
             let headers = rosterTable.insertRow();
-            headers.innerHTML = "<th style='width: 25%'>Name</th><th style='width: 5%' class='desktop'>Class</th><th style='width: 10%' class='desktop'>DOB</th>"
+            headers.innerHTML = "<th style='width: 25%'>Name</th><th style='width: 5%' class='desktop'>Class</th><th style='width: 10%' class='desktop'>DOB</th><th></th>"
             for (let swimmer in json) {
                 let row = rosterTable.insertRow();
                 let dob;
