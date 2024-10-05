@@ -15,13 +15,12 @@
 #meet-table {
     display: inline-block;
     border-collapse: collapse;
-    width: 55% !important;
     margin-right: auto;
     margin-left: auto;
 }
 
 #meet-table tbody {
-    width: 100% !important;
+    width: auto !important;
 }
 
 #meet-table td {
