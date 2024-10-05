@@ -17,6 +17,7 @@
     border-collapse: collapse;
     margin-right: auto;
     margin-left: auto;
+    min-width: 40%;
 }
 
 #meet-table tbody {
