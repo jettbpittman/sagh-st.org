@@ -59,6 +59,8 @@ fetch("https://api.ghmvswim.org/latest/meet", { method: "GET" })
             let d1 = r1.insertCell();
             r1.className = "top-row";
             d1.style.padding = "5px";
+            d1.style.display = 'inline-table';
+            d1.style.width = '100%';
             d1.style.backgroundColor = `#${venue_colors[json['venue']]}`;
             let files = "";
             if (json['infopath']) {
