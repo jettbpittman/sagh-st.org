@@ -34,7 +34,7 @@
           });
     </script>
      <script>
-            var countDownDate = new Date("Jan 23, 2025 10:00:00").getTime();
+            var countDownDate = new Date("Jan 31, 2025 13:00:00").getTime();
             var x = setInterval(function() {
 
               var now = new Date().getTime();
@@ -47,15 +47,15 @@
               var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
               var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-              document.getElementById("countdown").innerHTML = "DISTRICTS: " + days + "d " + hours + "h "
+              document.getElementById("countdown").innerHTML = "REGIONALS: " + days + "d " + hours + "h "
               + minutes + "m " + seconds + "s ";
 
-              document.getElementById("countdown").title = "23 January 2025"
+              document.getElementById("countdown").title = "31 January 2025"
 
               // If the count down is finished, write some text
               if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("countdown").innerHTML = "DISTRICTS UNDERWAY/CONCLUDED!";
+                document.getElementById("countdown").innerHTML = "Regionals UNDERWAY/CONCLUDED!";
               }
             }, 1000);
      </script>
