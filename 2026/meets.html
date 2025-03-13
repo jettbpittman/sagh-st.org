@@ -5,8 +5,8 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="GHMV Swimming Meets 2025">
-    <title>Meets 2025 - GHMV Swim</title>
+    <meta name="description" content="GHMV Swimming Meets 2026">
+    <title>Meets 2026 - GHMV Swim</title>
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/meets.css">
     <script>
@@ -24,14 +24,14 @@
           .then(function(body) {
             document.querySelector('#footer').innerHTML = body;
           });
-        fetch('https://api.ghmvswim.org/season/2025/meets/schedule')
+        fetch('https://api.ghmvswim.org/season/2026/meets/schedule')
           .then(function(response) {
             return response.text();
           })
           .then(function(body) {
             document.querySelector('#meet-table').innerHTML = body;
           });
-        fetch('https://api.ghmvswim.org/season/2025/meets/lastupdate')
+        fetch('https://api.ghmvswim.org/season/2026/meets/lastupdate')
           .then(function(response) {
             return response.text();
           })
@@ -43,8 +43,8 @@
 <body>
     <div id="header"></div>
     <div class="slate">
-        <h2>GHMV Swimming Meet Schedule 2025</h2>
-        <h3 style="font-weight: bold;">-->  <a href="/2025/seniors.html" style="text-decoration: underline">Class of 2025 SENIORS</a>  <--</h3>
+        <h2>GHMV Swimming Meet Schedule 2026</h2>
+        <h3 style="font-weight: bold;">-->  <a href="/2026/seniors.html" style="text-decoration: underline">Class of 2026 SENIORS</a>  <--</h3>
         <p style="text-align: center"><em>The following will appear in the "FILES" column if available:</em><br><b>INFO:</b> Meet Information, <b>HEATS:</b> Heat Sheet, <b>PSYCH:</b> Psych Sheet, <b>SESSION:</b> Session Report, <b>RESULTS:</b> Results, <b>SCORES:</b> Scores<br>
 
         <p style="color: darkred">UPDATED: <span id="updated-date"></span></p>

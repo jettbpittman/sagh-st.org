@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="GHMV Class of 2026">
+    <title>Seniors 2026 - GHMV Swim</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/seniors.css">
+    <script>
+        fetch('/static/header.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#header').innerHTML = body;
+          });
+        fetch('/static/footer.html')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(body) {
+            document.querySelector('#footer').innerHTML = body;
+          });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="slate">
+        <h2>GHMV Class of 2026 Seniors</h2>
+        <table class="senior-table">
+            <tbody>
+                <tr>
+                    <td>
+                        <table id="girls" style="vertical-align: top">
+                            <h2>Girls</h2>
+                            <tr>
+                                <td>
+                                    <h3>Sadie Cole</h3>
+                                    <h4><i><br></i></h4>
+                                    <p>
+                                        Uncommitted
+                                        <br><br>
+                                        <br>
+
+                                    </p>
+                                </td>
+                                <td>
+                                    <h3>Averie Hager</h3>
+                                    <h4><i><br></i></h4>
+                                    <p>
+                                        University of Notre Dame
+                                        <br><br>
+                                        <br>
+
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h3>Jaylee Hager</h3>
+                                    <h4><i><br></i></h4>
+                                    <p>
+                                        University of Notre Dame
+                                        <br><br>
+                                        <br>
+
+                                    </p>
+                                </td>
+                                <td>
+                                    <h3>Glory Sansano</h3>
+                                    <h4><i><br></i></h4>
+                                    <p>
+                                        Uncommitted
+                                        <br><br>
+                                        <br>
+
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table id="boys">
+                            <h2>Boys</h2>
+                            <tr>
+                                <td>
+                                    <h3>Adrian Moza</h3>
+                                    <h4><i><br></i></h4>
+                                    <p>
+                                        Uncommitted
+                                        <br><br>
+                                        <br>
+
+                                    </p>
+                                </td>
+                                <td>
+                                    <h3>Sawyer Stolarczyk</h3>
+                                    <h4><i><br></i></h4>
+                                    <p>
+                                        Uncommitted
+                                        <br><br>
+                                        <br>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+    <br>
+    <div id="footer"></div>
+</body>
+</html>
