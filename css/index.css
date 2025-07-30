@@ -12,7 +12,7 @@
     background-color: #BEDDDD;
 }
 
-#meet-table {
+.meet-table {
     display: inline-block;
     border-collapse: collapse;
     margin-right: auto;
@@ -20,18 +20,18 @@
     min-width: 40%;
 }
 
-#meet-table tbody {
+.meet-table tbody {
     width: auto !important;
 }
 
-#meet-table td {
+.meet-table td {
     padding: 15px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     margin: 0;
 }
 
-#meet-table td * {
+.meet-table td * {
     color: black;
 }
 

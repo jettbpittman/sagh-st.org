@@ -1,11 +1,11 @@
-#meet-table {
+.meet-table {
     border-collapse: collapse;
     width: 90%;
     margin-right: auto;
     margin-left: auto;
 }
 
-#meet-table th, td {
+.meet-table th, td {
     padding: 15px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
@@ -13,7 +13,7 @@
     width: 33%;
 }
 
-#meet-table th {
+.meet-table th {
     border-left: 1px black solid;
     border-right: 1px black solid;
 }
@@ -34,7 +34,7 @@ a {
 }
 
 @media screen and (max-width: 600px) {
-    #meet-table {
+    .meet-table {
         font-size: xx-small;
     }
 }
