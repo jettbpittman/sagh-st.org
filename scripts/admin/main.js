@@ -51,7 +51,7 @@ function fetchRoster () {
                     color = "color: black"
                     row.className = "active"
                 }
-                row.innerHTML = `<td style='width: 30%; ${color}'>${json[swimmer]['id']}</td><td style='width: 50%; text-align: left;'><a style="${style} ${color}" href="swimmer.html?swimmer=` + json[swimmer]["id"] + `">${json[swimmer]['last_name']}, ${json[swimmer]['first_name']} ${json[swimmer]['middle_name']}</a></td><td style='width: 10%; ${color}'>${json[swimmer]['class']}</td><td style='width: 10%; ${color}'>${json[swimmer]['age']}</td>`
+                row.innerHTML = `<td style='width: 30%; ${color}'>${json[swimmer]['id']}</td><td style='width: 50%; text-align: left; margin-left: 5%;'><a style="${style} ${color}" href="swimmer.html?swimmer=` + json[swimmer]["id"] + `">${json[swimmer]['last_name']}, ${json[swimmer]['first_name']} ${json[swimmer]['middle_name']}</a></td><td style='width: 10%; ${color}'>${json[swimmer]['class']}</td><td style='width: 10%; ${color}'>${json[swimmer]['age']}</td>`
             }
         })
 }
