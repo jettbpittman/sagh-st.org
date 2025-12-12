@@ -4,7 +4,7 @@ function getRoster () {
     console.log(s)
     let value = s.value;
     if (value === "all") {
-        fetch("https://api.ghmvswim.org/teams/SAGH/roster/all", {method: "GET"})
+        fetch(api_endpoint + "teams/SAGH/roster/all", {method: "GET"})
             .then(response => response.json())
             .then(json => {
                     let t = document.getElementById("bests");
@@ -27,7 +27,7 @@ function getRoster () {
                         let timesTable = document.createElement('table');
                         timesTable.insertRow().innerHTML = `<th style="width: 25%">Event</th><th style="width: 25%">Time</th><th style="width: 55%">Meet</th>`;
                         timesTable.className = 'times';
-                        fetch("https://api.ghmvswim.org/swimmers/" + swimmer['id'] + "/best")
+                        fetch(api_endpoint + "swimmers/" + swimmer['id'] + "/best")
                             .then(resp => resp.json())
                             .then(json1 => {
                                 const events = [`${g}200F`, `${g}200M`, `${g}50F`, `${g}100L`, `${g}100F`, `${g}500F`, `${g}100B`, `${g}100S`]
@@ -52,7 +52,7 @@ function getRoster () {
             )
     }
     if (value === "current") {
-        fetch("https://api.ghmvswim.org/teams/SAGH/roster/current", {method: "GET"})
+        fetch(api_endpoint + "teams/SAGH/roster/current", {method: "GET"})
             .then(response => response.json())
             .then(json => {
                     let t = document.getElementById("bests");
@@ -75,7 +75,7 @@ function getRoster () {
                         let timesTable = document.createElement('table');
                         timesTable.insertRow().innerHTML = `<th style="width: 25%">Event</th><th style="width: 25%">Time</th><th style="width: 55%">Meet</th>`;
                         timesTable.className = 'times';
-                        fetch("https://api.ghmvswim.org/swimmers/" + swimmer['id'] + "/best")
+                        fetch(api_endpoint + "swimmers/" + swimmer['id'] + "/best")
                             .then(resp => resp.json())
                             .then(json1 => {
                                 const events = [`${g}200F`, `${g}200M`, `${g}50F`, `${g}100L`, `${g}100F`, `${g}500F`, `${g}100B`, `${g}100S`]

@@ -9,6 +9,7 @@
     <title>Meets 2026 - GHMV Swim</title>
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/meets.css">
+    <script type="text/javascript" src="/scripts/api.js"></script>
     <script>
         fetch('/static/header.html')
           .then(function(response) {
@@ -24,14 +25,14 @@
           .then(function(body) {
             document.querySelector('#footer').innerHTML = body;
           });
-        fetch('https://api.ghmvswim.org/season/2026/meets/schedule')
+        fetch(api_endpoint + 'season/2026/meets/schedule')
           .then(function(response) {
             return response.text();
           })
           .then(function(body) {
             document.querySelector('#meet-table').innerHTML = body;
           });
-        fetch('https://api.ghmvswim.org/season/2026/meets/lastupdate')
+        fetch(api_endpoint + 'season/2026/meets/lastupdate')
           .then(function(response) {
             return response.text();
           })

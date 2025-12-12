@@ -19,7 +19,7 @@ function main () {
 
 
 function loadManagerSettings () {
-    fetch("https://api.ghmvswim.org/teams/SAGH/roster/all", { headers: headers })
+    fetch(api_endpoint + "teams/SAGH/roster/all", { headers: headers })
         .then(response => response.json())
         .then(json => {
             let html = "";
@@ -32,7 +32,7 @@ function loadManagerSettings () {
 }
 
 function fetchRoster () {
-    fetch("https://api.ghmvswim.org/teams/SAGH/roster/all", { headers: headers })
+    fetch(api_endpoint + "teams/SAGH/roster/all", { headers: headers })
         .then(response => response.json())
         .then(json => {
             const rosterTable = document.getElementById("team-roster");
@@ -57,7 +57,7 @@ function fetchRoster () {
 }
 
 function fetchMeets () {
-    fetch("https://api.ghmvswim.org/meets", { headers: headers })
+    fetch(api_endpoint + "meets", { headers: headers })
         .then(response => response.json())
         .then(json => {
             const rosterTable = document.getElementById("meets");
@@ -90,7 +90,7 @@ function changeStatusIndiv () {
     let payload = {
         "active": status
     }
-    fetch("https://api.ghmvswim.org/swimmers/" + swimmer, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
+    fetch(api_endpoint + "swimmers/" + swimmer, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
         .then(response => {
             if (response.status === 200) {
                 fetchRoster()
@@ -107,7 +107,7 @@ function changeStatusClass () {
     let payload = {
         "active": status
     }
-    fetch("https://api.ghmvswim.org/class/" + swimmer + "/active", { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
+    fetch(api_endpoint + "class/" + swimmer + "/active", { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
         .then(response => {
             if (response.status === 200) {
                 fetchRoster()
@@ -119,7 +119,7 @@ function changeStatusClass () {
 
 
 function updateTopFive () {
-    fetch("https://api.ghmvswim.org/top5/update", { method: "GET", headers: headers})
+    fetch(api_endpoint + "top5/update", { method: "GET", headers: headers})
         .then(response => {
             if (response.status === 200) {
                 let box = document.getElementById("update-top5-message");
@@ -155,7 +155,7 @@ function createSwimmer () {
     }
     data['active'] = 1;
     data['team'] = "SAGH";
-    fetch("https://api.ghmvswim.org/swimmers", { method: "POST", headers: headers, body: JSON.stringify(data) } )
+    fetch(api_endpoint + "swimmers", { method: "POST", headers: headers, body: JSON.stringify(data) } )
         .then(response => {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message");
@@ -186,7 +186,7 @@ function createMeet () {
             }
         }
     }
-    fetch("https://api.ghmvswim.org/meets", { method: "POST", headers: headers, body: JSON.stringify(data) } )
+    fetch(api_endpoint + "meets", { method: "POST", headers: headers, body: JSON.stringify(data) } )
         .then(response => {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message1");

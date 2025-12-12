@@ -51,7 +51,7 @@ function splitsf (s, t) {
     }
 }
 
-fetch("https://api.ghmvswim.org/latest/meet", { method: "GET" })
+fetch(api_endpoint + "latest/meet", { method: "GET" })
         .then(response => response.json())
         .then(json => {
             let t = document.getElementById("recent-meet");
@@ -96,7 +96,7 @@ fetch("https://api.ghmvswim.org/latest/meet", { method: "GET" })
             r2.className = "bottom-row";
             let resultTable = document.createElement('table');
             resultTable.style.width = "100%";
-            fetch("https://api.ghmvswim.org/meets/" + json['id'] + "/entries/SAGH")
+            fetch(api_endpoint + "meets/" + json['id'] + "/entries/SAGH")
                     .then(resp => resp.json())
                     .then(json1 => {
                         if (Object.keys(json1).length === 0) {

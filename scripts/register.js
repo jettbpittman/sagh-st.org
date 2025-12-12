@@ -11,7 +11,7 @@ async function pickDashboard (token) {
     let headers = new Headers();
     headers.append("token", token);
     headers.append("Content-type", "text/plain")
-    let resp = await fetch("https://api.ghmvswim.org/auth/check", {method: "POST", headers: headers})
+    let resp = await fetch(api_endpoint + "auth/check", {method: "POST", headers: headers})
     let json = await resp.json()
     console.log("checked auth")
 
@@ -47,7 +47,7 @@ const form = document.getElementById("register-form");
         method: "POST",
         body: JSON.stringify(body)
     }
-    let resp = await fetch("https://api.ghmvswim.org/users/register", init)
+    let resp = await fetch(api_endpoint + "users/register", init)
     let json = await resp.json()
     const message = document.getElementById("register-message");
     if (resp.status === 200) {

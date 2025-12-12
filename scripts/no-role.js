@@ -14,7 +14,7 @@ async function checkRequestStatus () {
 }
 
 async function getSwimmers () {
-    fetch("https://api.ghmvswim.org/teams/SAGH/roster/all_pub", {headers: headers})
+    fetch(api_endpoint + "teams/SAGH/roster/all_pub", {headers: headers})
         .then(response => response.json())
         .then(json => {
             let html = "";
@@ -32,7 +32,7 @@ async function link () {
     let dob = document.getElementById("swimmer-dob").value;
     let user_id = window.localStorage['id'];
     let payload = {"user_id": user_id, "swimmer_id": reqd_swimmer, "verification_code": verf, "team": "SAGH", "dob": dob}
-    let resp = await fetch("https://api.ghmvswim.org/users/linking/request", { method: "POST", headers: headers, body: JSON.stringify(payload)})
+    let resp = await fetch(api_endpoint + "users/linking/request", { method: "POST", headers: headers, body: JSON.stringify(payload)})
     let json = await resp.json()
     const message = document.getElementById("link-message");
     if (resp.status === 200) {

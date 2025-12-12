@@ -1,5 +1,5 @@
 
-fetch("https://api.ghmvswim.org/teams/SAGH/roster/all", { headers: headers })
+fetch(api_endpoint + "teams/SAGH/roster/all", { headers: headers })
         .then(response => response.json())
         .then(json => {
             let html = "";
@@ -82,7 +82,7 @@ function splitsf (s, t) {
 function getSwimmer (param) {
     let swimmerID = getSID(param);
     console.log(swimmerID)
-    fetch("https://api.ghmvswim.org/attendance/swimmer/" + swimmerID,{ method: "GET", headers: headers } )
+    fetch(api_endpoint + "attendance/swimmer/" + swimmerID,{ method: "GET", headers: headers } )
         .then(response => response.json())
         .then(json => {
             console.log(json)
@@ -96,7 +96,7 @@ function getSwimmer (param) {
             }
         })
 
-    fetch("https://api.ghmvswim.org/swimmers/" + swimmerID, { headers: headers })
+    fetch(api_endpoint + "swimmers/" + swimmerID, { headers: headers })
         .then(response => response.json())
         .then(json => {
             let box = document.getElementById("swimmer-info");
@@ -121,7 +121,7 @@ function getSwimmer (param) {
             data.innerHTML = `<b>${json['last_name']}, ${json['first_name']} ${json['middle_name']}</b><br>${usasId}<br><i>Class of 20${json['class']}</i><br>${json['dob']}<br><b>${active}</b><br><span id="swimmer-id">${swimmerID}</span>`
             box.appendChild(data);
         })
-    fetch("https://api.ghmvswim.org/swimmers/" + swimmerID + "/entries", { headers: headers })
+    fetch(api_endpoint + "swimmers/" + swimmerID + "/entries", { headers: headers })
         .then(response => response.json())
         .then(json => {
             let t = document.getElementById("times-table");
@@ -210,7 +210,7 @@ function editSwimmer () {
             data[pair[0]] = pair[1];
         }
     }
-    fetch("https://api.ghmvswim.org/swimmers/" + document.getElementById("swimmer-id").textContent, { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
+    fetch(api_endpoint + "swimmers/" + document.getElementById("swimmer-id").textContent, { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
         .then(response => {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message1");

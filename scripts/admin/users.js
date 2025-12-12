@@ -33,7 +33,7 @@ function createUser () {
     for (let pair of entries) {
         data[pair[0]] = pair[1];
     }
-    fetch("https://api.ghmvswim.org/users", { method: "POST", headers: headers, body: JSON.stringify(data) } )
+    fetch(api_endpoint + "users", { method: "POST", headers: headers, body: JSON.stringify(data) } )
         .then(response => {
             if (response.status === 200) {
                 fetchRoster()
@@ -44,7 +44,7 @@ function createUser () {
 }
 
 function loadUsers () {
-    fetch("https://api.ghmvswim.org/users/all", { method: "GET", headers: headers})
+    fetch(api_endpoint + "users/all", { method: "GET", headers: headers})
         .then(response => response.json())
         .then(json => {
             let table = document.getElementById("user-table");
@@ -77,7 +77,7 @@ function updateUserPerms () {
     let payload = {
         "permissions": new_perms
     }
-    fetch("https://api.ghmvswim.org/users/" + user, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
+    fetch(api_endpoint + "users/" + user, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
         .then(response => {
             if (response.status === 200) {
                 loadUsers()
@@ -95,7 +95,7 @@ function updateUserState () {
     let payload = {
         "active": state
     }
-    fetch("https://api.ghmvswim.org/users/" + user, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
+    fetch(api_endpoint + "users/" + user, { method: "PATCH", headers: headers, body: JSON.stringify(payload)})
         .then(response => {
             if (response.status === 200) {
                 loadUsers()
@@ -119,7 +119,7 @@ async function checkRequests () {
 }
 async function approveRequest (user_id, swimmer_id) {
     let payload = {"user_id": user_id, "swimmer_id": swimmer_id}
-    let resp = await fetch("https://api.ghmvswim.org/users/linking/approve", { method: "POST", headers:headers, body: JSON.stringify(payload)})
+    let resp = await fetch(api_endpoint + "users/linking/approve", { method: "POST", headers:headers, body: JSON.stringify(payload)})
     if (resp.status === 200) {
         checkRequests()
         loadUsers()
@@ -130,7 +130,7 @@ async function approveRequest (user_id, swimmer_id) {
 
 async function rejectRequest (user_id, swimmer_id) {
     let payload = {"user_id": user_id, "swimmer_id": swimmer_id}
-    let resp = await fetch("https://api.ghmvswim.org/users/linking/reject", { method: "POST", headers:headers, body: JSON.stringify(payload)})
+    let resp = await fetch(api_endpoint + "users/linking/reject", { method: "POST", headers:headers, body: JSON.stringify(payload)})
     if (resp.status === 200) {
         checkRequests()
     } else {

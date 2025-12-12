@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/seniors.css">
+    <script type="text/javascript" src="/scripts/api.js"></script>
     <script>
         fetch('/static/header.html')
           .then(function(response) {
@@ -25,7 +26,7 @@
           .then(function(body) {
             document.querySelector('#footer').innerHTML = body;
           });
-        fetch('https://api.ghmvswim.org/latest/meets/withintwoweeks')
+        fetch(api_endpoint + 'latest/meets/withintwoweeks')
           .then(function(response) {
             return response.text();
           })

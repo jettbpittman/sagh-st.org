@@ -1,4 +1,4 @@
-fetch("https://api.ghmvswim.org/meets", { method: "GET", headers: headers })
+fetch(api_endpoint + "meets", { method: "GET", headers: headers })
         .then(response => response.json())
         .then(json => {
             let html = "";
@@ -9,7 +9,7 @@ fetch("https://api.ghmvswim.org/meets", { method: "GET", headers: headers })
             select.innerHTML = html;
         })
 
-fetch("https://api.ghmvswim.org/teams/SAGH/roster/all", { method: "GET", headers: headers })
+fetch(api_endpoint + "teams/SAGH/roster/all", { method: "GET", headers: headers })
         .then(response => response.json())
         .then(json => {
             let html = "";
@@ -92,7 +92,7 @@ function splitsf (s, t) {
 function getMeet (param) {
     let meetID = getMID(param);
     console.log(meetID)
-    fetch("https://api.ghmvswim.org/meets/" + meetID, { method: "GET", headers: headers })
+    fetch(api_endpoint + "meets/" + meetID, { method: "GET", headers: headers })
         .then(response => response.json())
         .then(json => {
             let box = document.getElementById("meet-info");
@@ -131,7 +131,7 @@ function getMeet (param) {
             infoBox.style.visibility = "visible";
             infoBox.style.backgroundColor = `#${venue_colors[json['venue']]}`;
         })
-    fetch("https://api.ghmvswim.org/meets/" + meetID + "/entries", { method: "GET", headers: headers })
+    fetch(api_endpoint + "meets/" + meetID + "/entries", { method: "GET", headers: headers })
         .then(response => response.json())
         .then(json => {
             let t = document.getElementById("entries-table");
@@ -208,7 +208,7 @@ function createEntry () {
     }
     data['meet'] = parseInt(document.getElementById("meet-id").innerText);
     console.log(data);
-    fetch("https://api.ghmvswim.org/entries", { method: "POST", headers: headers, body: JSON.stringify(data) } )
+    fetch(api_endpoint + "entries", { method: "POST", headers: headers, body: JSON.stringify(data) } )
         .then(response => {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message");
@@ -243,7 +243,7 @@ function editMeetGen () {
             }
         }
     }
-    fetch("https://api.ghmvswim.org/meets/" + document.getElementById("meet-id").textContent + "/geninfo", { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
+    fetch(api_endpoint + "meets/" + document.getElementById("meet-id").textContent + "/geninfo", { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
         .then(response => {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message1");
@@ -268,7 +268,7 @@ function editMeetDT () {
             data[pair[0]] = pair[1]
         }
     }
-    fetch("https://api.ghmvswim.org/meets/" + document.getElementById("meet-id").textContent + "/dtinfo", { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
+    fetch(api_endpoint + "meets/" + document.getElementById("meet-id").textContent + "/dtinfo", { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
         .then(response => {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message2");
@@ -293,7 +293,7 @@ function editMeetFiles () {
             data[pair[0]] = pair[1]
         }
     }
-    fetch("https://api.ghmvswim.org/meets/" + document.getElementById("meet-id").textContent + "/filesinfo", { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
+    fetch(api_endpoint + "meets/" + document.getElementById("meet-id").textContent + "/filesinfo", { method: "PATCH", headers: headers, body: JSON.stringify(data) } )
         .then(response => {
             if (response.status === 200) {
                 let respb = document.getElementById("response-message3");
